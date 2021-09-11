@@ -1,0 +1,304 @@
+.icon {
+	top: 12px;
+	left: 35px;
+	position: absolute;
+	font-size: $font-sz-m;
+}
+.main-header {
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	z-index: 1000;
+	position: fixed;
+	align-items: center;
+	justify-content: space-between;
+	background: $card-bg;
+	height: $header-height;
+	width: 100%;
+	// box-shadow: 12px 0 2px $shadow;
+	transition: background $transition-time $transition-fn;
+
+	.left-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.logo {
+			width: 40px;
+			height: 40px;
+			margin: 0 16px;
+			display: flex;
+			flex-shrink: 0;
+
+			img {
+				width: 100%;
+				object-fit: cover;
+			}
+
+			&.focus {
+				z-index: 1;
+			}
+		}
+		.logo-name {
+			font-family: 'Avenir Next', Calibri, Verdana, sans-serif;
+			font-size: $font-sz-xl;
+			font-weight: 600;
+			cursor: pointer;
+			color: $link-color;
+		}
+		.logo-name-header {
+			font-family: 'Avenir Next', Calibri, Verdana, sans-serif;
+			font-size: $font-sz-xl;
+			font-weight: 600;
+			cursor: pointer;
+			color: $link-color;
+		}
+		.search-container {
+			z-index: 2;
+			// position: fixed;
+			display: flex;
+			align-items: center;
+			height: $header-height;
+
+			.container {
+				position: relative;
+				padding-left: 10px;
+
+				&.focus {
+					z-index: 2;
+					width: 320px;
+					padding-left: 0;
+					border-radius: 8px;
+					align-self: flex-start;
+					background: $card-bg;
+				}
+
+				.form-control {
+					position: relative;
+					// padding: 10px 16px 10px 10px;
+
+					.search-wrapper {
+						margin-left: 8px;
+						position: relative;
+						padding-left: 20px;
+						border-radius: 50px;
+						color: $text-color;
+						transition: padding $transition-time $transition-fn;
+						label {
+							.search-box {
+								height: 40px;
+								width: 200px;
+								border: none;
+								outline: none;
+								padding-top: 9px;
+								padding-left: 50px;
+								border-radius: 50px;
+								padding-bottom: 10px;
+								font-size: $font-sz-sm;
+								background: $text-bg-color;
+								transition: padding $transition-time $transition-fn,
+									background $transition-time $transition-fn;
+
+								&:focus {
+									transition: 0.2s ease-in;
+									width: 290px;
+									font-size: 18px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.dropdown-container {
+		margin: 0 1rem;
+		height: 100%;
+		display: flex;
+
+		.dropdown-btn {
+			height: 100%;
+			border-radius: 5%;
+			border: 4px solid #216fdb;
+			color: #216fdb;
+			width: 63px;
+			background-color: #fff;
+		}
+	}
+
+	// position: fixed;
+	// display: flex;
+	// align-items: center;
+
+	// height: 65px;
+	// width: 100vw;
+	// padding: 0 10vw;
+	// color: #000;
+	// z-index: 1;
+	// transition: 0.4s ease-out;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		text-transform: uppercase;
+	}
+
+	.nav-links li.active {
+		border-bottom: 4px solid $link-color;
+		a {
+			color: $link-color;
+		}
+	}
+
+	.nav-links {
+		display: flex;
+		list-style: none;
+		justify-content: center;
+		padding-top: 25px;
+		height: 100%;
+		// margin-left: 6rem;
+		.side-menu {
+			display: none;
+		}
+		.nav-link {
+			transition: opacity 0.4s ease-in-out,
+				transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+			&:nth-of-type(2) {
+				transition-delay: 0.1s;
+			}
+			&:nth-of-type(3) {
+				transition-delay: 0.2s;
+			}
+			&:nth-of-type(4) {
+				transition-delay: 0.3s;
+			}
+
+			a {
+				margin: 1rem;
+				padding: 1rem 0.5rem;
+
+				&:hover {
+					border-radius: 5px;
+					background: $hover-color;
+				}
+			}
+
+			// a:hover {
+			// 	border-radius: 5px;
+			// 	background: $hover-color;
+			// 	// background: rgb(255, 255, 255, 0.2);
+			// }
+		}
+	}
+
+	.menu-icon {
+		position: relative;
+		padding: 26px 10px;
+		cursor: pointer;
+		z-index: 1;
+		display: none;
+		margin-right: 10px;
+
+		&__line {
+			display: block;
+			position: relative;
+			background: #000;
+			height: 2px;
+			width: 20px;
+			border-radius: 4px;
+			transition: background 0.8s ease;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				border-radius: 4px;
+				height: 100%;
+				background: #000;
+				transition: background 0.8s ease;
+			}
+			&::before {
+				transform: translateY(-5px);
+			}
+			&::after {
+				transform: translateY(5px);
+			}
+		}
+	}
+	.menu-btn {
+		display: none;
+	}
+	// &.scrolled {
+	// 	height: 50px;
+	// 	background: rgba(0, 0, 0, 0.9);
+	// 	color: #fff;
+
+	// 	.menu-icon {
+	// 		&__line,
+	// 		&__line::before,
+	// 		&__line::after {
+	// 			background: #fff;
+	// 		}
+	// 	}
+	// }
+}
+
+// .search-container {
+// 	// z-index: 2;
+// 	// position: fixed;
+// 	display: flex;
+// 	align-items: center;
+// 	height: $header-height;
+
+// 	.container {
+// 		position: relative;
+// 		padding-left: 10px;
+
+// 		&.focus {
+// 			// z-index: 2;
+// 			width: 320px;
+// 			padding-left: 0;
+// 			border-radius: 8px;
+// 			align-self: flex-start;
+// 			background: $card-bg;
+// 		}
+
+// 		.form-control {
+// 			position: relative;
+// 			// padding: 10px 16px 10px 10px;
+
+// 			.search-wrapper {
+// 				margin-left: 8px;
+// 				position: relative;
+// 				padding-left: 20px;
+// 				border-radius: 50px;
+// 				color: $text-color;
+// 				transition: padding $transition-time $transition-fn;
+// 				label {
+// 					.search-box {
+// 						height: 40px;
+// 						width: 200px;
+// 						border: none;
+// 						outline: none;
+// 						padding-top: 9px;
+// 						padding-left: 50px;
+// 						border-radius: 50px;
+// 						padding-bottom: 10px;
+// 						font-size: $font-sz-sm;
+// 						background: $text-bg-color;
+// 						transition: padding $transition-time $transition-fn,
+// 							background $transition-time $transition-fn;
+
+// 						&:focus {
+// 							transition: 0.2s ease-in;
+// 							width: 290px;
+// 							font-size: 18px;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }

@@ -1,0 +1,30 @@
+*,
+*:after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow-y: scroll;
+	font-family: sans-serif;
+	font-size: 0.9325rem;
+	background-color: #f0f2f5;
+
+	// .app-container {
+	// 	height: 100%;
+	// 	width: 100%;
+	// }
+}
+
+@import './variable';
+@import './scss/header';
+@import './scss/container';
+@import './scss/media';
+@import './scss/animations';
+
+@import './scss/home';
+@import './scss/aboutUs';
+@import './scss/login';
+
+@import './scss/footer';
