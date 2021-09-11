@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, MenuItem, Button, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Menu, MenuItem, Button, ListItemIcon } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink, withRouter } from 'react-router-dom';
 
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 

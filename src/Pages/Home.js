@@ -41,7 +41,7 @@ export default function Home() {
 						<a href="/product">View all products</a>
 					</div>
 					<div className="img-box">
-						<img src={image.image} className="pepsi" />
+						<img alt="" src={image.image} className="pepsi" />
 					</div>
 					<ul className="thumb">
 						<li
@@ -50,7 +50,7 @@ export default function Home() {
 							}`}
 							onClick={() => setImage({ image: pepsi1, textContent: pepsi1content })}
 						>
-							<img src={pepsi1} />
+							<img alt="" src={pepsi1} />
 						</li>
 						<li
 							className={`${
@@ -58,7 +58,7 @@ export default function Home() {
 							}`}
 							onClick={() => setImage({ image: pepsi2, textContent: pepsi2content })}
 						>
-							<img src={pepsi2} />
+							<img alt="" src={pepsi2} />
 						</li>
 						<li
 							className={`${
@@ -66,22 +66,22 @@ export default function Home() {
 							}`}
 							onClick={() => setImage({ image: pepsi3, textContent: pepsi3content })}
 						>
-							<img src={pepsi3} />
+							<img alt="" src={pepsi3} />
 						</li>
 					</ul>
 					<ul className="sci">
 						<li>
-							<a href="https://www.facebook.com/" target="_blank">
+							<a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
 								<i class="fa fa-facebook-official" aria-hidden="true"></i>
 							</a>
 						</li>
 						<li>
-							<a href="https://twitter.com/" target="_blank">
+							<a href="https://twitter.com/" target="_blank" rel="noreferrer">
 								<i class="fa fa-twitter" aria-hidden="true"></i>
 							</a>
 						</li>
 						<li>
-							<a href="https://www.instagram.com/" target="_blank">
+							<a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
 								<i class="fa fa-instagram" aria-hidden="true"></i>;
 							</a>
 						</li>

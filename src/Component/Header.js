@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { NavLink, Link, withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import DropDown from './DropDown';
 
@@ -22,7 +22,7 @@ function Header(props) {
 			<div className="left-container">
 				<div className="logo">
 					<NavLink to="/">
-						<img src="//logo.clearbit.com/spotify.com" />
+						<img src="//logo.clearbit.com/spotify.com" alt="" />
 					</NavLink>
 				</div>
 				{!props.hideRest && window.innerWidth <= 759 && (

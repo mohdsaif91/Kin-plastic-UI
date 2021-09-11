@@ -12,7 +12,7 @@ import Container from '@material-ui/core/Container';
 import { IconButton, InputAdornment } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 import { adminLogin } from '../Redux/Actions/AdminAction';
 
@@ -57,7 +57,7 @@ export default function LogIn() {
 
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const history = useHistory();
+	// const history = useHistory();
 
 	const handleClickShowPassword = () =>
 		setAuth({ ...auth, textOrPassword: !auth.textOrPassword });
