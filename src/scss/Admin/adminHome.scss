@@ -1,0 +1,83 @@
+.admin-home {
+	margin-top: 80px !important;
+	margin-left: 80px !important;
+	text-align: center;
+	margin: 1rem;
+	.button-container {
+		display: flex;
+		align-items: flex-end;
+	}
+	.page-heading {
+		font-size: 2rem;
+	}
+	.home-hero-setting {
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		// border: 1px solid #333;
+		.page-sub-heading {
+			padding-top: 1rem;
+			font-size: 1rem;
+		}
+		.color-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			padding: 2rem 0;
+			.react-colorfull {
+				display: flex;
+				flex-direction: column;
+
+				.HexColorInput {
+					margin-top: 2rem;
+					font-size: 1rem;
+					text-align: center;
+				}
+			}
+			.color-display {
+				border: 3px #333;
+				border-style: dotted;
+				margin: 3rem;
+				width: 100px;
+				height: 100px;
+			}
+		}
+	}
+}
+
+.header-logo-name {
+	font-family: 'Avenir Next', Calibri, Verdana, sans-serif;
+	font-size: $font-sz-xl;
+	font-weight: 600;
+	cursor: pointer;
+	color: $link-color;
+}
+
+.header-logo-name-drawer {
+	text-align: center;
+}
+
+.drawer-header {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	.drawer-header {
+		margin: 20px;
+	}
+}
+
+.home-icon {
+	color: #333;
+}
+.home-text {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.MuiTypography-body1 {
+	font-family: 'Avenir Next', Calibri, Verdana, sans-serif !important;
+	font-size: $font-sz-l !important;
+	font-weight: 600 !important;
+}
+
+.nav-active {
+	background-color: #fff !important;
+}

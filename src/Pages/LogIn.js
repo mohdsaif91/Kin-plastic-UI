@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,9 +12,11 @@ import Container from '@material-ui/core/Container';
 import { IconButton, InputAdornment } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { adminLogin } from '../Redux/Actions/AdminAction';
+import { Login, SignUP } from '../Redux/Thunks/Auth';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -49,15 +51,27 @@ const useStyles = makeStyles((theme) => ({
 const initialProps = {
 	userName: '',
 	password: '',
-	textOrPassword: 'true',
+	textOrPassword: false,
 };
 
 export default function LogIn() {
 	const [auth, setAuth] = useState({ ...initialProps });
+	const [error, setError] = useState(false);
+	const adminReducer = useSelector((state) => state.AdminReducer);
 
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	// const history = useHistory();
+	const history = useHistory();
+
+	useEffect(() => {
+		if (adminReducer.adminRights) {
+			history.push('/adminHome');
+		}
+		if (adminReducer.error) {
+			console.log('<>? login faild');
+			setError(true);
+		}
+	}, [adminReducer]);
 
 	const handleClickShowPassword = () =>
 		setAuth({ ...auth, textOrPassword: !auth.textOrPassword });
@@ -66,9 +80,8 @@ export default function LogIn() {
 
 	const loginUser = (e) => {
 		e.preventDefault();
-		console.log(auth, '<>?');
-		dispatch(adminLogin());
-		// history.push('/admin');
+		dispatch(Login({ userName: auth.userName, password: auth.password }));
+		// dispatch(SignUP({ userName: auth.userName, password: auth.password }));
 	};
 
 	return (
@@ -138,6 +151,13 @@ export default function LogIn() {
 							</Link>
 						</Grid>
 					</Grid>
+					{error && (
+						<Grid container>
+							<Grid className="text-center error" item xs>
+								No user found !
+							</Grid>
+						</Grid>
+					)}
 				</form>
 			</div>
 		</Container>

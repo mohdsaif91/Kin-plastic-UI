@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route, withRouter } from 'react-router';
 import { useSelector } from 'react-redux';
 
+//client imports
 import Footer from './Component/Footer';
 import Header from './Component/Header';
 import Client from './Pages/Client';
@@ -11,6 +12,9 @@ import Products from './Pages/Products';
 import ReachUs from './Pages/ReachUs';
 import Services from './Pages/Services';
 import AboutUs from './Pages/AboutUs';
+
+//admin imports
+import AdminMain from './AdminComponents/Pages/AdminMain';
 
 function App(props) {
 	const admin = useSelector((state) => state.AdminReducer);
@@ -23,12 +27,19 @@ function App(props) {
 
 	useEffect(() => {
 		setShowAdmin(admin.adminRights);
+		if (admin.adminRights) {
+			sessionStorage.setItem('adminAccess', true);
+		}
 	}, [admin.adminRights]);
 
 	return (
 		<div className="app-container">
-			{showAdmin ? (
-				<h1>ADMIN</h1>
+			{sessionStorage.getItem('adminAccess') ? (
+				<>
+					<Switch>
+						<Route exact path="/adminHome" component={AdminMain} />
+					</Switch>
+				</>
 			) : (
 				<>
 					<Header hideRest={footer} />

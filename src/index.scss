@@ -17,6 +17,51 @@ body {
 	// }
 }
 
+.text-center {
+	text-align: center;
+}
+.error {
+	color: #ff0000;
+}
+
+.updateButton {
+	color: #fff;
+	background-color: #216fdb;
+	width: 150px;
+	height: 50px;
+	font-size: 1rem;
+	border-style: none;
+	margin: 8px;
+	border-radius: 10%;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #fff;
+		color: #216fdb;
+	}
+}
+
+.opacity-1 {
+	opacity: 1 !important;
+}
+.opacity-0 {
+	opacity: 0 !important;
+}
+
+.loading-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+	width: 100%;
+	z-index: 1;
+
+	img {
+		width: 200px;
+		height: 20px;
+	}
+}
+
 @import './variable';
 @import './scss/header';
 @import './scss/container';
@@ -28,3 +73,6 @@ body {
 @import './scss/login';
 
 @import './scss/footer';
+
+//admin
+@import './scss/Admin/adminHome';

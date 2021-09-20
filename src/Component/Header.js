@@ -17,6 +17,23 @@ function Header(props) {
 
 	const [page, setPage] = useState('home');
 
+	const setPageCloseNav = (data) => {
+		setPage(data);
+		setOpenMenu(false);
+	};
+
+	const change = () => {
+		console.log('looki <>?');
+		// setOpenMenu(!openMenu);
+	};
+
+	const openNav = () => {
+		console.log('clicked on change the <>?');
+		setOpenMenu(!openMenu);
+	};
+
+	console.log(openMenu, '<>? menu flag');
+
 	return (
 		<div className="main-header">
 			<div className="left-container">
@@ -26,9 +43,9 @@ function Header(props) {
 					</NavLink>
 				</div>
 				{!props.hideRest && window.innerWidth <= 759 && (
-					<div className="logo-name-header">Kin Plastic</div>
+					<div className="logo-name-header">Kin Industries</div>
 				)}
-				<div className="logo-name">Kin Plastic</div>
+				<div className="logo-name">Kin Industries</div>
 				{props.hideRest && (
 					<div
 						className="search-container"
@@ -46,7 +63,7 @@ function Header(props) {
 												id="search"
 												placeholder={
 													window.innerWidth <= 768
-														? 'Search on KIN Plastic'
+														? 'Search on KIN Industries'
 														: 'Search on KIN'
 												}
 											/>
@@ -62,21 +79,22 @@ function Header(props) {
 				<>
 					<input
 						type="checkbox"
-						onChange={() => setOpenMenu(!openMenu)}
+						value={openMenu}
+						onChange={() => change()}
 						className="menu-btn"
 						id="menu-btn"
 					/>
-					<label for="menu-btn" className="menu-icon">
+					<label for="menu-btn" onClick={() => openNav()} className="menu-icon">
 						<span className="menu-icon__line"></span>
 					</label>
 
-					<ul className="nav-links">
+					<ul className={`nav-links`}>
 						{routes.map((m) => (
 							<li
 								className={`nav-link ${m.additionalClass} ${
 									page === m.value && 'active'
 								}`}
-								onClick={() => setPage(m.value)}
+								onClick={() => setPageCloseNav(m.value)}
 							>
 								<NavLink to={m.to}>{m.name}</NavLink>
 							</li>

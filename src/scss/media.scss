@@ -74,7 +74,6 @@
 
 				a {
 					display: block;
-					padding: 2rem 0;
 				}
 			}
 		}
@@ -151,7 +150,6 @@
 
 @media screen and (min-width: 350px) and (max-width: 379px) {
 	.main-header {
-		width: 86%;
 		.left-container .logo {
 			margin: 0 8px;
 		}
@@ -160,7 +158,9 @@
 
 @media screen and (min-width: 380px) and (max-width: 450px) {
 	.main-header {
-		width: 90%;
+		.nav-links {
+			top: 13px;
+		}
 	}
 }
 
