@@ -4,10 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getSettingHome, updateSettingHome } from '../../Redux/Thunks/AdminHome';
 
-const initialData = {
-	homeHeroColor: '#aabbcc',
-};
-
 export default function AdminHome() {
 	const [data, setData] = useState(null);
 
@@ -17,13 +13,13 @@ export default function AdminHome() {
 
 	useEffect(() => {
 		dispatch(getSettingHome());
-	}, []);
+	}, [dispatch, data]);
 
 	useEffect(() => {
 		if (!data) {
 			setData(pageSetting);
 		}
-	}, [pageSetting]);
+	}, [pageSetting, data]);
 
 	const saveSetting = () => {
 		dispatch(updateSettingHome(data));

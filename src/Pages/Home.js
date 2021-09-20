@@ -55,14 +55,11 @@ export default function Home() {
 		if (!pageHomeData) {
 			dispatch(getSettingHome());
 		}
-	}, [pageHomeData]);
-
-	console.log(pageHomeData);
+	}, [pageHomeData, dispatch]);
 
 	return (
 		<div className="home-container">
 			{!pageHomeData ? (
-				// {true ? (
 				<Loading />
 			) : (
 				<>
@@ -133,7 +130,7 @@ export default function Home() {
 					<div className="home-cards">
 						<div className="home-card selected">
 							<div className="img-container">
-								<img src={BarChart} />
+								<img alt="" src={BarChart} />
 							</div>
 							<div className="card-header">
 								Future Vision
@@ -147,7 +144,7 @@ export default function Home() {
 						</div>
 						<div className="home-card">
 							<div className="img-container">
-								<img src={Rocket} />
+								<img alt="" src={Rocket} />
 							</div>
 							<div className="card-header">
 								Product Design
@@ -160,7 +157,7 @@ export default function Home() {
 						</div>
 						<div className="home-card">
 							<div className="img-container">
-								<img src={PieChart} />
+								<img alt="" src={PieChart} />
 							</div>
 							<div className="card-header">
 								Invoative Solutions

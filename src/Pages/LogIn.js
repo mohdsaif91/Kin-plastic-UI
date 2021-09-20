@@ -15,8 +15,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { adminLogin } from '../Redux/Actions/AdminAction';
-import { Login, SignUP } from '../Redux/Thunks/Auth';
+import { Login } from '../Redux/Thunks/Auth';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -68,10 +67,9 @@ export default function LogIn() {
 			history.push('/adminHome');
 		}
 		if (adminReducer.error) {
-			console.log('<>? login faild');
 			setError(true);
 		}
-	}, [adminReducer]);
+	}, [adminReducer, history]);
 
 	const handleClickShowPassword = () =>
 		setAuth({ ...auth, textOrPassword: !auth.textOrPassword });

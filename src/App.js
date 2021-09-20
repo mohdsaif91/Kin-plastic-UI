@@ -19,14 +19,14 @@ import AdminMain from './AdminComponents/Pages/AdminMain';
 function App(props) {
 	const admin = useSelector((state) => state.AdminReducer);
 	const [footer, setFooter] = useState(true);
-	const [showAdmin, setShowAdmin] = useState(admin.adminRights);
+	// const [setShowAdmin] = useState(admin.adminRights);
 
 	useEffect(() => {
 		setFooter(props.location.pathname !== '/login');
 	}, [props.location.pathname]);
 
 	useEffect(() => {
-		setShowAdmin(admin.adminRights);
+		// setShowAdmin(admin.adminRights);
 		if (admin.adminRights) {
 			sessionStorage.setItem('adminAccess', true);
 		}
