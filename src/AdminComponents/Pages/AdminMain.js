@@ -1,18 +1,19 @@
-import React from 'react';
-import { Route, Switch } from 'react-router';
+import React from "react";
+import { Route, Switch, withRouter } from "react-router";
 
-import AdminHeader from '../Components/AdminHeader';
-import AdminHome from './AdminHome';
+import AdminHeader from "../Components/AdminHeader";
+import AdminHome from "./AdminHome";
+import AdminProduct from "./AdminProduct";
 
-export default function AdminMain() {
-	return (
-		<div>
-			<AdminHeader />
-			<div className="page-container">
-				<Switch>
-					<Route path="/" component={AdminHome} />
-				</Switch>
-			</div>
-		</div>
-	);
+function AdminMain() {
+  return (
+    <div>
+      <AdminHeader />
+      <div className="page-container">
+          <Route exact path="/adminHome" component={AdminHome} />
+      </div>
+    </div>
+  );
 }
+
+export default withRouter(AdminMain);

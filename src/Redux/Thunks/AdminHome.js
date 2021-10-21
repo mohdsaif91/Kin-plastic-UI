@@ -10,7 +10,6 @@ import { startLoading, stopLoading } from '../Actions/Util';
 export const updateSettingHome = (adminHomeData) => {
 	return async (dispatch) => {
 		dispatch(startLoading());
-		console.log(adminHomeData, '<>? thunk');
 		await settingApiHome(adminHomeData)
 			.then((response) => {
 				dispatch(startLoading());

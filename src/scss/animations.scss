@@ -1,88 +1,97 @@
 @keyframes pulse {
-	from {
-		box-shadow: 0 0 0 0px rgba(255, 255, 250, 0.6);
-		background: rgba(255, 255, 250, 0.6);
-	}
-	to {
-		box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0);
-		background: rgba(255, 255, 250, 0);
-	}
+  from {
+    box-shadow: 0 0 0 0px rgba(255, 255, 250, 0.6);
+    background: rgba(255, 255, 250, 0.6);
+  }
+  to {
+    box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 250, 0);
+  }
 }
 
 @keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 @keyframes openTop {
-	0% {
-		transform: translateY(-5px) rotate(0deg);
-	}
-	50% {
-		transform: translateY(0px) rotate(0deg);
-	}
-	100% {
-		transform: translateY(0px) rotate(90deg);
-	}
+  0% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+  }
 }
 
 @keyframes closedTop {
-	0% {
-		transform: translateY(-5px) rotate(0deg);
-	}
-	50% {
-		transform: translateY(0px) rotate(0deg);
-	}
-	100% {
-		transform: translateY(0px) rotate(90deg);
-	}
+  0% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+  }
 }
 
 @keyframes openMid {
-	50% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(45deg);
-	}
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
 }
 
 @keyframes closedMid {
-	50% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(45deg);
-	}
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
 }
 
 @keyframes openBtm {
-	0% {
-		transform: translateY(5px) rotate(0deg);
-	}
-	50% {
-		transform: translateY(0px) rotate(0deg);
-	}
-	100% {
-		transform: translateY(0px) rotate(90deg);
-	}
+  0% {
+    transform: translateY(5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+  }
 }
 
 @keyframes closedBtm {
-	0% {
-		transform: translateY(5px) rotate(0deg);
-	}
-	50% {
-		transform: translateY(0px) rotate(0deg);
-	}
-	100% {
-		transform: translateY(0px) rotate(90deg);
-	}
+  0% {
+    transform: translateY(5px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(90deg);
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
 }
