@@ -14,7 +14,7 @@ import Services from "./Pages/Services";
 import AboutUs from "./Pages/AboutUs";
 
 //admin imports
-import AdminMain from "./AdminComponents/Pages/AdminMain";
+// import AdminMain from "./AdminComponents/Pages/AdminMain";
 import AdminProduct from "./AdminComponents/Pages/AdminProduct";
 import AdminHeader from "./AdminComponents/Components/AdminHeader";
 import AdminHome from "./AdminComponents/Pages/AdminHome";

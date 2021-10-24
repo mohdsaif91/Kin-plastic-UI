@@ -247,7 +247,7 @@ function MiniDrawer() {
           >
             <ListItemIcon>
               <BootstrapTooltip title="Product" placement="right-end">
-                <img src={ProductImage} className="home-icon" />
+                <img alt="" src={ProductImage} className="home-icon" />
               </BootstrapTooltip>
             </ListItemIcon>
             <ListItemText primary="Product" />
@@ -255,7 +255,7 @@ function MiniDrawer() {
           <ListItem button key="Services">
             <ListItemIcon>
               <BootstrapTooltip title="Services" placement="right-end">
-                <img src={Services} className="home-icon" />
+                <img alt="" src={Services} className="home-icon" />
               </BootstrapTooltip>
             </ListItemIcon>
             <ListItemText primary="Services" />

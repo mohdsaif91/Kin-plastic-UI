@@ -5,8 +5,6 @@ import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import Glide from "@glidejs/glide";
 
-// import './style.scss';
-
 import pepsi1 from "../images/pepsi001.png";
 import pepsi2 from "../images/pepsi002.png";
 import pepsi3 from "../images/pepsi003.png";
@@ -37,7 +35,6 @@ const sliderConfiguration = {
   type: "carousel",
 };
 
-
 const heroData = [
   {
     id: 1,
@@ -61,21 +58,6 @@ const heroData = [
 
 let count = 0;
 
-const cardClient = [
-  { id: 1, name: "Amazon", img: Amazon },
-  { id: 2, name: "Apple", img: Apple },
-  { id: 3, name: "Macdonald", img: Macdonald },
-  { id: 4, name: "Cocacola", img: Cocacola },
-  { id: 5, name: "Google", img: Google },
-  { id: 6, name: "Facebook", img: Facebook },
-  { id: 7, name: "Samsung", img: Samsung },
-];
-
-const slidNumber = {
-  min: 0,
-  max: 4,
-};
-
 const homeIntialData = {
   homeHeroColor: "",
   paralexData: [],
@@ -98,7 +80,6 @@ const homeIntialData = {
 
 export default function Home() {
   const [hero, setHero] = useState(heroData[0]);
-  const [minMax, setMinMax] = useState({ ...slidNumber });
   const [slider] = useState(new Glide(".glide", sliderConfiguration));
   const [homeData, setHomeData] = useState({ ...homeIntialData });
 
@@ -115,6 +96,15 @@ export default function Home() {
   };
 
   const clients = useMemo(() => {
+    const cardClient = [
+      { id: 1, name: "Amazon", img: Amazon },
+      { id: 2, name: "Apple", img: Apple },
+      { id: 3, name: "Macdonald", img: Macdonald },
+      { id: 4, name: "Cocacola", img: Cocacola },
+      { id: 5, name: "Google", img: Google },
+      { id: 6, name: "Facebook", img: Facebook },
+      { id: 7, name: "Samsung", img: Samsung },
+    ];
     return (
       <div className="glide">
         <div className="glide__track" data-glide-el="track">
@@ -123,7 +113,7 @@ export default function Home() {
               <li className="glide__slide slider">
                 <div className="card-container">
                   <div className="image">
-                    <img className="img" src={m.img} />
+                    <img alt="" className="img" src={m.img} />
                   </div>
                   <div className="company-name">{m.name}</div>
                 </div>
@@ -133,13 +123,7 @@ export default function Home() {
         </div>
       </div>
     );
-  }, [cardClient.length]);
-
-  const changeCards = () => {
-    cardClient.length <= minMax.max
-      ? setMinMax({ ...slidNumber })
-      : setMinMax({ min: minMax.min + 1, max: minMax.max + 1 });
-  };
+  }, []);
 
   useEffect(() => {
     Aos.init();
@@ -158,7 +142,6 @@ export default function Home() {
       slider.mount();
     }
   }, [pageHomeData, dispatch, slider]);
-
 
   return (
     <div className="home-container">
@@ -340,7 +323,7 @@ export default function Home() {
               <br />
               <div className="ceo">-{homeData.name}, Pesident and CEO </div>
             </div>
-            <a className="make-inquery" href="#">
+            <a className="make-inquery" href="/#">
               Making a POSITIVE IMPACT !
             </a>
           </div>

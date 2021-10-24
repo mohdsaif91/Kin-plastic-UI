@@ -15,7 +15,7 @@ export default function AboutUs() {
         <div className="postcard__body">
           <div className="postcard__text">
             <h2 className="postcard__title">
-              <a className="postcard__title--link" href="#" target="_blank">
+              <a className="postcard__title--link" href="/#" target="_blank">
                 Use the bluetooth SMS bandwidth, then you can
               </a>
             </h2>
@@ -27,16 +27,16 @@ export default function AboutUs() {
 
           <div className="postcard__footer">
             <div className="postcard__author">
-              <a className="author__avatar-wrap" href="#">
+              <a className="author__avatar-wrap" href="/#">
                 <img
                   className="author__avatar"
                   src="https://raw.githubusercontent.com/alawe45/Html-Css-postcard/master/images/author__image.png"
-                  alt="Profile image for Darlene Robertson"
+                  alt=""
                 />
               </a>
               <div className="author__info">
                 <address className="author__name-wrap">
-                  <a className="author__name" href="#">
+                  <a className="author__name" href="/#">
                     Darlene Robertson
                   </a>
                 </address>
@@ -46,7 +46,7 @@ export default function AboutUs() {
 
             <a
               className="postcard__read-more"
-              href="#"
+              href="/#"
               aria-label="Continue reading"
             >
               <i
@@ -68,7 +68,7 @@ export default function AboutUs() {
         <div className="postcard__body">
           <div className="postcard__text">
             <h2 className="postcard__title">
-              <a className="postcard__title--link" href="#" target="_blank">
+              <a className="postcard__title--link" href="/#" target="_blank">
                 Use the bluetooth SMS bandwidth, then you can
               </a>
             </h2>
@@ -80,16 +80,16 @@ export default function AboutUs() {
 
           <div className="postcard__footer">
             <div className="postcard__author">
-              <a className="author__avatar-wrap" href="#">
+              <a className="author__avatar-wrap" href="/#">
                 <img
                   className="author__avatar"
                   src="https://raw.githubusercontent.com/alawe45/Html-Css-postcard/master/images/author__image.png"
-                  alt="Profile image for Darlene Robertson"
+                  alt=""
                 />
               </a>
               <div className="author__info">
                 <address className="author__name-wrap">
-                  <a className="author__name" href="#">
+                  <a className="author__name" href="/#">
                     Darlene Robertson
                   </a>
                 </address>
@@ -99,7 +99,7 @@ export default function AboutUs() {
 
             <a
               className="postcard__read-more"
-              href="#"
+              href="/#"
               aria-label="Continue reading"
             >
               <i
@@ -121,7 +121,7 @@ export default function AboutUs() {
         <div className="postcard__body">
           <div className="postcard__text">
             <h2 className="postcard__title">
-              <a className="postcard__title--link" href="#" target="_blank">
+              <a className="postcard__title--link" href="/#" target="_blank">
                 Use the bluetooth SMS bandwidth, then you can
               </a>
             </h2>
@@ -133,16 +133,16 @@ export default function AboutUs() {
 
           <div className="postcard__footer">
             <div className="postcard__author">
-              <a className="author__avatar-wrap" href="#">
+              <a className="author__avatar-wrap" href="/#">
                 <img
                   className="author__avatar"
                   src="https://raw.githubusercontent.com/alawe45/Html-Css-postcard/master/images/author__image.png"
-                  alt="Profile image for Darlene Robertson"
+                  alt=""
                 />
               </a>
               <div className="author__info">
                 <address className="author__name-wrap">
-                  <a className="author__name" href="#">
+                  <a className="author__name" href="/#">
                     Darlene Robertson
                   </a>
                 </address>
@@ -152,7 +152,7 @@ export default function AboutUs() {
 
             <a
               className="postcard__read-more"
-              href="#"
+              href="/#"
               aria-label="Continue reading"
             >
               <i

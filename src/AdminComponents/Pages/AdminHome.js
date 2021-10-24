@@ -61,11 +61,7 @@ export default function AdminHome() {
   };
 
   const deleteCard = (i) => {
-    const deletedItems = data.paralexData.filter((m, index) => {
-      if (i !== index) {
-        return m;
-      }
-    });
+    const deletedItems = data.paralexData.filter((m, index) => i !== index);
 
     setData({
       ...data,
@@ -87,22 +83,6 @@ export default function AdminHome() {
 
     setText({ ...paralexText });
   };
-
-  const changeHeading = (cardNo, value) => {
-    // const cardData = {
-    //   heading: value,
-    //   subHeading: data[cardNo].subHeading,
-    // };
-    // setData({
-    //   ...data,
-    //   cardNo: {
-    //     heading: value,
-    //     subHeading: data[cardNo].subHeading,
-    //   },
-    // });
-  };
-
-  // console.log(data, "<>?");
 
   return (
     <div className="admin-home">

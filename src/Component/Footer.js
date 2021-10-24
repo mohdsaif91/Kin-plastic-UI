@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
         <div className="footer-main-text">Let's Talk ?</div>
         <NavLink to="/aboutUs">
-          <a className="make-inquery" href="#">
+          <a className="make-inquery" href="/#">
             Make an enquiry!
           </a>
         </NavLink>

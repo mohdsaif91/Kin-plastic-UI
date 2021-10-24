@@ -22,17 +22,11 @@ function Header(props) {
     setOpenMenu(false);
   };
 
-  const change = () => {
-    // console.log('looki <>?');
-    // setOpenMenu(!openMenu);
-  };
+  const change = () => {};
 
   const openNav = () => {
-    // console.log('clicked on change the <>?');
     setOpenMenu(!openMenu);
   };
-
-  // console.log(openMenu, '<>? menu flag');
 
   return (
     <div className="main-header">
