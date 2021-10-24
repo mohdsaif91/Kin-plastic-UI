@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const url = "http://localhost:5000";
-// const url = 'https://kinserver97.herokuapp.com';
+// const url = "http://localhost:5000";
+const url = "https://kinserver97.herokuapp.com";
 const v1 = `${url}/api/v1`;
 
 //Auth
