@@ -33,7 +33,7 @@ export default function Products() {
     setSelectedCategory(categoryName);
     dispatch(getProductbyCategory(categoryName));
   };
-
+  console.log(products);
   return (
     <div className="Category-product">
       <div className="main-category-container">
@@ -55,37 +55,41 @@ export default function Products() {
       </div>
       <div className="category-border" />
       <div className="category-product-container">
-        {categoryProducts.map((m) => (
-          <div className="main-product">
-            <div key={m._id} className="product">
-              <div className="product-image">
-                <img
-                  alt=""
-                  className=""
-                  src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
-                />
-              </div>
-              <div className="product-description">
-                <div className="product-name">{m.productName}</div>
-                <div className="description">{m.productDescription}</div>
-                <div className="product-detials">
-                  Nominal Diameter - {m.nominalDiameter}mm
+        {categoryProducts.length !== 0 ? (
+          categoryProducts.map((m) => (
+            <div className="main-product">
+              <div key={m._id} className="product">
+                <div className="product-image">
+                  <img
+                    alt=""
+                    className=""
+                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
+                  />
                 </div>
-                <div className="product-detials">Design - {m.design}</div>
-                <div className="product-detials">
-                  Shell Material – {m.shellMatrial}
-                </div>
-                <div className="product-detials">
-                  Shell Weight – {m.shellWeight} gm
-                </div>
-                <div className="product-detials">Process – {m.process}</div>
-                <div className="product-detials">
-                  Application – {m.application}
+                <div className="product-description">
+                  <div className="product-name">{m.productName}</div>
+                  <div className="description">{m.productDescription}</div>
+                  <div className="product-detials">
+                    Nominal Diameter - {m.nominalDiameter}mm
+                  </div>
+                  <div className="product-detials">Design - {m.design}</div>
+                  <div className="product-detials">
+                    Shell Material – {m.shellMatrial}
+                  </div>
+                  <div className="product-detials">
+                    Shell Weight – {m.shellWeight} gm
+                  </div>
+                  <div className="product-detials">Process – {m.process}</div>
+                  <div className="product-detials">
+                    Application – {m.application}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <div>No Product for the selected Category</div>
+        )}
       </div>
     </div>
   );

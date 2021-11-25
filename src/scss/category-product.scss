@@ -5,11 +5,12 @@
     display: flex;
     justify-content: center;
     .category {
-      width: 700px;
+      width: 800px;
       display: flex;
       justify-content: center;
       overflow-x: auto;
       padding-bottom: 2rem;
+      padding-left: 13rem;
       &::-webkit-scrollbar {
         height: 10px;
         width: 4px;
