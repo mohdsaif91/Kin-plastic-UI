@@ -25,14 +25,16 @@ function Header(props) {
 
   useEffect(() => {
     const activePage = routes.find((m) => {
+      let pathNameURL = "";
       if (pathname === "/") {
-        return "product";
+        pathNameURL = "product";
       } else if (pathname.substring(1) === m.value) {
-        return m.value;
+        pathNameURL = m.value;
       }
+      return pathNameURL;
     });
     setPage(activePage.value);
-  }, [window.location.href, pathname]);
+  }, [pathname]);
 
   const change = () => {};
 

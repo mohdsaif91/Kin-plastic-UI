@@ -39,6 +39,7 @@ export function Categories() {
     if (categoryData) {
       setData({ ...data, categories: categoryData });
     }
+    // eslint-disable-next-line
   }, [categoryData, dispatch]);
 
   const addToCategiryList = () => {

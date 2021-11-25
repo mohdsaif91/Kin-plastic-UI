@@ -129,7 +129,7 @@ export default function Home() {
         setHero(homeData.bestProductData[countNum]);
       }
     }
-  }, [countNum]);
+  }, [countNum, hero._id, homeData.bestProductData]);
 
   useEffect(() => {
     if (!pageHomeData) {
@@ -146,8 +146,9 @@ export default function Home() {
       }
       slider.mount();
     }
-  }, [pageHomeData, dispatch, slider]);
-
+    // eslint-disable-next-line
+  }, [dispatch, pageHomeData, slider]);
+  console.log("called ");
   return (
     <div className="home-container">
       {!pageHomeData ? (
@@ -173,9 +174,7 @@ export default function Home() {
                   <span>I like</span>
                 </h2>
                 <p>{hero?.productDescription}</p>
-                <Link to="/product">
-                  <a href="#">View Products</a>
-                </Link>
+                <Link to="/product">View Products</Link>
               </div>
               <div className="img-box">
                 <img

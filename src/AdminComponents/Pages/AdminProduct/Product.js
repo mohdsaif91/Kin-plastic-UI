@@ -119,7 +119,7 @@ export default function Product() {
     dispatch(deleteProductThunk(id, productImage));
   };
   const editProduct = (id) => {
-    productList.map((m) => {
+    productList.forEach((m) => {
       if (m._id === id) {
         setProduct({ ...m, productImageId: m.productImage });
       }
