@@ -14,22 +14,21 @@ import Services from "./Pages/Services";
 import AboutUs from "./Pages/AboutUs";
 
 //admin imports
-// import AdminMain from "./AdminComponents/Pages/AdminMain";
-import AdminProduct from "./AdminComponents/Pages/AdminProduct";
+import AdminProduct from "./AdminComponents/Pages/AdminProduct/AdminProduct";
 import AdminHeader from "./AdminComponents/Components/AdminHeader";
 import AdminHome from "./AdminComponents/Pages/AdminHome";
+import AdminService from "./AdminComponents/Pages/AdminService";
+import AdminClient from "./AdminComponents/Pages/AdminClient";
 
 function App(props) {
   const admin = useSelector((state) => state.AdminReducer);
   const [footer, setFooter] = useState(true);
-  // const [setShowAdmin] = useState(admin.adminRights);
 
   useEffect(() => {
     setFooter(props.location.pathname !== "/login");
   }, [props.location.pathname]);
 
   useEffect(() => {
-    // setShowAdmin(admin.adminRights);
     if (admin.adminRights) {
       sessionStorage.setItem("adminAccess", true);
     }
@@ -37,11 +36,6 @@ function App(props) {
 
   return (
     <div className="app-container">
-      {/* {sessionStorage.getItem("adminAccess") ? (
-        <>
-          <Switch></Switch>
-        </>
-      ) : ( */}
       <>
         {sessionStorage.getItem("adminAccess") ? (
           <AdminHeader />
@@ -60,11 +54,12 @@ function App(props) {
             {/* admin */}
             <Route exact path="/adminHome" component={AdminHome} />
             <Route exact path="/adminProduct" component={AdminProduct} />
+            <Route exact path="/adminService" component={AdminService} />
+            <Route exact path="/adminClient" component={AdminClient} />
           </Switch>
         </div>
         {!sessionStorage.getItem("adminAccess") && footer && <Footer />}
       </>
-      {/* )} */}
     </div>
   );
 }

@@ -56,16 +56,35 @@ body {
   opacity: 0.5;
 }
 
-.normal-btn {
-  color: #fff;
-  background-color: #216fdb;
-  width: 70px;
+.default-btn {
+  color: #216fdb;
+  background-color: #fff;
+  width: auto;
   height: 30px;
   font-size: 1rem;
   border-style: none;
   margin: 8px;
   border-radius: 10%;
   cursor: pointer;
+  padding: 0 16px;
+  border: 1px solid #333333;
+  &:hover {
+    color: #fff;
+    background-color: #216fdb;
+  }
+}
+
+.normal-btn {
+  color: #fff;
+  background-color: #216fdb;
+  width: auto;
+  height: 30px;
+  font-size: 1rem;
+  border-style: none;
+  margin: 8px;
+  border-radius: 10%;
+  cursor: pointer;
+  padding: 0 16px;
 
   &:hover {
     background-color: #fff;
@@ -107,7 +126,8 @@ body {
 @import "./scss/home";
 @import "./scss/aboutUs";
 @import "./scss/login";
-
+@import "./scss/utils";
+@import "./scss/category-product";
 @import "./scss/footer";
 
 //admin
@@ -139,7 +159,7 @@ body {
 }
 
 .admin-alignment {
-  margin-top: 80px !important;
+  margin-top: 40px !important;
   margin-left: 80px !important;
   // text-align: center;
   // margin: 1rem;

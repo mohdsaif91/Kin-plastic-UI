@@ -52,7 +52,7 @@ export default function AdminHome() {
 
   useEffect(() => {
     if (pageSetting) {
-      setData(pageSetting);
+      setData(pageSetting.setting);
     }
   }, [pageSetting]);
 

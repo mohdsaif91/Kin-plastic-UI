@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -23,13 +23,14 @@ import {
   ChevronRight,
   ChevronLeft,
   ExitToApp,
-  Home,
   Inbox,
 } from "@material-ui/icons";
 
 import { adminLogout } from "../../Redux/Actions/AdminAction";
 import ProductImage from "../../images/adminImage/productImage.png";
 import Services from "../../images/adminImage/services.png";
+import Client from "../../images/adminImage/customer.png";
+import home from "../../images/adminImage/home.png";
 
 const drawerWidth = 240;
 
@@ -119,13 +120,18 @@ const useStylesBootstrap = makeStyles((theme) => ({
   },
 }));
 
-function MiniDrawer() {
+function MiniDrawer(props) {
   const [open, setOpen] = React.useState(false);
+  const [active, setActive] = useState("/adminHome");
 
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setActive(props.location.pathname);
+  }, [props.location.pathname]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -230,35 +236,54 @@ function MiniDrawer() {
           <ListItem
             onClick={() => history.push("/adminHome")}
             button
-            className="nav-active"
+            className={`${active === "/adminHome" && "nav-active"}`}
             key="Home"
           >
-            <ListItemIcon>
-              <BootstrapTooltip title="Home" placement="right-end">
-                <Home className="home-icon" />
-              </BootstrapTooltip>
-            </ListItemIcon>
+            <BootstrapTooltip title="Home" placement="right-end">
+              <ListItemIcon>
+                <img alt="" src={home} className="home-icon" />
+              </ListItemIcon>
+            </BootstrapTooltip>
             <ListItemText className="home-text" primary="Home" />
           </ListItem>
           <ListItem
             onClick={() => history.push("/adminProduct")}
             button
+            className={`${active === "/adminProduct" && "nav-active"}`}
             key="Product"
           >
-            <ListItemIcon>
-              <BootstrapTooltip title="Product" placement="right-end">
+            <BootstrapTooltip title="Product" placement="right-end">
+              <ListItemIcon>
                 <img alt="" src={ProductImage} className="home-icon" />
-              </BootstrapTooltip>
-            </ListItemIcon>
+              </ListItemIcon>
+            </BootstrapTooltip>
             <ListItemText primary="Product" />
           </ListItem>
-          <ListItem button key="Services">
-            <ListItemIcon>
-              <BootstrapTooltip title="Services" placement="right-end">
+          <ListItem
+            button
+            onClick={() => history.push("/adminService")}
+            className={`${active === "/adminService" && "nav-active"}`}
+            key="Services"
+          >
+            <BootstrapTooltip title="Services" placement="right-end">
+              <ListItemIcon>
                 <img alt="" src={Services} className="home-icon" />
-              </BootstrapTooltip>
-            </ListItemIcon>
+              </ListItemIcon>
+            </BootstrapTooltip>
             <ListItemText primary="Services" />
+          </ListItem>
+          <ListItem
+            button
+            onClick={() => history.push("/adminClient")}
+            className={`${active === "/adminClient" && "nav-active"}`}
+            key="Clients"
+          >
+            <BootstrapTooltip title="Clients" placement="right-end">
+              <ListItemIcon>
+                <img alt="" src={Client} className="home-icon" />
+              </ListItemIcon>
+            </BootstrapTooltip>
+            <ListItemText primary="Clients" />
           </ListItem>
         </List>
         <Divider />

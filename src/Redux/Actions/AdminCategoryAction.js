@@ -24,7 +24,6 @@ export const deleteCategoryUnSucessfull = (data) => {
 };
 
 export const getCategoriesSucessfull = (data) => {
-  console.log("admin catn <>? ", data);
   return {
     type: AMDIN_CATEGORY_ACTION.GET_CATEGORY_SUCESSFULL,
     data,

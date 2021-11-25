@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, withRouter, useLocation } from "react-router-dom";
 
 import DropDown from "./DropDown";
 
@@ -7,20 +7,32 @@ const routes = [
   { name: "Home", to: "/", additionalClass: "", value: "home" },
   { name: "Product", to: "/product", additionalClass: "", value: "product" },
   { name: "Service", to: "/service", additionalClass: "", value: "service" },
-  { name: "About Us", to: "/aboutUs", additionalClass: "", value: "abutUs" },
+  { name: "About Us", to: "/aboutUs", additionalClass: "", value: "aboutUs" },
   { name: "Reach Us", to: "/reachUs", additionalClass: "", value: "reachUs" },
   { name: "Login", to: "/login", additionalClass: "side-menu", value: "login" },
 ];
 
 function Header(props) {
   const [openMenu, setOpenMenu] = useState(false);
-
   const [page, setPage] = useState("home");
 
+  const { pathname } = useLocation();
+
   const setPageCloseNav = (data) => {
-    setPage(data);
+    // setPage(data);
     setOpenMenu(false);
   };
+
+  useEffect(() => {
+    const activePage = routes.find((m) => {
+      if (pathname === "/") {
+        return "product";
+      } else if (pathname.substring(1) === m.value) {
+        return m.value;
+      }
+    });
+    setPage(activePage.value);
+  }, [window.location.href, pathname]);
 
   const change = () => {};
 
@@ -90,7 +102,7 @@ function Header(props) {
             {routes.map((m) => (
               <li
                 className={`nav-link ${m.additionalClass} ${
-                  page === m.value && "active"
+                  page.toLowerCase() === m.value && "active"
                 }`}
                 onClick={() => setPageCloseNav(m.value)}
               >

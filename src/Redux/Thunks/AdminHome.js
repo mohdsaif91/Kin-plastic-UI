@@ -2,7 +2,7 @@ import {
   addCategoryAPI,
   deleteCategoryAPI,
   getCategoryAPI,
-  getSettingApiHome,
+  getHomePageData,
   settingApiHome,
   updateCategoriesAPI,
 } from "../../api";
@@ -41,7 +41,7 @@ export const updateSettingHome = (adminHomeData) => {
 export const getSettingHome = () => {
   return async (dispatch) => {
     dispatch(startLoading());
-    await getSettingApiHome()
+    await getHomePageData()
       .then((response) => {
         dispatch(stopLoading());
         if (response.status === 200) {
