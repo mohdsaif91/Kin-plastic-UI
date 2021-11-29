@@ -30,6 +30,7 @@ export default function Products() {
   }, [products]);
 
   const getProducts = (categoryName) => {
+    console.warn("Called");
     setSelectedCategory(categoryName);
     dispatch(getProductbyCategory(categoryName));
   };

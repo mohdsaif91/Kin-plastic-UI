@@ -161,6 +161,10 @@ body {
   }
 }
 
+.blue-link {
+  color: $link-color;
+}
+
 .admin-alignment {
   margin-top: 40px !important;
   margin-left: 80px !important;
@@ -169,6 +173,18 @@ body {
 }
 .mt-3 {
   margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
 }
 
 .btn-container {
