@@ -10,7 +10,7 @@ import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
 import Products from "./Pages/Products";
 import ReachUs from "./Pages/ReachUs";
-import Services from "./Pages/Services";
+import Services from "./Pages/ServiceComponent/Services";
 import AboutUs from "./Pages/AboutUs";
 
 //admin imports

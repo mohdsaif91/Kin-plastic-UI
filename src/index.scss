@@ -129,10 +129,13 @@ body {
 @import "./scss/utils";
 @import "./scss/category-product";
 @import "./scss/footer";
+@import "./scss/service";
 
 //admin
 @import "./scss/Admin/adminHome";
-@import "./scss/Admin/adminProduct.scss";
+@import "./scss/Admin/adminProduct";
+@import "./scss/Admin/services";
+
 .scroll-container {
   height: 50vh;
   min-height: 450px;
@@ -163,4 +166,11 @@ body {
   margin-left: 80px !important;
   // text-align: center;
   // margin: 1rem;
+}
+.mt-3 {
+  margin-top: 2rem;
+}
+
+.btn-container {
+  display: flex;
 }

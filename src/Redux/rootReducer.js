@@ -4,6 +4,7 @@ import { AdminReducer } from "./Reducers/AdminReducers";
 import { AdminHomeSetting } from "./Reducers/AdminHomeSetting";
 import { AdminCategories } from "./Reducers/AdminCategories";
 import { AdminProduct } from "./Reducers/AdminProduct";
+import { AdminService } from "./Reducers/AdminService";
 
 const createRootReducer = () => {
   //this grabs all the reducers and generators one
@@ -12,6 +13,7 @@ const createRootReducer = () => {
     AdminHomeSetting,
     AdminProduct,
     AdminReducer,
+    AdminService,
   });
 };
 

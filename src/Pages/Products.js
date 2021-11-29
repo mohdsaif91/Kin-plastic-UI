@@ -33,7 +33,7 @@ export default function Products() {
     setSelectedCategory(categoryName);
     dispatch(getProductbyCategory(categoryName));
   };
-  console.log(products);
+
   return (
     <div className="Category-product">
       <div className="main-category-container">

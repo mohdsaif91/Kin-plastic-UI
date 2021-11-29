@@ -16,126 +16,158 @@ $highlight-color: #38b449;
 }
 
 .about-us-container {
-  .about-us-header {
-    height: 250px;
-    background-position: center center;
-    background-image: url(https://demo.themexbd.com/wpv/context/wp-content/uploads/2020/06/baeatcome-1.jpg);
-    background-size: cover;
-  }
-  .postcard {
-    --border-radius: 0.625rem;
+}
+.about-us-header {
+  height: 250px;
+  background-position: center center;
+  background-image: url(https://demo.themexbd.com/wpv/context/wp-content/uploads/2020/06/baeatcome-1.jpg);
+  background-size: cover;
+}
+.postcard {
+  --border-radius: 0.625rem;
 
+  position: relative;
+  background-color: var(--color-card);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin: 2rem auto;
+  display: flex;
+
+  &:nth-of-type(odd) {
+    flex-direction: row;
+  }
+
+  &:nth-of-type(even) {
+    flex-direction: row-reverse;
+  }
+
+  .postcard__image {
+    margin: 40px 0;
     position: relative;
-    background-color: var(--color-card);
+    flex-shrink: 0;
+    flex-basis: clamp(10vw, 40vw, 30rem);
+    height: min(70vw, 20rem);
+    background-image: url("https://raw.githubusercontent.com/alawe45/Html-Css-postcard/master/images/card__image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: var(--border-radius);
-    padding: 1.25rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin: 2rem auto;
-    display: flex;
+  }
+  .postcard__body {
+    padding: clamp(1rem, 3vw, 2rem) 1.25rem;
+    padding-left: clamp(1.25rem, 3vw, 2rem);
 
-    &:nth-of-type(odd) {
-      flex-direction: row;
-    }
+    .postcard__text {
+      .postcard__title {
+        font-size: 18px;
+        font-family: -webkit-pictograph;
+        // font-weight: var(--fw-bold);
+        transition: opacity 300ms ease-in-out;
+        line-height: 1.2rem;
 
-    &:nth-of-type(even) {
-      flex-direction: row-reverse;
-    }
-
-    .postcard__image {
-      position: relative;
-      flex-shrink: 0;
-      flex-basis: clamp(10vw, 40vw, 30rem);
-      height: min(70vw, 20rem);
-      background-image: url("https://raw.githubusercontent.com/alawe45/Html-Css-postcard/master/images/card__image.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      border-radius: var(--border-radius);
-    }
-    .postcard__body {
-      padding: clamp(1rem, 3vw, 2rem) 1.25rem;
-      padding-left: clamp(1.25rem, 3vw, 2rem);
-
-      .postcard__text {
-        .postcard__title {
-          font-size: clamp(1.1rem, 5vw, 1.5625rem);
-          font-weight: var(--fw-bold);
-          margin-bottom: 0.5rem;
-          transition: opacity 300ms ease-in-out;
-
-          &:hover {
-            opacity: 0.8;
-          }
-          .postcard__title--link {
-            text-decoration: none;
-            color: var(--color-black);
-          }
+        &:hover {
+          opacity: 0.8;
         }
-        .postcard__description {
+        .postcard__title--link {
+          text-decoration: none;
+          color: var(--color-black);
+        }
+      }
+      .extra-points {
+        padding-top: 4px;
+
+        .uvp-list ul {
+          padding: 1rem 2rem;
+          list-style: none;
+        }
+
+        .uvp-list ul > li {
+          clear: left;
+          padding: 0.5rem 0;
           font-weight: var(--fw-regular);
-          color: var(--color-slateGray);
-          line-height: 1.6rem;
+          color: $link-color;
+          line-height: 1.1rem;
+        }
+
+        .uvp-list ul > li:before {
+          content: "";
+          height: 1.5rem;
+          width: 1.5rem;
+          display: block;
+          float: left;
+          margin-left: -1.5rem;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 100%;
+        }
+
+        .uvp-list ul > li:before {
+          background: url("https://info.openpath.com/hubfs/checkmark-round-orange.svg");
+          background-size: cover;
+          background-position: center;
+          padding: 0.15rem;
         }
       }
-      .postcard__footer {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: clamp(0.5rem, 5vw, 2rem);
-      }
+    }
+    .postcard__footer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: clamp(0.5rem, 5vw, 2rem);
     }
   }
-  .our-employee {
-    background-color: #444444;
-    padding: 4rem 4rem;
-    .emp-heading {
-      color: #fff;
-      font-family: "DIN-Black", Helvetica, Arial, sans-serif;
-      font-size: 44px;
-      letter-spacing: 0;
-      line-height: 38px;
-      text-transform: uppercase;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-    .emp-list {
+}
+.our-employee {
+  background-color: #444444;
+  padding: 4rem 4rem;
+  .emp-heading {
+    color: #fff;
+    font-family: "DIN-Black", Helvetica, Arial, sans-serif;
+    font-size: 44px;
+    letter-spacing: 0;
+    line-height: 38px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  .emp-list {
+    display: flex;
+    .emp-detials {
+      padding: 2rem 2rem;
       display: flex;
-      .emp-detials {
-        padding: 2rem 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        img {
-          filter: grayscale(100%);
-          width: 200px;
-          height: 220px;
-          object-fit: cover;
-          object-position: center;
-          max-width: 100%;
-          height: auto;
-          border-radius: 50%;
-          &:hover {
-            filter: grayscale(0%);
-          }
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        filter: grayscale(100%);
+        width: 200px;
+        height: 220px;
+        object-fit: cover;
+        object-position: center;
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+        &:hover {
+          filter: grayscale(0%);
         }
-        .img-info {
-          .img-heading {
-            color: #fff;
-            font-family: "DIN-Bold", sans-serif;
-            font-size: 33px;
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
-          }
-          .img-sub-heading {
-            color: #fff;
-            font-family: "DIN-Regular", sans-serif;
-            padding: 0 25px;
-            text-align: center;
-          }
+      }
+      .img-info {
+        .img-heading {
+          color: #fff;
+          font-family: "DIN-Bold", sans-serif;
+          font-size: 33px;
+          text-align: center;
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+        .img-sub-heading {
+          color: #fff;
+          font-family: "DIN-Regular", sans-serif;
+          padding: 0 25px;
+          text-align: center;
         }
       }
     }
@@ -286,9 +318,10 @@ $highlight-color: #38b449;
 
 @media screen and (min-width: 48em) {
   .postcard {
-    max-width: 58rem;
+    max-width: 70rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
   }
 }
 
