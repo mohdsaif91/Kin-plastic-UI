@@ -3,7 +3,6 @@ import { SERVICE_ACTIONS } from "../Actions/AdminServiceAction";
 export function AdminService(state = {}, action) {
   switch (action.type) {
     case SERVICE_ACTIONS.ADD_SERVICE_SUCESSFUL:
-      console.log(action.data);
       return {
         ...state,
         error: false,

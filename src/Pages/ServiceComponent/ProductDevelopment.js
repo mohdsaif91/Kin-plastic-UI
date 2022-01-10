@@ -25,7 +25,7 @@ export default function ProductDevelopment() {
               </h4>
               <div className="extra-points">
                 Our product development centre offers multiple functions:
-                <div class="uvp-list">
+                <div className="uvp-list">
                   <ul>
                     <li>Product development for closure and neck design</li>
                     <li>

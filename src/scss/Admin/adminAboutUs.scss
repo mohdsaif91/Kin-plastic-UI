@@ -1,0 +1,63 @@
+.admin-about-us-container {
+  display: flex !important;
+  //   flex-direction: row;
+  justify-content: space-around;
+  .card-container {
+    margin-right: 4rem;
+    margin-top: 2rem;
+    width: 450px;
+  }
+  .edit-container {
+    margin-top: 2rem;
+  }
+}
+
+.owner-container {
+  display: flex;
+  justify-content: space-between;
+  .card-owner {
+    width: 400px !important;
+  }
+}
+
+////////-> Organosation Info
+.story-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .short-story {
+    margin-right: 1rem;
+  }
+  .contact-info {
+    padding-top: 4rem;
+  }
+  .contact-us-container {
+    border: 1px solid black;
+    .contact-info-aboutus {
+      display: flex;
+      flex-direction: column;
+      padding: 3rem;
+      .office-text {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+.office-location {
+  margin-top: 2rem;
+  display: flex;
+
+  .list-container-aboutus {
+    margin-left: 2rem;
+    .office-contact-list {
+      margin-left: 8px;
+    }
+  }
+  .email-container {
+  }
+}
+
+.long-short {
+  margin-right: 16px !important;
+}

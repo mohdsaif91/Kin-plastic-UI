@@ -68,35 +68,34 @@
   }
   .address {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     background-color: #161616;
     padding: 40px 20px;
+    .phone-location {
+      text-align: center;
+    }
     .city {
       color: #ffffff;
       font-family: "AvantGarde Bold", Sans-serif;
+      text-transform: uppercase;
       font-size: 20px;
       font-weight: 600;
       line-height: 30px;
       margin: 0px 0px 0px 0px;
       cursor: pointer;
+      &:hover {
+        color: $link-color;
+      }
     }
     .phone {
       text-decoration: none;
       margin: 0px 0px 0px 0px;
-      color: #ffffff;
+      color: $link-color;
       font-family: "Trade Gothic", Sans-serif;
       font-size: 18px;
       line-height: 27px;
-    }
-    &:hover {
-      .city {
-        color: $link-color;
-      }
-      .phone {
-        color: $link-color;
-      }
     }
   }
   .footer-address-link {

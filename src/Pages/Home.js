@@ -148,7 +148,6 @@ export default function Home() {
     }
     // eslint-disable-next-line
   }, [dispatch, pageHomeData, slider]);
-  console.log("called ");
   return (
     <div className="home-container">
       {!pageHomeData ? (
@@ -203,7 +202,10 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    <i
+                      className="fa fa-facebook-official"
+                      aria-hidden="true"
+                    ></i>
                   </a>
                 </li>
                 <li>
@@ -212,7 +214,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i className="fa fa-twitter" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -221,7 +223,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-instagram" aria-hidden="true"></i>;
+                    <i className="fa fa-instagram" aria-hidden="true"></i>;
                   </a>
                 </li>
               </ul>

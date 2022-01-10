@@ -12,7 +12,6 @@ export default function Services() {
   const [mobile, setMobile] = useState(false);
 
   const getTabDisplayed = () => {
-    console.log(tabIndex);
     return tabIndex === 0 ? (
       <ProductDevelopment />
     ) : tabIndex === 1 ? (
@@ -26,7 +25,6 @@ export default function Services() {
     setMobile(window.innerWidth <= 450);
   }, []);
 
-  console.log(mobile);
 
   return (
     <div className="service">

@@ -17,20 +17,16 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
 
-import {
-  ChevronRight,
-  ChevronLeft,
-  ExitToApp,
-  Inbox,
-} from "@material-ui/icons";
+import { ChevronRight, ChevronLeft, ExitToApp } from "@material-ui/icons";
 
 import { adminLogout } from "../../Redux/Actions/AdminAction";
 import ProductImage from "../../images/adminImage/productImage.png";
 import Services from "../../images/adminImage/services.png";
 import Client from "../../images/adminImage/customer.png";
 import home from "../../images/adminImage/home.png";
+import info from "../../images/adminImage/info.png";
+import MailIcon from "../../images/adminImage/mail-icon.png";
 
 const drawerWidth = 240;
 
@@ -288,14 +284,32 @@ function MiniDrawer(props) {
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
+          <ListItem
+            button
+            onClick={() => history.push("/adminInfo")}
+            className={`${active === "/adminInfo" && "nav-active"}`}
+            key="aboutUs"
+          >
+            <BootstrapTooltip title="About Us" placement="right-end">
               <ListItemIcon>
-                {index % 2 === 0 ? <Inbox /> : <MailIcon />}
+                <img alt="" src={info} className="home-icon" />
               </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+            </BootstrapTooltip>
+            <ListItemText primary="About Us" />
+          </ListItem>
+          <ListItem
+            button
+            onClick={() => history.push("/inquery")}
+            className={`${active === "/inquery" && "nav-active"}`}
+            key="aboutUs"
+          >
+            <BootstrapTooltip title="Inquery Mail" placement="right-end">
+              <ListItemIcon>
+                <img alt="" src={MailIcon} className="home-icon" />
+              </ListItemIcon>
+            </BootstrapTooltip>
+            <ListItemText primary="About Us" />
+          </ListItem>
         </List>
       </Drawer>
     </div>

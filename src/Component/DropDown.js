@@ -74,7 +74,7 @@ function DropDown() {
       >
         <StyledMenuItem>
           <ListItemIcon>
-            <i class="fas fa-moon"></i>
+            <i className="fas fa-moon"></i>
           </ListItemIcon>
         </StyledMenuItem>
         <StyledMenuItem>

@@ -19,6 +19,8 @@ import AdminHeader from "./AdminComponents/Components/AdminHeader";
 import AdminHome from "./AdminComponents/Pages/AdminHome";
 import AdminService from "./AdminComponents/Pages/AdminService";
 import AdminClient from "./AdminComponents/Pages/AdminClient";
+import AdminInfo from "./AdminComponents/Pages/AboutUs/AdminInfo";
+import AdminInquery from "./AdminComponents/Pages/AdminInquery";
 
 function App(props) {
   const admin = useSelector((state) => state.AdminReducer);
@@ -52,10 +54,12 @@ function App(props) {
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/clients" component={Client} />
             {/* admin */}
+            <Route exact path="/adminClient" component={AdminClient} />
             <Route exact path="/adminHome" component={AdminHome} />
+            <Route exact path="/adminInfo" component={AdminInfo} />
             <Route exact path="/adminProduct" component={AdminProduct} />
             <Route exact path="/adminService" component={AdminService} />
-            <Route exact path="/adminClient" component={AdminClient} />
+            <Route exact path="/inquery" component={AdminInquery} />
           </Switch>
         </div>
         {!sessionStorage.getItem("adminAccess") && footer && <Footer />}

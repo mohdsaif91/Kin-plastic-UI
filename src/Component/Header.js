@@ -104,7 +104,7 @@ function Header(props) {
             {routes.map((m) => (
               <li
                 className={`nav-link ${m.additionalClass} ${
-                  page.toLowerCase() === m.value && "active"
+                  page === m.value && "active"
                 }`}
                 onClick={() => setPageCloseNav(m.value)}
               >

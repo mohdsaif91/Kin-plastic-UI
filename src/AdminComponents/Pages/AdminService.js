@@ -54,7 +54,6 @@ export default function AdminService() {
     if (image) {
       setServiceAdd({ ...serviceAdd, serviceImage: e.target.files[0] });
     } else {
-      console.log(e.target.value, image);
       setServiceAdd({ ...serviceAdd, [e.target.name]: e.target.value });
     }
   };
@@ -63,7 +62,6 @@ export default function AdminService() {
     dispatch(addService(getFormData(serviceAdd)));
   };
 
-  console.log(serviceList);
 
   return (
     <div className="admin-alignment">

@@ -210,6 +210,7 @@ $highlight-color: #38b449;
   }
   .emp-list {
     display: flex;
+    justify-content: space-around;
     .emp-detials {
       padding: 2rem 2rem;
       display: flex;
@@ -217,16 +218,15 @@ $highlight-color: #38b449;
       justify-content: center;
       align-items: center;
       img {
-        filter: grayscale(100%);
-        width: 200px;
+        // filter: grayscale(100%);
+        width: 230px;
         height: 220px;
         object-fit: cover;
         object-position: center;
         max-width: 100%;
-        height: auto;
         border-radius: 50%;
         &:hover {
-          filter: grayscale(0%);
+          filter: grayscale(100%);
         }
       }
       .img-info {
@@ -491,43 +491,7 @@ $highlight-color: #38b449;
 .read-more__icon {
   font-size: 2rem;
 }
-///////////////////=---------------------------------------
-/* (: */
 
-// .main-form {
-//   width: 340px;
-//   height: 440px;
-//   background: #e6e6e6;
-//   border-radius: 8px;
-//   box-shadow: 0 0 40px -10px #000;
-//   margin: calc(50vh - 220px) auto;
-//   padding: 20px 30px;
-//   max-width: calc(100vw - 40px);
-//   box-sizing: border-box;
-//   font-family: "Montserrat", sans-serif;
-//   position: relative;
-//   .btn-container {
-//     display: block;
-//     float: right;
-//     padding: 2rem 0;
-//     .form-btn {
-//       color: #fff;
-//       background-color: #216fdb;
-//       width: 110px;
-//       height: 50px;
-//       font-size: 0.9rem;
-//       border-style: none;
-//       margin: 8px;
-//       border-radius: 10%;
-//       cursor: pointer;
-
-//       &:hover {
-//         background-color: #fff;
-//         color: #216fdb;
-//       }
-//     }
-//   }
-// }
 .input-type {
   width: 100%;
   padding: 10px;
@@ -608,10 +572,21 @@ span {
     padding-top: 0.5rem;
   }
 }
+.main-img {
+  width: 250px;
+}
 
 about-us-container .about-us-detials .form-container {
   padding: 0 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+.aboutus-image {
+  width: 200px;
+  height: 150px;
+}
+
+.cell-color {
+  background-color: #cccccc;
 }
