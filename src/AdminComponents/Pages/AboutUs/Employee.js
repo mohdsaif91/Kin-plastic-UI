@@ -49,7 +49,6 @@ export default function Employee() {
   const addUpdateEmployee = (editFlag) => {
     if (editFlag) {
       employeeData.addEdit = "edit";
-      console.log(employeeData);
       dispatch(updateEmployee(getFormData(employeeData)));
     } else {
       employeeData.addEdit = "add";

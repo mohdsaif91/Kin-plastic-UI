@@ -1,11 +1,28 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
+import { getOrganisation } from "../Redux/Thunks/AdminAboutUs";
+
 export default function Footer() {
+  const [locationData, setLocationData] = useState([]);
+
+  const dispatch = useDispatch();
   const location = useSelector(
     (state) => state.AdminAboutUs?.OrganisationOwner
   );
+
+  useEffect(() => {
+    if (!location) {
+      dispatch(getOrganisation());
+    }
+    if (location) {
+      setLocationData([...location.aboutUsPage.locationContact]);
+    }
+  }, [location]);
+
+  console.log(locationData);
+
   return (
     <div className="black-footer">
       <div className="footer-header">
@@ -44,7 +61,7 @@ export default function Footer() {
         </NavLink>
       </div>
       <div className="address">
-        {location?.aboutUsPage?.locationContact.map((m) => (
+        {locationData.map((m) => (
           <div key={m._id} className="phone-location">
             <div className="city">{m.location}</div>
             <a className="phone" href={`tel:+91${m.contact}`}>

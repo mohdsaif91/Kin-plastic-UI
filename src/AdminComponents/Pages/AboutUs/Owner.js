@@ -43,7 +43,6 @@ export default function Owner() {
     if (!ownerDataRedux.onwerData) {
       dispatch(gateOwnerData());
     }
-    // console.log(ownerDataRedux);
     setBoss({ ...ownerDataRedux.onwerData });
   }, [dispatch, ownerDataRedux]);
 
@@ -64,7 +63,6 @@ export default function Owner() {
     // setBoss({ ...initialOwner });
   };
 
-  console.log(boss, "------------------>");
 
   return (
     <Container component="main" maxWidth="lg">

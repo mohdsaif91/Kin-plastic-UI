@@ -111,9 +111,6 @@ export default function Inquery() {
                 >
                   {emailColumn.map((column) => {
                     const value = row[column.id];
-                    if (column.id === "emailDate") {
-                      console.log(column);
-                    }
                     return (
                       <TableCell key={column.id} align={column.align}>
                         {column.id === "emailDate"

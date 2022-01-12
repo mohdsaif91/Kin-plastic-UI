@@ -66,7 +66,6 @@ export default function AboutUs() {
         break;
       case inputName === "name":
         const validName = valueData.trim() === "";
-        console.log(validName);
         setValidation({
           ...validation,
           senderName: valueData,
@@ -99,8 +98,6 @@ export default function AboutUs() {
     };
     dispatch(sendInquery(data));
   };
-
-  console.log(aboutUs, "<>?");
 
   return (
     <div className="about-us-container">

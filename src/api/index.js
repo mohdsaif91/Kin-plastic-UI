@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const url = "http://localhost:5000";
-// const url = "https://kinserver97.herokuapp.com";
+// const url = "http://localhost:5000";
+const url = "https://kinserver97.herokuapp.com";
 const v1 = `${url}/api/v1`;
 
 //Auth
@@ -59,3 +59,6 @@ export const getOrganisationOwnerAPI = () =>
 //Email Part
 export const sendInqueryAPI = (data) => Axios.post(`${v1}/email/inquery`, data);
 export const getEmailAPI = () => Axios.get(`${v1}/email/inquery`);
+
+//Client
+export const addClientAPI = (data) => Axios.post(`${v1}/client`, data);

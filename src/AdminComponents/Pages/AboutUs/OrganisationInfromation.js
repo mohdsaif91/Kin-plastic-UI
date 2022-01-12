@@ -31,6 +31,7 @@ const intialData = {
 const initialLocationContact = {
   contact: "",
   location: "",
+  address: "",
   contactError: false,
 };
 const initialEmail = {
@@ -86,7 +87,6 @@ export default function OrganisationInfromation() {
     } else {
       aboutUs.emailIds = [...aboutUs.emailIds, email.emailId];
     }
-    console.log(aboutUs.emailIds, " EMail ID");
     dispatch(saveContactLocation(aboutUs));
   };
 
@@ -181,10 +181,28 @@ export default function OrganisationInfromation() {
               />
             </div>
             <div>
+              <TextField
+                label="Address..."
+                className="short-story"
+                value={locationContact.address}
+                onChange={(e) =>
+                  setLocationContact({
+                    ...locationContact,
+                    address: e.target.value,
+                  })
+                }
+                name="address"
+                multiline
+                minRows={6}
+                maxRows={6}
+              />
+            </div>
+            <div>
               <button
                 className={`${
-                  (locationContact.location === "" &&
-                    locationContact.contact === "") ||
+                  locationContact.location === "" ||
+                  locationContact.contact === "" ||
+                  locationContact.address === "" ||
                   aboutUs.locationContact.length >= 3
                     ? "disabled-btn"
                     : "normal-btn"
