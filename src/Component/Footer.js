@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="footer-header">
         <div className="header-socialMedia">
           <ul className="sci">
-            <li>
+            <li key="1">
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
@@ -28,12 +28,12 @@ export default function Footer() {
                 <i className="fa fa-facebook-official" aria-hidden="true"></i>
               </a>
             </li>
-            <li>
+            <li key="2">
               <a href="https://twitter.com/" target="_blank" rel="noreferrer">
                 <i className="fa fa-twitter" aria-hidden="true"></i>
               </a>
             </li>
-            <li>
+            <li key="3">
               <a
                 href="https://www.instagram.com/"
                 target="_blank"

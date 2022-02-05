@@ -9,13 +9,6 @@ import Rocket from "../images/rocket.svg";
 import BarChart from "../images/barChart.svg";
 import PieChart from "../images/pie-chart.svg";
 import Amazon from "../images/amazon.png";
-import Apple from "../images/apple.png";
-import Cocacola from "../images/cocacola.png";
-import Facebook from "../images/facebook.png";
-import Google from "../images/google.png";
-import Macdonald from "../images/mcdonalds.png";
-import Samsung from "../images/samsung.png";
-
 import { getSettingHome } from "../Redux/Thunks/AdminHome";
 import Loading from "../Component/Loading";
 import { Link } from "react-router-dom";
@@ -26,7 +19,7 @@ const sliderConfiguration = {
   dragDistance: false,
   gap: 15,
   hoverMouse: false,
-  perView: window.innerWidth <= 700 ? 1 : window.innerWidth <= 769 ? 3 : 4,
+  perView: window.innerWidth <= 700 ? 1 : window.innerWidth <= 900 ? 3 : 4,
   paddings: window.innerWidth <= 700 ? "10%" : "25%",
   reqwind: true,
   startAt: 0,
@@ -54,6 +47,7 @@ const homeIntialData = {
     name: "",
   },
   bestProductData: [],
+  client: null,
 };
 
 const initialHero = {
@@ -84,15 +78,12 @@ export default function Home() {
   };
 
   const clients = useMemo(() => {
-    const cardClient = [
-      { id: 1, name: "Amazon", img: Amazon },
-      { id: 2, name: "Apple", img: Apple },
-      { id: 3, name: "Macdonald", img: Macdonald },
-      { id: 4, name: "Cocacola", img: Cocacola },
-      { id: 5, name: "Google", img: Google },
-      { id: 6, name: "Facebook", img: Facebook },
-      { id: 7, name: "Samsung", img: Samsung },
-    ];
+    let cardClient = [{ id: 1, name: "Amazon", img: Amazon }];
+    if (
+      Object.prototype.toString.call(pageHomeData?.client) === "[object Array]"
+    ) {
+      cardClient = pageHomeData?.client;
+    }
     return (
       <div className="glide">
         <div className="glide__track" data-glide-el="track">
@@ -101,9 +92,13 @@ export default function Home() {
               <li className="glide__slide slider">
                 <div className="card-container">
                   <div className="image">
-                    <img alt="" className="img" src={m.img} />
+                    <img
+                      alt=""
+                      className="img"
+                      src={`https://kinindustries.s3.ap-south-1.amazonaws.com/client/${m.clientImage}`}
+                    />
                   </div>
-                  <div className="company-name">{m.name}</div>
+                  <div className="company-name">{m.clientName}</div>
                 </div>
               </li>
             ))}
@@ -111,7 +106,7 @@ export default function Home() {
         </div>
       </div>
     );
-  }, []);
+  }, [pageHomeData?.client]);
 
   useEffect(() => {
     Aos.init();
@@ -140,6 +135,7 @@ export default function Home() {
         ...homeData,
         setting: pageHomeData.setting,
         bestProductData: pageHomeData.bestProductData,
+        client: pageHomeData.client,
       });
       if (hero._id === "") {
         setHero(pageHomeData.bestProductData[0]);
@@ -148,6 +144,7 @@ export default function Home() {
     }
     // eslint-disable-next-line
   }, [dispatch, pageHomeData, slider]);
+
   return (
     <div className="home-container">
       {!pageHomeData ? (

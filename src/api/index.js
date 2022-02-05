@@ -62,3 +62,7 @@ export const getEmailAPI = () => Axios.get(`${v1}/email/inquery`);
 
 //Client
 export const addClientAPI = (data) => Axios.post(`${v1}/client`, data);
+export const getClientAPI = () => Axios.get(`${v1}/client`);
+export const editClientApi = (data) => Axios.put(`${v1}/client`, data);
+export const deleteClientAPI = (id, imageName) =>
+  Axios.delete(`${v1}/client/${id}/${imageName}`);

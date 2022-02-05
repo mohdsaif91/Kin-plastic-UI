@@ -33,6 +33,7 @@ export default function AboutUs() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scroll(0, 0);
     if (!aboutUsRedux.OrganisationOwner) {
       dispatch(getOrganisationOwner());
     }
@@ -101,6 +102,75 @@ export default function AboutUs() {
 
   return (
     <div className="about-us-container">
+      <div className="about-us-text">
+        <div className="text">
+          <p>
+            In the early eighties a new horizon began taking shape. Precision,
+            perfection and excellence were the architects of this horizon in the
+            packaging industry. And from there rose the sun…
+          </p>
+          <p>
+            With the humble beginning of Kin Industries in 1989 as a
+            co-manufacturer of PET Preforms, the company soon realized the need
+            of our valued customers for equally good closures and caps in line
+            with the production schedules. Our founder Chairman, Mr. K. L.
+            Mundhra not only saw this as a business opportunity but also offered
+            his customers extended solutions to their packaging fulfilment by
+            offering them the values of Trust, Quality, Timely Deliveries and
+            Competitive Pricing.
+          </p>
+          <p>
+            This vision of Mr. K. L. Mundhra was realized by the commissioning
+            of Kin Industries’s first closures and caps manufacturing unit in
+            2008 in Baddi, North India, a town that was already being realized
+            as an industrial hub for the FMCG &amp; Healthcare industry in
+            India. Since then, Kin Industries has focused its attention on
+            closures and caps segment on a full-time basis.
+          </p>
+          <p>
+            With India being a large consumer-based economy, Kin Industries soon
+            felt that there was a need to offer timely deliveries to the rest of
+            the geographical territories for the company’s esteemed customers.
+            In 2009, another unit (J 1) was commissioned in Jalgaon,
+            Maharashtra. The location was strategic in terms of catering to the
+            plants in Central &amp; Western India, and also reached fast enough
+            to the port town of Nhava Sheva, JNPT for exports. The capacity
+            expansion was done with the commissioning of another unit (J 2) in
+            Jalgaon itself.
+          </p>
+          <p>
+            The company entered the closure manufacturing business using two
+            compression moulding presses from Sacmi, Italy. Today, the company
+            manufactures more than 10 billion of CSD, Hot-Fill, Warm-Fill and
+            water closures by processing more than 12000 tons of PP and PE
+            annually. With its qualitative and cost-effective solutions, the
+            company today is a leading supplier to renowned brands like
+            Coca-Cola, Pepsico, Parle, Tata-Himalayan, ITC, Amul, etc., apart
+            from being a government recognized Star-Export House. The company is
+            at the pinnacle of success, with a strong financial background,
+            headquartered in the commercial capital of India- Mumbai. Kin
+            Industries is particularly committed to developing innovative
+            plastic closures to support its customers’ success. The roots of
+            this success are still grounded in its Vision, Mission and
+            Philosophy.
+          </p>
+        </div>
+        <div className="about-us-vision">
+          <div className="card-heading-title">OUR VISION</div>
+          <div className="card-heading-text">
+            Our Vision is to be one of the most trusted and respected growth
+            partners for our valued customers using advanced technology,
+            nurturing human capital, and using environmentally friendly
+            processes and practises for humanity at large. We also want to
+            become the most economical, innovative, preferred packaging solution
+            service provider company in the world; one that enhances the brand
+            value of our customers while also protecting their products with the
+            best quality closures.
+          </div>
+        </div>
+      </div>
+
+      {/* ------------- */}
       <section className="about-us-detials">
         <div className="img-container">
           <div className="emp-detials">

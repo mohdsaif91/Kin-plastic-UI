@@ -88,7 +88,7 @@ export function Categories() {
                   id="contained-button-file"
                   type="file"
                 />
-                <label htmlFor="contained-button-file">
+                <label>
                   <Button
                     variant="contained"
                     color="primary"

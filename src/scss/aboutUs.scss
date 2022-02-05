@@ -16,6 +16,30 @@ $highlight-color: #38b449;
 }
 
 .about-us-container {
+  margin-top: 54px;
+  .about-us-text {
+    padding: 0 160px;
+    color: #000000 !important;
+    font-weight: 400;
+    line-height: 20px;
+    .about-us-vision {
+      margin: 42px 0;
+      padding: 36px;
+      border-radius: 10px;
+      background-color: #e4e4e4;
+      .card-heading-title {
+        margin-bottom: 24px;
+        text-align: center;
+        color: $link-color !important;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 35px;
+        text-transform: capitalize;
+      }
+      .card-heading-text {
+      }
+    }
+  }
   .about-us-detials {
     padding-top: 28px !important;
     display: flex;
@@ -30,12 +54,12 @@ $highlight-color: #38b449;
       padding: 1rem 1rem;
       .main {
         font-weight: 700;
+        font-size: 1.5rem;
       }
     }
     .form-container {
       margin-left: 1rem;
       padding: 0 1rem 1rem 1rem;
-      // border: 2px solid $link-color;
       display: flex;
       flex-direction: column;
       .form-heading {
@@ -533,7 +557,8 @@ span {
 
 @include breakpoint(mobileonly) {
   .about-us-container .about-us-detials {
-    flex-direction: column-reverse !important;
+    flex-direction: column !important;
+    align-items: inherit;
     .about-us-story {
       width: auto;
     }
@@ -551,17 +576,20 @@ span {
   .about-us-container .about-us-detials {
     .about-us-story {
       font-size: 14px;
-      padding: 0.5rem 0.5rem;
+      padding: 3rem 1rem;
     }
     .form-container {
       margin-left: 0 !important;
       .main-form {
-        width: 300px;
+        width: 360px;
         padding: 8px 16px;
       }
     }
     .img-container {
       padding: 0rem 1rem 1rem 1rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
     }
   }
   .main-img {
@@ -574,6 +602,7 @@ span {
 }
 .main-img {
   width: 250px;
+  height: 250px;
 }
 
 about-us-container .about-us-detials .form-container {

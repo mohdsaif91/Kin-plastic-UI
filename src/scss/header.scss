@@ -24,8 +24,7 @@
     justify-content: center;
     align-items: center;
     .logo {
-      width: 40px;
-      height: 40px;
+      width: 64px;
       margin: 0 16px;
       display: flex;
       flex-shrink: 0;
@@ -41,7 +40,7 @@
     }
     .logo-name {
       font-family: "Avenir Next", Calibri, Verdana, sans-serif;
-      font-size: $font-sz-xl;
+      font-size: 2rem;
       font-weight: 600;
       cursor: pointer;
       color: $link-color;
@@ -133,9 +132,23 @@
   }
 
   .nav-links li.active {
-    border-bottom: 4px solid $link-color;
     a {
       color: $link-color;
+      border-bottom: 2.5px solid $link-color;
+    }
+  }
+
+  .dropdown-products {
+    position: absolute;
+    width: 410px;
+    background-color: aliceblue;
+    li {
+      padding: 0.15em 0 0.5em 1.5em;
+      margin-bottom: 0.2em;
+      text-indent: 0.4em;
+      font-weight: bold;
+      list-style: none;
+      background-repeat: no-repeat;
     }
   }
 
@@ -164,8 +177,8 @@
       }
 
       a {
-        margin: 1rem;
-        // padding: 1rem 0.5rem;
+        margin: 0 1rem;
+        font-size: 1.2rem;
 
         &:hover {
           border-radius: 5px;

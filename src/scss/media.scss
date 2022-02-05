@@ -11,6 +11,7 @@
             padding-left: 0;
             label .search-box {
               width: 250px;
+              background-color: #e8eaeb;
               &:focus {
                 width: 250px;
               }
@@ -129,6 +130,8 @@
   }
   .icon {
     left: 20px;
+    top: 12px;
+    font-size: 1.2rem;
   }
   .hero h1 {
     font-size: 2rem;
@@ -137,9 +140,11 @@
 
 @media screen and (min-width: 315px) and (max-width: 325px) {
   .main-header {
+    justify-content: baseline;
     .left-container {
       .logo {
-        margin: 0 7px;
+        margin: 0;
+        width: 50px;
       }
       .search-container
         .container
@@ -155,8 +160,14 @@
 
 @media screen and (min-width: 350px) and (max-width: 379px) {
   .main-header {
+    justify-content: center;
     .left-container .logo {
-      margin: 0 8px;
+      margin: 0;
+      width: 55px;
+    }
+    .menu-icon {
+      padding: 26px 8px;
+      margin-right: 20px;
     }
   }
 }
@@ -166,10 +177,23 @@
     .nav-links {
       top: 13px;
     }
+    .left-container .logo {
+      width: 60px;
+      margin: 0 5px;
+    }
   }
 }
 
 @media screen and (min-width: 405px) and (max-width: 415px) {
+  .home-container {
+    .home-cards {
+      flex-direction: column !important;
+      margin: 2rem !important;
+      .home-card {
+        margin: 2rem 0 !important;
+      }
+    }
+  }
   .main-header
     .left-container
     .search-container
@@ -178,7 +202,7 @@
     .search-wrapper
     label
     .search-box {
-    width: 280px;
+    width: 270px;
   }
 }
 
@@ -209,7 +233,7 @@
     .main-header .left-container {
       .logo-name {
         display: block;
-        margin-right: 10rem;
+        margin-right: 1rem;
       }
       .search-container
         .container
@@ -217,9 +241,9 @@
         .search-wrapper
         label
         .search-box {
-        width: 450px;
+        width: 400px;
         &:focus {
-          width: 480px;
+          width: 430px;
         }
       }
     }

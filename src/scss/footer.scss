@@ -127,10 +127,17 @@
 }
 
 @media (min-width: 320px) and (max-width: 411px) {
-  .black-footer .footer-header {
-    flex-direction: column;
-    padding: 70px 30px 69px 30px;
-
+  .black-footer {
+    .address {
+      flex-direction: column;
+      .phone-location {
+        margin-bottom: 8px;
+      }
+    }
+    .footer-header {
+      flex-direction: column;
+      padding: 70px 30px 69px 30px;
+    }
     .header-socialMedia {
       margin-bottom: 1rem;
     }

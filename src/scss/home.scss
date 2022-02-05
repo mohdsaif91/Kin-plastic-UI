@@ -441,7 +441,7 @@
     }
     .home-cards {
       .home-card {
-        margin: 0 0.5rem !important;
+        margin: 12px 0.5rem !important;
         padding: 20px 10px !important;
       }
     }
@@ -462,7 +462,9 @@
     }
     .home-cards {
       flex-direction: column;
+      margin: 4rem 1rem;
       .home-card {
+        width: auto;
         height: 250px;
         margin-bottom: 1rem !important;
         .img-container {
@@ -480,11 +482,18 @@
   .card-container {
     width: 343px !important;
   }
+  .video-responsive {
+    margin: 32px 8px 0 8px !important;
+    padding-bottom: 100% !important;
+  }
 }
 
 @media (min-width: 411px) and (max-width: 415px) {
   .card-container {
     width: 360px !important;
+  }
+  .main-header {
+    justify-content: start;
   }
 }
 @media (min-width: 358px) and (max-width: 360px) {
@@ -513,7 +522,7 @@
 .video-responsive {
   overflow: hidden;
   position: relative;
-  padding-bottom: 30%;
+  padding-bottom: 50%;
   height: 80%;
   margin: 32px 64px 0 64px;
 }
