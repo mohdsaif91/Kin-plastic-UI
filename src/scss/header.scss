@@ -16,6 +16,9 @@
   background: $card-bg;
   height: $header-height;
   width: 100%;
+  box-shadow: 1px 4px 5px 0px rgba(110, 104, 104, 0.75);
+  -webkit-box-shadow: 1px 4px 5px 0px rgba(110, 104, 104, 0.75);
+  -moz-box-shadow: 1px 4px 5px 0px rgba(110, 104, 104, 0.75);
   // box-shadow: 12px 0 2px $shadow;
   transition: background $transition-time $transition-fn;
 

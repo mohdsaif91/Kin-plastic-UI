@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Aos from "aos";
 import CountUp from "react-countup";
@@ -69,6 +69,10 @@ export default function Home() {
   const [homeData, setHomeData] = useState({ ...homeIntialData });
   const [slider] = useState(new Glide(".glide", sliderConfiguration));
   const [countNum, setcount] = useState(0);
+
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const dispatch = useDispatch();
   const pageHomeData = useSelector((state) => state.AdminHomeSetting.setting);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../Redux/Thunks/AdminHome";
 import { getProductbyCategory } from "../Redux/Thunks/AdminProduct";
@@ -28,6 +28,10 @@ export default function Products() {
       setcategoryProducts(products);
     }
   }, [products]);
+
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const getProducts = (categoryName) => {
     console.warn("Called");

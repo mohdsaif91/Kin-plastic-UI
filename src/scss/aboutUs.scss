@@ -24,7 +24,7 @@ $highlight-color: #38b449;
     line-height: 20px;
     .about-us-vision {
       margin: 42px 0;
-      padding: 36px;
+      padding: 46px 196px;
       border-radius: 10px;
       background-color: #e4e4e4;
       .card-heading-title {
@@ -94,7 +94,6 @@ $highlight-color: #38b449;
             font-size: 0.9rem;
             border-style: none;
             margin: 8px;
-            border-radius: 10%;
             cursor: pointer;
 
             &:hover {
@@ -605,7 +604,7 @@ span {
   height: 250px;
 }
 
-about-us-container .about-us-detials .form-container {
+.about-us-container .about-us-detials .form-container {
   padding: 0 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;

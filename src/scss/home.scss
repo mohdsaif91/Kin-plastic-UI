@@ -486,6 +486,10 @@
     margin: 32px 8px 0 8px !important;
     padding-bottom: 100% !important;
   }
+  .black-footer .footer-address-link .links li a,
+  .black-footer .footer-address-link ul li a {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 411px) and (max-width: 415px) {
@@ -522,7 +526,7 @@
 .video-responsive {
   overflow: hidden;
   position: relative;
-  padding-bottom: 50%;
+  padding-bottom: 36%;
   height: 80%;
   margin: 32px 64px 0 64px;
 }
