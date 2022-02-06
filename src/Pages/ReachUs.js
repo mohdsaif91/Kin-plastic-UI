@@ -152,7 +152,7 @@ export default function ReachUs() {
                 {locationData.locationContact &&
                   locationData.locationContact.map((m) => (
                     <div className="address-title">
-                      <div className="location-name">{m.location}</div>
+                      <div className=" ">{m.location}</div>
                       <div className="location-name p-l-8">{m.address}</div>
                     </div>
                   ))}
