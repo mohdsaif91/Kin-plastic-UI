@@ -116,50 +116,6 @@ export default function ReachUs() {
         {/* <button className="btn reach-us-btn">GET IN TOUCH</button> */}
       </div>
       <div className="location-form">
-        <div className="location-container">
-          <div className="location-card">
-            <div className="reach-us-heading">
-              <div className="icon-text">
-                <img
-                  className="enquiries-icon"
-                  alt=""
-                  src="https://website-assets-fw.freshworks.com/attachments/cjpv3wcq0003llpfzzxodiien-enquiry.svg"
-                />
-                <div className="sales-heading">Sales Enquiries</div>
-              </div>
-              <div className="heading-main">
-                Interested in any of our products? Talk to our experts today
-              </div>
-              <div className="phone-list">
-                {locationData.locationContact &&
-                  locationData.locationContact.map((m) => (
-                    <div className="location-title">
-                      <div className="location-name">{m.location}:</div>
-                      <a className="phone" href={`tel:+91${m.contact}`}>
-                        +91{m.contact}
-                      </a>
-                    </div>
-                  ))}
-              </div>
-            </div>
-            <div className="line" />
-            <div className="reach-us-heading">
-              <div className="icon-text">
-                <img className="office-icon" alt="" src={officeLocation} />
-                <div className="sales-heading">Office locations</div>
-              </div>
-              <div className="phone-list">
-                {locationData.locationContact &&
-                  locationData.locationContact.map((m) => (
-                    <div className="address-title">
-                      <div className=" ">{m.location}</div>
-                      <div className="location-name p-l-8">{m.address}</div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="form-container">
           <div className="form-heading">Make An Inquery!</div>
           <div className="main-form">
@@ -231,6 +187,69 @@ export default function ReachUs() {
               >
                 Send Inquery
               </button>
+            </div>
+          </div>
+        </div>
+        <div className="location-container">
+          <div className="location-card">
+            <div className="reach-us-heading">
+              <div className="icon-text">
+                <img
+                  className="enquiries-icon"
+                  alt=""
+                  src="https://website-assets-fw.freshworks.com/attachments/cjpv3wcq0003llpfzzxodiien-enquiry.svg"
+                />
+                <div className="sales-heading">Sales Enquiries</div>
+              </div>
+              <div className="heading-main">
+                Interested in any of our products? Talk to our experts today
+              </div>
+              <div className="phone-list">
+                {locationData.locationContact &&
+                  locationData.locationContact.map((m) => (
+                    <div className="location-title">
+                      <div className="location-name">{m.location}:</div>
+                      <a className="phone" href={`tel:+91${m.contact}`}>
+                        +91{m.contact}
+                      </a>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <div className="line" />
+            <div className="reach-us-heading">
+              <div className="icon-text">
+                <img className="office-icon" alt="" src={officeLocation} />
+                <div className="sales-heading">Office locations</div>
+              </div>
+              <div className="phone-list">
+                {locationData.locationContact &&
+                  locationData.locationContact.map((m) => (
+                    <div className="address-title">
+                      <div className=" ">{m.location}</div>
+                      <div className="location-name p-l-8">{m.address}</div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <div className="line" />
+            <div className="reach-us-heading">
+              <div className="icon-text">
+                <img
+                  className="office-icon"
+                  alt=""
+                  src="https://website-assets-fw.freshworks.com/attachments/cjpv3wcqc004ulufzissvblbw-support.svg"
+                />
+                <div className="sales-heading">Email</div>
+              </div>
+              <div className="phone-list">
+                {locationData.locationContact &&
+                  locationData.emailIds.map((m) => (
+                    <div className="address-title">
+                      <a href={`mailto:${m}`}>{m}</a>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </div>

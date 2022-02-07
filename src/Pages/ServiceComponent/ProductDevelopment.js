@@ -9,7 +9,7 @@ export default function ProductDevelopment() {
         </div>
         <article className="postcard">
           <div
-            className="postcard__image"
+            className="postcard__image-1 common-img "
             aria-label="postcard image man looking to left"
             title="image"
           ></div>
@@ -54,7 +54,7 @@ export default function ProductDevelopment() {
         </div>
         <article className="postcard">
           <div
-            className="postcard__image"
+            className="postcard__image-2 common-img"
             aria-label="postcard image man looking to left"
             title="image"
           ></div>
@@ -89,7 +89,7 @@ export default function ProductDevelopment() {
         </div>
         <article className="postcard">
           <div
-            className="postcard__image"
+            className="postcard__image-3 common-img"
             aria-label="postcard image man looking to left"
             title="image"
           ></div>

@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getOrganisationOwner } from "../Redux/Thunks/AdminAboutUs";
+import AboutUsImg from "../images/about-us.jpg";
 
 export default function AboutUs() {
   const [aboutUs, setAboutUs] = useState();
@@ -42,6 +43,9 @@ export default function AboutUs() {
             offering them the values of Trust, Quality, Timely Deliveries and
             Competitive Pricing.
           </p>
+          <div>
+            <img className="about-us-img" alt="" src={AboutUsImg} />
+          </div>
           <p>
             This vision of Mr. K. L. Mundhra was realized by the commissioning
             of Kin Industries’s first closures and caps manufacturing unit in
@@ -103,7 +107,7 @@ export default function AboutUs() {
             heavily on entrepreneurial, professional and loyal team members.
           </div>
         </div>
-        <div className="about-us-vision">
+        <div className="about-us-chairman">
           <div className="card-heading-title">
             <div className="img-container">
               <div className="emp-detials">

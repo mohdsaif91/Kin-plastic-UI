@@ -126,7 +126,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 411px) {
+@media (min-width: 320px) and (max-width: 420px) {
   .black-footer {
     .address {
       flex-direction: column;
@@ -135,7 +135,7 @@
       }
     }
     .footer-header {
-      flex-direction: column;
+      flex-direction: column !important;
       padding: 70px 30px 69px 30px;
     }
     .header-socialMedia {
@@ -148,6 +148,14 @@
   .footer-address-link {
     justify-content: center !important;
   }
+  //   .black-footer .footer-header {
+  //     color: #fff;
+  //     padding: 140px 30px 140px 30px;
+  //     display: flex;
+  //     justify-content: space-around;
+  //     align-items: center;
+
+  // }
 }
 
 @media (min-width: 760px) and (max-width: 770px) {

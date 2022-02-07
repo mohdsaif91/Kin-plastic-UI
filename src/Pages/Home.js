@@ -4,14 +4,13 @@ import Aos from "aos";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import Glide from "@glidejs/glide";
+import { Link } from "react-router-dom";
 
 import Rocket from "../images/rocket.svg";
 import BarChart from "../images/barChart.svg";
 import PieChart from "../images/pie-chart.svg";
-import Amazon from "../images/amazon.png";
 import { getSettingHome } from "../Redux/Thunks/AdminHome";
 import Loading from "../Component/Loading";
-import { Link } from "react-router-dom";
 
 const sliderConfiguration = {
   animationDuration: 500,
@@ -82,7 +81,7 @@ export default function Home() {
   };
 
   const clients = useMemo(() => {
-    let cardClient = [{ id: 1, name: "Amazon", img: Amazon }];
+    let cardClient = [];
     if (
       Object.prototype.toString.call(pageHomeData?.client) === "[object Array]"
     ) {

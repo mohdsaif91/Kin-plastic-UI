@@ -1,15 +1,22 @@
 .reach-us-container {
   .reach-us-hero {
+    box-sizing: border-box;
+    padding: 150px 0;
     width: 100%;
-    background-color: #e6edfc;
+    background-image: url(../images/reach-us.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
     height: auto;
     text-align: center;
-    padding: 96px 128px;
     .main-hero-text {
+      color: #80b5ff;
       font-weight: 600;
       font-size: 32px;
     }
     .sub-hero-text {
+      color: #ffffff;
       font-size: 20px;
     }
     .reach-us-btn {
@@ -46,7 +53,9 @@
         // height: 440px;
         background: #fff;
         border-radius: 8px;
-        box-shadow: 0 0 40px -10px #000;
+        box-shadow: 10px 13px 5px 0px rgba(110, 104, 104, 0.75);
+        -webkit-box-shadow: 10px 13px 5px 0px rgba(110, 104, 104, 0.75);
+        -moz-box-shadow: 10px 13px 5px 0px rgba(110, 104, 104, 0.75);
         padding: 20px 30px;
         box-sizing: border-box;
         font-family: "Montserrat", sans-serif;
@@ -210,16 +219,20 @@
   margin-top: 7px;
 }
 
-@media (min-width: 320px) and (max-width: 411px) {
+@media (min-width: 320px) and (max-width: 420px) {
   .reach-us-container {
     .reach-us-hero {
-      padding: 20px 28px;
+      // padding: 20px 28px;
+      .main-hero-text,
+      .sub-hero-text {
+        display: none;
+      }
     }
     .location-form {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       justify-content: space-around;
-      padding: 32px 16px;
+      padding: 8px 16px;
       align-items: center;
       justify-content: center;
       .location-container {
@@ -228,6 +241,9 @@
       .form-container {
         margin-left: 0 !important;
         padding: 0 !important;
+        .form-heading {
+          padding-bottom: 0.5rem;
+        }
         .main-form {
           width: 361px !important;
         }
