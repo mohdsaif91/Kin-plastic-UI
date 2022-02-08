@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, withRouter, useLocation } from "react-router-dom";
 
-import Logo from "../images/logo.PNG";
 import DropDown from "./DropDown";
+
+import Logo from "../images/logo.PNG";
 
 const routes = [
   { name: "Home", to: "/", additionalClass: "", value: "home" },
@@ -23,9 +24,12 @@ function Header(props) {
   const [openMenu, setOpenMenu] = useState(false);
   const [page, setPage] = useState("home");
   const [searchedProduct, setSearchedProduct] = useState({ ...initialSearch });
+  const [show] = useState(true);
 
   const productdata = useSelector((state) => state.AdminHomeSetting.setting);
   const { pathname } = useLocation();
+  // const dispatch = useDispatch();
+  // const history = useHistory();
 
   const setPageCloseNav = (data) => {
     // setPage(data);
@@ -46,10 +50,12 @@ function Header(props) {
   }, [pathname]);
 
   const findOnChange = (e) => {
+    console.log(productdata?.product);
     const foundProduct = productdata?.product.filter(
       (f) =>
-        f.categoryName.toLowerCase().includes(e) ||
-        f.productName.toLowerCase().includes(e)
+        f.categoryName.toLowerCase().includes(e.toLowerCase()) ||
+        f.productName.toLowerCase().includes(e.toLowerCase()) ||
+        f.application.toLowerCase().includes(e.toLowerCase())
     );
     setSearchedProduct({
       ...searchedProduct,
@@ -62,6 +68,15 @@ function Header(props) {
 
   const openNav = () => {
     setOpenMenu(!openMenu);
+  };
+
+  const showSingle = (id) => {
+    console.log(id);
+    setSearchedProduct({ ...initialSearch });
+    // dispatch(searchSingleProductFun(id));
+    // setInterval(() => {
+    //   history.push("/showProduct");
+    // }, 1000);
   };
 
   return (
@@ -91,10 +106,7 @@ function Header(props) {
                         type="text"
                         className="search-box"
                         id="search"
-                        onChange={
-                          (e) => findOnChange(e.target.value)
-                          // dispatch(getSerchObjectFunction(e.target.value))
-                        }
+                        onChange={(e) => findOnChange(e.target.value)}
                         placeholder={
                           window.innerWidth <= 768
                             ? "Search on KIN Industries"
@@ -104,12 +116,33 @@ function Header(props) {
                     </label>
                   </div>
                 </form>
-                {searchedProduct.text !== "" && (
+                {/* {searchedProduct.text === "" && show && (
+                  <ul className="dropdown-products-dummy">
+                    {searchedProduct.searchedProduct.map((m) => (
+                    <li>Search Category, Product and Application</li>
+                    ))}
+                  </ul>
+                )} */}
+                {searchedProduct.text !== "" && show && (
                   <ul className="dropdown-products">
                     {searchedProduct.searchedProduct.map((m) => (
-                      <li>
-                        <img alt="" />
-                        <div>{m.categoryName}</div>
+                      <li onClick={() => showSingle(m._id)}>
+                        <div>
+                          <div className="serach-result-productname">
+                            {m.productName}
+                          </div>
+                          <div className="serach-result-category">
+                            {m.categoryName}
+                          </div>
+                          <div className="serach-result-category">
+                            Application:- {m.application}
+                          </div>
+                        </div>
+                        <img
+                          className="serach-result-img"
+                          src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
+                          alt=""
+                        />
                       </li>
                     ))}
                   </ul>

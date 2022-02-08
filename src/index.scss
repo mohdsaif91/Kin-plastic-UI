@@ -127,12 +127,12 @@ body {
 }
 
 @import "./variable";
+@import "./scss/utils";
 @import "./scss/header";
 @import "./scss/container";
 @import "./scss/media";
 @import "./scss/animations";
 
-@import "./scss/utils";
 @import "./scss/home";
 @import "./scss/aboutUs";
 @import "./scss/login";

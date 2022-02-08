@@ -35,6 +35,7 @@ export const addBestProductAPI = (data) =>
   Axios.post(`${v1}/product/addBestProduct`, data);
 export const getBestProductAPI = () => Axios.get(`${v1}/product/bestProduct`);
 export const deleteBestProductAPI = (id) => Axios.delete(`${v1}/product/${id}`);
+export const getSearchProductAPI = (id) => Axios.get(`${v1}/product/${id}`);
 
 //Services
 export const addServiceAPI = (data) => Axios.post(`${v1}/service`, data);

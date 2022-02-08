@@ -74,6 +74,7 @@ export function AdminProduct(state = {}, action) {
         ...state,
         error: true,
       };
+    // case ADMIN_PRODUCT_ACTION
     default:
       return state;
   }
