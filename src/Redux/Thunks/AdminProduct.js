@@ -30,19 +30,21 @@ import {
   getProductSucessful,
   getProductUnSucessful,
 } from "../Actions/AdminProductAction";
-import { startLoading } from "../Actions/Util";
+import { startLoading, stopLoading } from "../Actions/Util";
 
 export const deleteBestProduct = (id) => {
   return async (dispatch) => {
     dispatch(startLoading());
     await deleteBestProductAPI(id)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(deleteBestProductSucess(res.data));
           dispatch(deleteSettingBest(res.data));
         }
       })
       .catch((err) => {
+        dispatch(stopLoading());
         dispatch(deleteBestProductUnSucess(err));
         dispatch(deleteSettingBestUnsucess(err));
       });
@@ -54,11 +56,15 @@ export const getBestProduct = () => {
     dispatch(startLoading());
     await getBestProductAPI()
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 200) {
           dispatch(getBestProductSucess(res.data));
         }
       })
-      .catch((err) => dispatch(getBestProductUnSucess(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(getBestProductUnSucess(err));
+      });
   };
 };
 
@@ -68,9 +74,15 @@ export const addBestProduct = (data, id) => {
     data.bestProduct.push(id);
     await addBestProductAPI(data)
       .then((res) => {
-        dispatch(addBestProductSucessful(res.data));
+        dispatch(stopLoading());
+        if (res.status === 200) {
+          dispatch(addBestProductSucessful(res.data));
+        }
       })
-      .catch((err) => dispatch(addBestProductUnsucessful(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(addBestProductUnsucessful(err));
+      });
   };
 };
 
@@ -79,11 +91,15 @@ export const getAllProducts = () => {
     dispatch(startLoading());
     await getAllProductsAPI()
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 200) {
           dispatch(getAllProductSucessful(res.data));
         }
       })
-      .catch((error) => dispatch(getAllProductUnSucessful(error)));
+      .catch((error) => {
+        dispatch(stopLoading());
+        dispatch(getAllProductUnSucessful(error));
+      });
   };
 };
 
@@ -92,9 +108,11 @@ export const getProductbyCategory = (categoryName) => {
     dispatch(startLoading());
     await getProductByCategoryAPI(categoryName)
       .then((res) => {
+        dispatch(stopLoading());
         dispatch(getProductByCategorySucessful(res.data));
       })
       .catch((error) => {
+        dispatch(stopLoading());
         dispatch(getProductByCategoryUnSucessful(error));
       });
   };
@@ -105,11 +123,15 @@ export const deleteProductThunk = (id, productImage) => {
     dispatch(startLoading());
     await deleteProductApi(id, productImage)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 200) {
           dispatch(deleteProductSucessful(res.data));
         }
       })
-      .catch((err) => dispatch(deleteProductUnSucessful(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(deleteProductUnSucessful(err));
+      });
   };
 };
 
@@ -118,11 +140,15 @@ export const addProduct = (data) => {
     dispatch(startLoading());
     await addProductApi(data)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(addProductSucessful(res.data));
         }
       })
-      .catch((err) => dispatch(addProductUnSucessful(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(addProductUnSucessful(err));
+      });
   };
 };
 
@@ -131,10 +157,14 @@ export const getProduct = () => {
     dispatch(startLoading());
     await getProductApi()
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 200) {
           dispatch(getProductSucessful(res.data));
         }
       })
-      .catch((err) => getProductUnSucessful(err));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(getProductUnSucessful(err));
+      });
   };
 };

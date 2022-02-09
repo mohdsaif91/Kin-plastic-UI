@@ -46,7 +46,6 @@ export default function AdminClient() {
 
   const addClient = () => {
     if (client.edit) {
-      console.log(client);
       dispatch(editClientFunction(getFormData(client)));
     } else {
       dispatch(addClientFunction(getFormData(client)));
@@ -67,8 +66,6 @@ export default function AdminClient() {
       edit: true,
     });
   };
-
-  // console.log(client);
 
   return (
     <div className="category-container">

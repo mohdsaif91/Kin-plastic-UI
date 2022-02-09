@@ -38,7 +38,6 @@ export default function ReachUs() {
     window.scroll(0, 0);
   }, []);
 
-  console.log(location);
   useEffect(() => {
     if (!location?.organisationData?.locationContact) {
       dispatch(getOrganisation());

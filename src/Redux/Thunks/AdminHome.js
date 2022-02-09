@@ -33,6 +33,7 @@ export const updateSettingHome = (adminHomeData) => {
         }
       })
       .catch((err) => {
+        dispatch(stopLoading());
         dispatch(updateSettingUnsucessfull(err));
       });
   };
@@ -49,6 +50,7 @@ export const getSettingHome = () => {
         }
       })
       .catch((err) => {
+        dispatch(stopLoading());
         dispatch(getSettingUnSucessfull(err));
       });
   };
@@ -62,7 +64,9 @@ export const addCategory = (category) => {
         if (res.status === 201) {
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        dispatch(stopLoading());
+      });
   };
 };
 
@@ -72,10 +76,14 @@ export const getCategories = () => {
     await getCategoryAPI()
       .then((res) => {
         if (res.status === 200) {
+          dispatch(stopLoading());
           dispatch(getCategoriesSucessfull(res.data));
         }
       })
-      .catch((err) => dispatch(getCategoriesUnSucessfull(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(getCategoriesUnSucessfull(err));
+      });
   };
 };
 
@@ -84,11 +92,15 @@ export const updateCategories = (data) => {
     dispatch(startLoading());
     await updateCategoriesAPI(data)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(updateCategorySucessfull(data));
         }
       })
-      .catch((err) => dispatch(updateCategoryUnSucessfull(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(updateCategoryUnSucessfull(err));
+      });
   };
 };
 
@@ -97,10 +109,14 @@ export const deleteCategory = (id) => {
     dispatch(startLoading());
     await deleteCategoryAPI(id)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(deleteCategorySucessfull(id));
         }
       })
-      .catch((err) => dispatch(deleteCategoryUnSucessfull(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(deleteCategoryUnSucessfull(err));
+      });
   };
 };

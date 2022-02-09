@@ -74,7 +74,18 @@ export function AdminProduct(state = {}, action) {
         ...state,
         error: true,
       };
-    // case ADMIN_PRODUCT_ACTION
+    case ADMIN_PRODUCT_ACTION.GET_PRODUCT_SUCCESS_ID:
+      return {
+        ...state,
+        error: false,
+        searchedProduct: action.data,
+      };
+    case ADMIN_PRODUCT_ACTION.GET_PRODUCT_UNSUCCESS_ID:
+      return {
+        ...state,
+        error: true,
+        errorMessage: action.data,
+      };
     default:
       return state;
   }

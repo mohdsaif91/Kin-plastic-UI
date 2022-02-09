@@ -11,6 +11,8 @@ export const ADMIN_PRODUCT_ACTION = {
   GET_BEST_PRODUCT_UNSUCESS: "GET_BEST_PRODUCT_UNSUCESS",
   GET_PRODUCT_SUCESSFUL: "GET_PRODUCT_SUCESSFUL",
   GET_PRODUCT_UNSUCESSFUL: "GET_PRODUCT_UNSUCESSFUL",
+  GET_PRODUCT_SUCCESS_ID: "GET_PRODUCT_SUCCESS_ID",
+  GET_PRODUCT_UNSUCCESS_ID: "GET_PRODUCT_UNSUCCESS_ID",
   GET_PRODUCT_BY_CATEGORY_SUCESSFUL: "GET_PRODUCTBY_CATEGORY_SUCESSFUL",
   GET_PRODUCT_BY_CATEGORY_UNSUCESSFUL: "GET_PRODUCTBY_CATEGORY_UNSUCESSFUL",
 };
@@ -109,6 +111,20 @@ export const getProductSucessful = (data) => {
 export const getProductUnSucessful = (data) => {
   return {
     type: ADMIN_PRODUCT_ACTION.GET_PRODUCT_UNSUCESSFUL,
+    data,
+  };
+};
+
+export const getProductSucessfulId = (data) => {
+  return {
+    type: ADMIN_PRODUCT_ACTION.GET_PRODUCT_SUCCESS_ID,
+    data,
+  };
+};
+
+export const getProductUnSucessfulId = (data) => {
+  return {
+    type: ADMIN_PRODUCT_ACTION.GET_PRODUCT_UNSUCCESS_ID,
     data,
   };
 };

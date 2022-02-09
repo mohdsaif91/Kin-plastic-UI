@@ -21,11 +21,15 @@ export const addClientFunction = (data) => {
     dispatch(startLoading());
     await addClientAPI(data)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(addClientSuccess(res.data));
         }
       })
-      .catch((err) => dispatch(addClientUnSuccess(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(addClientUnSuccess(err));
+      });
   };
 };
 
@@ -34,11 +38,15 @@ export const deleteClientFunction = (id, imageName) => {
     dispatch(startLoading());
     await deleteClientAPI(id, imageName)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(deleteClientSuccess(res.data));
         }
       })
-      .catch((err) => dispatch(deleteClientUnSuccess(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(deleteClientUnSuccess(err));
+      });
   };
 };
 
@@ -47,11 +55,15 @@ export const editClientFunction = (data) => {
     dispatch(startLoading());
     await editClientApi(data)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 200) {
           dispatch(editClientSuccess(res.data));
         }
       })
-      .catch((err) => dispatch(editClientUnSuccess(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(editClientUnSuccess(err));
+      });
   };
 };
 
@@ -65,6 +77,9 @@ export const getClientFunction = () => {
           dispatch(getClientSuccess(res.data));
         }
       })
-      .catch((err) => dispatch(getClientUnSuccess(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(getClientUnSuccess(err));
+      });
   };
 };

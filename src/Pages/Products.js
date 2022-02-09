@@ -16,12 +16,12 @@ export default function Products() {
     if (!categories) {
       dispatch(getCategories());
     }
-    if (categories) {
+    if (categories && !products) {
       setCategory(categories);
       setSelectedCategory(categories[0].text);
       dispatch(getProductbyCategory(categories[0].text));
     }
-  }, [categories, category, dispatch]);
+  }, [categories, category, dispatch, products]);
 
   useEffect(() => {
     if (products) {
@@ -34,7 +34,6 @@ export default function Products() {
   }, []);
 
   const getProducts = (categoryName) => {
-    console.warn("Called");
     setSelectedCategory(categoryName);
     dispatch(getProductbyCategory(categoryName));
   };

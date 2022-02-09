@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { NavLink, withRouter, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, withRouter, useHistory, useLocation } from "react-router-dom";
 
 import DropDown from "./DropDown";
 
 import Logo from "../images/logo.PNG";
+import { searchSingleProductFun } from "../Redux/Thunks/Header";
+import { getSettingHome } from "../Redux/Thunks/AdminHome";
 
 const routes = [
   { name: "Home", to: "/", additionalClass: "", value: "home" },
@@ -28,8 +30,8 @@ function Header(props) {
 
   const productdata = useSelector((state) => state.AdminHomeSetting.setting);
   const { pathname } = useLocation();
-  // const dispatch = useDispatch();
-  // const history = useHistory();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const setPageCloseNav = (data) => {
     // setPage(data);
@@ -46,11 +48,20 @@ function Header(props) {
       }
       return pathNameURL;
     });
-    setPage(activePage.value);
+    if (pathname.includes("/showProduct")) {
+      // setPage()
+    } else {
+      setPage(activePage.value);
+    }
   }, [pathname]);
 
+  useEffect(() => {
+    if (!productdata?.product) {
+      dispatch(getSettingHome());
+    }
+  }, [productdata, dispatch]);
+
   const findOnChange = (e) => {
-    console.log(productdata?.product);
     const foundProduct = productdata?.product.filter(
       (f) =>
         f.categoryName.toLowerCase().includes(e.toLowerCase()) ||
@@ -60,7 +71,7 @@ function Header(props) {
     setSearchedProduct({
       ...searchedProduct,
       text: e,
-      searchedProduct: [...foundProduct],
+      searchedProduct: foundProduct.length !== 0 ? [...foundProduct] : [],
     });
   };
 
@@ -71,12 +82,11 @@ function Header(props) {
   };
 
   const showSingle = (id) => {
-    console.log(id);
     setSearchedProduct({ ...initialSearch });
-    // dispatch(searchSingleProductFun(id));
-    // setInterval(() => {
-    //   history.push("/showProduct");
-    // }, 1000);
+    dispatch(searchSingleProductFun(id));
+    setInterval(() => {
+      history.push(`/showProduct/${id}`);
+    }, 1000);
   };
 
   return (
@@ -98,7 +108,7 @@ function Header(props) {
           >
             <div className="container">
               <div className="form-control">
-                <form action="" autocomplete="off">
+                <form action="" autoComplete="off">
                   <div className="search-wrapper">
                     <label>
                       <i className="icon fa fa-search"></i>
@@ -126,7 +136,7 @@ function Header(props) {
                 {searchedProduct.text !== "" && show && (
                   <ul className="dropdown-products">
                     {searchedProduct.searchedProduct.map((m) => (
-                      <li onClick={() => showSingle(m._id)}>
+                      <li key={m._id} onClick={() => showSingle(m._id)}>
                         <div>
                           <div className="serach-result-productname">
                             {m.productName}
@@ -162,7 +172,7 @@ function Header(props) {
             id="menu-btn"
           />
           <label
-            for="menu-btn"
+            htmlFor="menu-btn"
             onClick={() => openNav()}
             className={`menu-icon ${openMenu && "mobile-menu-icon"}`}
           >
@@ -170,8 +180,9 @@ function Header(props) {
           </label>
 
           <ul className={`nav-links ${openMenu && "mobile-links"}`}>
-            {routes.map((m) => (
+            {routes.map((m, index) => (
               <li
+                key={index}
                 className={`nav-link ${m.additionalClass} ${
                   page === m.value && "active"
                 }`}

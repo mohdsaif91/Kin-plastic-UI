@@ -15,6 +15,7 @@ export const Login = (loginData) => {
         }
       })
       .catch((err) => {
+        dispatch(stopLoading());
         dispatch(adminLoginFail(err.msg));
       });
   };
@@ -22,11 +23,13 @@ export const Login = (loginData) => {
 
 export const SignUP = (loginData) => {
   return async (dispatch) => {
-    await signUpApi(loginData).then((response) => {
-      dispatch(stopLoading());
-      if (response.status === 200) {
-        dispatch(adminLogin());
-      }
-    });
+    await signUpApi(loginData)
+      .then((response) => {
+        dispatch(stopLoading());
+        if (response.status === 200) {
+          dispatch(adminLogin());
+        }
+      })
+      .catch((err) => dispatch(stopLoading()));
   };
 };

@@ -5,18 +5,22 @@ import {
   getServiceSucess,
   getServiceUnSucess,
 } from "../Actions/AdminServiceAction";
-import { startLoading } from "../Actions/Util";
+import { startLoading, stopLoading } from "../Actions/Util";
 
 export const addService = (data) => {
   return async (dispatch) => {
     dispatch(startLoading());
     await addServiceAPI(data)
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(addServiceSucess(res.data));
         }
       })
-      .catch((err) => dispatch(addServiceUnSucess(err)));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(addServiceUnSucess(err));
+      });
   };
 };
 
@@ -25,10 +29,14 @@ export const getServices = () => {
     dispatch(startLoading());
     await getServicesAPI()
       .then((res) => {
+        dispatch(stopLoading());
         if (res.status === 200) {
           dispatch(getServiceSucess(res.data));
         }
       })
-      .catch((err) => getServiceUnSucess(err));
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(getServiceUnSucess(err));
+      });
   };
 };
