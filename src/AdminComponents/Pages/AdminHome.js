@@ -47,14 +47,13 @@ export default function AdminHome() {
   const pageSetting = useSelector((state) => state.AdminHomeSetting.setting);
 
   useEffect(() => {
-    dispatch(getSettingHome());
-  }, [dispatch]);
-
-  useEffect(() => {
+    if (!pageSetting) {
+      dispatch(getSettingHome());
+    }
     if (pageSetting) {
       setData(pageSetting.setting);
     }
-  }, [pageSetting]);
+  }, [dispatch, pageSetting]);
 
   const saveSetting = () => {
     dispatch(updateSettingHome(data));
