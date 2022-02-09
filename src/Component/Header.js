@@ -84,9 +84,8 @@ function Header(props) {
   const showSingle = (id) => {
     setSearchedProduct({ ...initialSearch });
     dispatch(searchSingleProductFun(id));
-    setInterval(() => {
-      history.push(`/showProduct/${id}`);
-    }, 1000);
+    history.push(`/showProduct/${id}`);
+    setTimeout(() => {}, 1000);
   };
 
   return (

@@ -13,7 +13,9 @@ export const searchSingleProductFun = (id) => {
       .then((res) => {
         dispatch(stopLoading());
         if (res.status === 200) {
-          dispatch(getProductSucessfulId(res.data));
+          setTimeout(() => {
+            dispatch(getProductSucessfulId(res.data));
+          }, 1000);
         }
       })
       .catch((err) => {
