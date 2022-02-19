@@ -6,6 +6,7 @@ import {
   getOrganisationOwnerAPI,
   getOwnerDataAPI,
   saveContactLocationAPI,
+  saveSocialMediaAPI,
   sendInqueryAPI,
   updateEmployeeAPI,
   updateOwnerAPI,
@@ -25,6 +26,8 @@ import {
   getOwnerDataUnSucess,
   sendEmailSuccess,
   sendEmailUnSuccess,
+  socialMediaAddSuccess,
+  socialMediaAddUnSuccess,
   updateEmployeeSuccess,
   updateEmployeeUnSuccess,
   updateOrganisationSucess,
@@ -195,5 +198,19 @@ export const saveContactLocation = (data) => {
         dispatch(stopLoading());
         dispatch(updateOrganisationUnSucess(err));
       });
+  };
+};
+
+export const saveSocialMedia = (data) => {
+  return async (dispatch) => {
+    dispatch(startLoading());
+    await saveSocialMediaAPI(data)
+      .then((res) => {
+        dispatch(stopLoading());
+        if (res.status === 200) {
+          dispatch(socialMediaAddSuccess(res.data));
+        }
+      })
+      .catch((err) => dispatch(socialMediaAddUnSuccess(err)));
   };
 };

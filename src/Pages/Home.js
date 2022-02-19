@@ -74,6 +74,7 @@ export default function Home() {
 
   const dispatch = useDispatch();
   const pageHomeData = useSelector((state) => state.AdminHomeSetting.setting);
+  const location = useSelector((state) => state.AdminAboutUs);
 
   const changeHero = () => {
     setcount((count) => count + 1);
@@ -147,6 +148,43 @@ export default function Home() {
     // eslint-disable-next-line
   }, [dispatch, pageHomeData, slider]);
 
+  const getTheSocialLink = (data) => {
+    switch (true) {
+      case data.platForm === "Facebook":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i className="fa fa-facebook-official" aria-hidden="true"></i>
+          </a>
+        );
+      case data.platForm === "Instagram":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i className="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+        );
+      case data.platForm === "Youtube":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i class="fa fa-youtube"></i>
+          </a>
+        );
+      case data.platForm === "LinkedIn":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>;
+          </a>
+        );
+      case data.platForm === "Twitter":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i className="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+        );
+      default:
+        return <div></div>;
+    }
+  };
+
   return (
     <div className="home-container">
       <div
@@ -191,29 +229,23 @@ export default function Home() {
             ))}
           </ul>
           <ul className="sci">
-            <li>
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="fa fa-facebook-official" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-                <i className="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="fa fa-instagram" aria-hidden="true"></i>;
-              </a>
-            </li>
+            {location?.organisationData?.social.map((m, index) => (
+              <li key={index}>{getTheSocialLink(m)}</li>
+              // <li>
+              //   <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+              //     <i className="fa fa-twitter" aria-hidden="true"></i>
+              //   </a>
+              // </li>
+              // <li>
+              //   <a
+              //     href="https://www.instagram.com/"
+              //     target="_blank"
+              //     rel="noreferrer"
+              //   >
+              //     <i className="fa fa-instagram" aria-hidden="true"></i>;
+              //   </a>
+              // </li>
+            ))}
           </ul>
         </div>
       </div>

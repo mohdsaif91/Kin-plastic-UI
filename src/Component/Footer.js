@@ -14,12 +14,62 @@ export default function Footer() {
     }
   }, [dispatch, location]);
 
+  const getTheSocialLink = (data) => {
+    console.log(data.platForm);
+    switch (true) {
+      case data.platForm === "Facebook":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i className="fa fa-facebook-official" aria-hidden="true"></i>
+          </a>
+        );
+      case data.platForm === "Instagram":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i className="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+        );
+      case data.platForm === "Youtube":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i class="fa fa-youtube"></i>
+          </a>
+        );
+      case data.platForm === "LinkedIn":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>;
+          </a>
+        );
+      case data.platForm === "Twitter":
+        return (
+          <a href={`https://${data.url}`} target="_blank" rel="noreferrer">
+            <i className="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+        );
+      default:
+        return <div></div>;
+    }
+  };
+
   return (
     <div className="black-footer">
       <div className="footer-header">
         <div className="header-socialMedia">
           <ul className="sci">
-            <li key="1">
+            {location?.organisationData?.social.map((m, index) => (
+              <li key={index}>
+                {getTheSocialLink(m)}
+                {/* <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fa fa-facebook-official" aria-hidden="true"></i>
+                </a> */}
+              </li>
+            ))}
+            {/* <li key="1">
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
@@ -42,6 +92,20 @@ export default function Footer() {
                 <i className="fa fa-instagram" aria-hidden="true"></i>
               </a>
             </li>
+            <li key="4">
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li key="5">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa fa-youtube"></i>
+              </a>
+            </li> */}
           </ul>
         </div>
         <div className="footer-main-text">Let's Talk ?</div>

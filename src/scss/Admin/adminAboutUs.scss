@@ -25,6 +25,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  .social-media-container {
+    margin: 32px 0;
+    .social-media {
+      .url-text-box {
+        margin-right: 8px;
+      }
+      .platform-text {
+        width: 46%;
+      }
+      .social-media-add-btn {
+        margin: 32px 0;
+        display: flex;
+        justify-content: right;
+      }
+    }
+  }
   .short-story {
     margin-right: 1rem;
   }

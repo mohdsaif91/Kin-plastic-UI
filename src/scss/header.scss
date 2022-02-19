@@ -43,9 +43,10 @@
     }
     .logo-name {
       font-family: "Avenir Next", Calibri, Verdana, sans-serif;
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 600;
       cursor: pointer;
+      text-transform: uppercase;
       color: $link-color;
     }
     .logo-name-header {

@@ -193,11 +193,9 @@ $highlight-color: #38b449;
 
     .postcard__text {
       .postcard__title {
-        font-size: 18px;
-        font-family: -webkit-pictograph;
-        // font-weight: var(--fw-bold);
+        font-size: 17px;
         transition: opacity 300ms ease-in-out;
-        line-height: 1.2rem;
+        line-height: 1.1rem;
 
         &:hover {
           opacity: 0.8;

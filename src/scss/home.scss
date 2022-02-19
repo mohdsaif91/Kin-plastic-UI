@@ -48,6 +48,7 @@
           background-size: 200% 100%;
           background-position: left bottom;
           transition: all 2s ease;
+          border-radius: 4px;
 
           &:hover {
             background-position: right bottom;
@@ -359,6 +360,7 @@
       background-size: 200% 100%;
       background-position: left bottom;
       transition: all 1s ease;
+      border-radius: 10px;
       &:hover {
         background-position: right bottom;
         color: #fff;

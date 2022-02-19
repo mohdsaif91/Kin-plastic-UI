@@ -90,10 +90,11 @@ body {
   width: auto;
   font-size: 1rem;
   border-style: none;
-  padding: 16px !important;
+  padding: 0 24px !important;
   margin: 8px;
-  border-radius: 10%;
+  border-radius: 6px;
   cursor: pointer;
+  height: 42px;
 
   &:hover {
     background-color: #fff;

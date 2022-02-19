@@ -85,7 +85,6 @@ function Header(props) {
     setSearchedProduct({ ...initialSearch });
     dispatch(searchSingleProductFun(id));
     history.push(`/showProduct/${id}`);
-    setTimeout(() => {}, 1000);
   };
 
   return (
@@ -99,7 +98,10 @@ function Header(props) {
         {!props.hideRest && window.innerWidth <= 759 && (
           <div className="logo-name-header">Kin Industries</div>
         )}
-        <div className="logo-name">Kin Industries</div>
+
+        <NavLink to="/">
+          <div className="logo-name">Kin Industries</div>
+        </NavLink>
         {props.hideRest && (
           <div
             className="search-container"

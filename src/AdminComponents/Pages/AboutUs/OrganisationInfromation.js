@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {
+  FormControl,
   Grid,
+  InputLabel,
   List,
   ListItem,
   ListItemText,
+  MenuItem,
+  Select,
   styled,
   TextField,
 } from "@material-ui/core";
@@ -13,6 +17,7 @@ import deleteImg from "../../../images/deleteIcon.svg";
 import {
   getOrganisation,
   saveContactLocation,
+  saveSocialMedia,
 } from "../../../Redux/Thunks/AdminAboutUs";
 import { emailValidation, mobileValidation } from "../utils";
 
@@ -21,6 +26,11 @@ const Demo = styled("div")(({ theme }) => ({
   padding: 26,
 }));
 
+const socialDropDown = {
+  media: ["Facebook", "Instagram", "Youtube", "LinkedIn", "Twitter"],
+  url: "",
+  platform: "",
+};
 const intialData = {
   longStory: "",
   shortStory: "",
@@ -44,9 +54,12 @@ export default function OrganisationInfromation() {
     ...initialLocationContact,
   });
   const [email, setEmail] = useState({ ...initialEmail });
+  const [socialMedia, setSocialMedia] = useState({ ...socialDropDown });
 
   const dispatch = useDispatch();
   const aboutUsData = useSelector((state) => state.AdminAboutUs);
+
+  useEffect(() => {}, [socialMedia.count]);
 
   useEffect(() => {
     if (!aboutUsData.organisationData) {
@@ -60,6 +73,14 @@ export default function OrganisationInfromation() {
 
   const handleOnChange = (e) => {
     setAboutUs({ ...aboutUs, [e.target.name]: e.target.value });
+  };
+
+  const changeSocial = (e) => {
+    console.log(e.target.value, e.target.name);
+    setSocialMedia({
+      ...socialMedia,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const saveContactLocationMethod = () => {
@@ -115,6 +136,21 @@ export default function OrganisationInfromation() {
     dispatch(saveContactLocation(aboutUs));
   };
 
+  const addSocial = () => {
+    const data = { url: socialMedia.url, platForm: socialMedia.platform };
+    if (aboutUs?.social.length === 0) {
+      aboutUs.social = [data];
+    } else {
+      aboutUs.social = [...aboutUs.social, data];
+    }
+    dispatch(saveSocialMedia(aboutUs));
+  };
+
+  const deleteSocialMedia = (indexS) => {
+    aboutUs.social = aboutUs.social.filter((f, index) => index !== indexS);
+    dispatch(saveSocialMedia(aboutUs));
+  };
+
   return (
     <div className="admin-alignment">
       <div className="story-container">
@@ -152,6 +188,74 @@ export default function OrganisationInfromation() {
             >
               Save stroy
             </button>
+          </div>
+          <div className="social-media-container">
+            <div className="social-media">
+              <div>
+                <TextField
+                  className="url-text-box"
+                  label="URL"
+                  value={socialMedia.url}
+                  name="url"
+                  onChange={(e) => changeSocial(e)}
+                />
+
+                <FormControl className="platform-text">
+                  <InputLabel id="demo-simple-select-label">
+                    Platform
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={socialMedia.platform}
+                    name="platform"
+                    label="Platform"
+                    onChange={(e) => changeSocial(e)}
+                  >
+                    {socialMedia.media.map((m) => (
+                      <MenuItem value={m}>{m}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </div>
+
+              <div className="social-media-add-btn">
+                <button
+                  className={` ${
+                    aboutUs?.social?.length >= 5 ? "disabled-btn" : "normal-btn"
+                  }`}
+                  onClick={() => addSocial()}
+                >
+                  Add
+                </button>
+              </div>
+              <div className="list-container-aboutus">
+                <Grid container spacing={4}>
+                  <Grid item xs={12} md={12}>
+                    <Demo>
+                      <List>
+                        {aboutUs?.social &&
+                          aboutUs?.social.map((m, index) => (
+                            <ListItem key={index} className="p-c-list">
+                              <ListItemText
+                                className="card-text"
+                                primary={m.url}
+                              />
+                              <ListItemText primary={m.platForm} />
+                              <img
+                                alt="delete"
+                                onClick={() => deleteSocialMedia(index)}
+                                className="del-img"
+                                src={deleteImg}
+                              />
+                            </ListItem>
+                          ))}
+                      </List>
+                    </Demo>
+                  </Grid>
+                </Grid>
+              </div>
+            </div>
           </div>
         </div>
         <div className="contact-us-container">
