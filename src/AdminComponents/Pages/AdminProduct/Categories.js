@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Add, HighlightOff, PhotoCamera, Create } from "@material-ui/icons";
+import { Add, HighlightOff, Create } from "@material-ui/icons";
 
 import {
   addCategory,
@@ -82,7 +82,7 @@ export function Categories() {
                 id="outlined-required"
                 label="Category Name"
               />
-              <div className="product-upload">
+              {/* <div className="product-upload">
                 <input
                   style={{ display: "none" }}
                   id="contained-button-file"
@@ -98,10 +98,10 @@ export function Categories() {
                     Image
                   </Button>
                 </label>
-              </div>
+              </div> */}
             </div>
             <Button
-              className="cat-add-btn"
+              className="cat-add-btn mt-2"
               variant="contained"
               color="primary"
               onClick={() => addToCategiryList()}

@@ -65,6 +65,7 @@ const initialProductData = {
   process: "",
   shellMatrial: "",
   shellWeight: "",
+  temperature: "",
 };
 
 export default function Product() {
@@ -124,6 +125,7 @@ export default function Product() {
         setProduct({ ...m, productImageId: m.productImage });
       }
     });
+    window.scrollTo(0, 0);
     setEdit(true);
   };
 
@@ -287,7 +289,18 @@ export default function Product() {
                     autoFocus
                   />
                 </Grid>
-                <Grid item xs={12} sm={12}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    fullWidth
+                    name="temperature"
+                    onChange={(e) => handleChange(e)}
+                    value={product.temperature}
+                    id="temperature"
+                    label="Temperature"
+                    autoFocus
+                  />
+                </Grid>
+                {/* <Grid item xs={12} sm={12}>
                   <TextField
                     fullWidth
                     name="shellWeight"
@@ -297,30 +310,32 @@ export default function Product() {
                     label="Shell height in grams"
                     autoFocus
                   />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Button
-                    color="default"
-                    size="large"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    onClick={() => setProduct({ ...initialProductData })}
-                  >
-                    Clear data
-                  </Button>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Button
-                    color="primary"
-                    size="large"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    onClick={() => submitData()}
-                  >
-                    Submit
-                  </Button>
+                </Grid> */}
+                <Grid container className="mt-2">
+                  <Grid item xs={12} sm={6}>
+                    <Button
+                      color="default"
+                      size="large"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                      onClick={() => setProduct({ ...initialProductData })}
+                    >
+                      Clear data
+                    </Button>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Button
+                      color="primary"
+                      size="large"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                      onClick={() => submitData()}
+                    >
+                      Submit
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </FormControl>
@@ -395,68 +410,85 @@ export default function Product() {
                         {m.productDescription}
                       </Typography>
                       <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Design-</b> {m.design}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Category name-</b> {m.categoryName}
-                        </Typography>
+                        {m.design && m.design !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Design-</b> {m.design}
+                          </Typography>
+                        )}
+                        {m.categoryName && m.categoryName !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Category name-</b> {m.categoryName}
+                          </Typography>
+                        )}
+                      </div>
+
+                      <div className="product-feilds">
+                        {m.nominalDiameter && m.nominalDiameter !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Nominal diameter-</b> {m.nominalDiameter}
+                          </Typography>
+                        )}
+                        {m.process && m.process !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Process-</b> {m.process}
+                          </Typography>
+                        )}
                       </div>
                       <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Nominal diameter-</b> {m.nominalDiameter}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Process-</b> {m.process}
-                        </Typography>
+                        {m.shellMatrial && m.shellMatrial !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Shell matrial-</b> {m.shellMatrial}
+                          </Typography>
+                        )}
+                        {m.shellWeight && m.shellWeight !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Shell weight-</b> {m.shellWeight} gm
+                          </Typography>
+                        )}
                       </div>
                       <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Shell matrial-</b> {m.shellMatrial}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Shell weight-</b> {m.shellWeight}
-                        </Typography>
-                      </div>
-                      <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Application-</b> {m.application}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Shell height-</b> {m.categoryName}
-                        </Typography>
+                        {m.application && m.application !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Application-</b> {m.application}
+                          </Typography>
+                        )}
+                        {m.temperature && m.temperature !== "" && (
+                          <Typography
+                            className="feild"
+                            variant="body2"
+                            color="text.secondary"
+                          >
+                            <b>Temperature-</b> {m.temperature}
+                          </Typography>
+                        )}
                       </div>
                     </CardContent>
                   </CardActionArea>
@@ -475,38 +507,6 @@ export default function Product() {
                 </Card>
               );
             })}
-            {/* <ul className="list-container">
-              {productList.map((m, index) => {
-                return (
-                  <li key={m._id} className="main-list">
-                    <div className="content">
-                      <div className="text">{m.text}</div>
-                      <div className="count">{m.count}</div>
-                    </div>
-                    <div className="btn-action">
-                      <Button
-                        component="span"
-                        // onClick={() =>
-                        //   setEdit({
-                        //     ...edit,
-                        //     text: m.text,
-                        //     flag: true,
-                        //     id: m._id,
-                        //     count: m.count,
-                        //   })
-                        // }
-                        endIcon={<Create />}
-                      ></Button>
-                      <Button
-                        // onClick={() => deleteCat(m._id)}
-                        component="span"
-                        endIcon={<HighlightOff />}
-                      ></Button>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul> */}
           </Container>
         </ThemeProvider>
       </div>

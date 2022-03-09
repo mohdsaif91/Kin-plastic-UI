@@ -301,7 +301,7 @@ function MiniDrawer(props) {
             button
             onClick={() => history.push("/inquery")}
             className={`${active === "/inquery" && "nav-active"}`}
-            key="aboutUs"
+            key="inquery"
           >
             <BootstrapTooltip title="Inquery Mail" placement="right-end">
               <ListItemIcon>

@@ -8,18 +8,20 @@ import Product from "./Product";
 
 export default function AdminProduct() {
   const [tabIndex, setTabIndex] = useState(0);
-
+  console.log("called Fater");
   return (
     <div className="admin-alignment">
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList className="tab-list">
-          <Tab className={`tab-name ${tabIndex === 0 && "active"}`}>
+          <Tab key="1" className={`tab-name ${tabIndex === 0 && "active"}`}>
             Categories
           </Tab>
-          <Tab className={`tab-name ${tabIndex === 1 && "active"}`}>
+          <Tab key="2" className={`tab-name ${tabIndex === 1 && "active"}`}>
             Products
           </Tab>
-          <Tab className={`tab-name ${tabIndex === 2 && "active"}`}>Best 7</Tab>
+          <Tab key="3" className={`tab-name ${tabIndex === 2 && "active"}`}>
+            Best 7
+          </Tab>
         </TabList>
         <TabPanel>
           <Categories />
