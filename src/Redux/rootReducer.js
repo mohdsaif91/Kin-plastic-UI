@@ -9,6 +9,7 @@ import { AdminAboutUs } from "./Reducers/AdminAboutUs";
 import { AdminEmail } from "./Reducers/AdminEmail";
 import { AdminClient } from "./Reducers/AdminClient";
 import { UtilsReducer } from "./Reducers/UtilsReducer";
+import { Product } from "./Reducers/Product";
 
 const createRootReducer = () => {
   //this grabs all the reducers and generators one
@@ -21,6 +22,7 @@ const createRootReducer = () => {
     AdminReducer,
     AdminService,
     AdminEmail,
+    Product,
     UtilsReducer,
   });
 };

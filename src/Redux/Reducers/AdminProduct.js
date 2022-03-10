@@ -33,7 +33,8 @@ export function AdminProduct(state = {}, action) {
     case ADMIN_PRODUCT_ACTION.GET_PRODUCT_BY_CATEGORY_SUCESSFUL:
       return {
         ...state,
-        byCategory: action.data,
+        byCategory: action.data.products,
+        categoryName: action.data.categoryName,
         error: false,
       };
     case ADMIN_PRODUCT_ACTION.GET_PRODUCT_BY_CATEGORY_UNSUCESSFUL:

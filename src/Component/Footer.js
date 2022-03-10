@@ -15,7 +15,6 @@ export default function Footer() {
   }, [dispatch, location]);
 
   const getTheSocialLink = (data) => {
-    console.log(data.platForm);
     switch (true) {
       case data.platForm === "Facebook":
         return (

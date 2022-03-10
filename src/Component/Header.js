@@ -7,6 +7,7 @@ import DropDown from "./DropDown";
 import Logo from "../images/logo.PNG";
 import { searchSingleProductFun } from "../Redux/Thunks/Header";
 import { getSettingHome } from "../Redux/Thunks/AdminHome";
+import { closeNav, openNavigation } from "../Redux/Actions/ProductAction";
 
 const routes = [
   { name: "Home", to: "/", additionalClass: "", value: "home" },
@@ -34,7 +35,7 @@ function Header(props) {
   const history = useHistory();
 
   const setPageCloseNav = (data) => {
-    // setPage(data);
+    dispatch(closeNav());
     setOpenMenu(false);
   };
 
@@ -49,7 +50,6 @@ function Header(props) {
       return pathNameURL;
     });
     if (pathname.includes("/showProduct")) {
-      // setPage()
     } else {
       setPage(activePage.value);
     }
@@ -75,10 +75,20 @@ function Header(props) {
     });
   };
 
+  useEffect(() => {
+    if (searchedProduct.text !== "") {
+      dispatch(openNavigation());
+    } else {
+      dispatch(closeNav());
+    }
+  }, [searchedProduct.text, dispatch]);
+
   const change = () => {};
 
   const openNav = () => {
     setOpenMenu(!openMenu);
+    console.log("loki");
+    dispatch(!openMenu ? openNavigation() : closeNav());
   };
 
   const showSingle = (id) => {
@@ -127,13 +137,6 @@ function Header(props) {
                     </label>
                   </div>
                 </form>
-                {/* {searchedProduct.text === "" && show && (
-                  <ul className="dropdown-products-dummy">
-                    {searchedProduct.searchedProduct.map((m) => (
-                    <li>Search Category, Product and Application</li>
-                    ))}
-                  </ul>
-                )} */}
                 {searchedProduct.text !== "" && show && (
                   <ul className="dropdown-products">
                     {searchedProduct.searchedProduct.map((m) => (

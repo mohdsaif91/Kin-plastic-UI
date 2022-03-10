@@ -62,6 +62,7 @@
       display: flex;
       align-items: center;
       height: $header-height;
+      transition: all 1s ease;
 
       .container {
         position: relative;

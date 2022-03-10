@@ -1,17 +1,24 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import Select from "react-select";
+import Select from "react-select";
 
 import { getCategories } from "../Redux/Thunks/AdminHome";
 import { getProductbyCategory } from "../Redux/Thunks/AdminProduct";
 
+const initialCategory = {
+  selectedCategory: "",
+  productCategories: [],
+};
+
 export default function Products() {
-  const [category, setCategory] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [category, setCategory] = useState({ ...initialCategory });
+  // const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryProducts, setcategoryProducts] = useState([]);
 
   const categories = useSelector((state) => state.AdminCategories.categories);
   const products = useSelector((state) => state.AdminProduct.byCategory);
+  const categoryName = useSelector((state) => state.AdminProduct.categoryName);
+  const navData = useSelector((state) => state.Product);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,8 +26,11 @@ export default function Products() {
       dispatch(getCategories());
     }
     if (categories && !products) {
-      setCategory(categories);
-      setSelectedCategory(categories[0].text);
+      setCategory({
+        ...category,
+        productCategories: categories,
+        selectedCategory: categories[0].text,
+      });
       dispatch(getProductbyCategory(categories[0].text));
     }
   }, [categories, category, dispatch, products]);
@@ -36,31 +46,39 @@ export default function Products() {
   }, []);
 
   const getProducts = (categoryName) => {
-    setSelectedCategory(categoryName);
+    setCategory({ ...category, selectedCategory: categoryName });
+    // setSelectedCategory(categoryName);
     dispatch(getProductbyCategory(categoryName));
   };
-  // const option =
-  //   categories &&
-  //   categories.map((m) => {
-  //     return {
-  //       value: m.text,
-  //       label: m.text,
-  //     };
-  //   });
+
+  const getSelectedFromDP = (value) => {
+    setCategory({ ...category, selectedCategory: value.value });
+    // setSelectedCategory(value.value);
+    dispatch(getProductbyCategory(value.value));
+  };
+
+  const option =
+    categories &&
+    categories.map((m) => {
+      return {
+        value: m.text,
+        label: m.text,
+      };
+    });
+
+  console.log(category);
 
   return (
     <div className="Category-product">
       <div className="main-category-container">
         <div className="category">
-          {/* <Select options={option || []} /> */}
-
           {categories &&
             categories.map((m) => (
               <button
                 onClick={() => getProducts(m.text)}
                 key={m._id}
                 className={`btn ${
-                  selectedCategory === m.text
+                  category.selectedCategory === m.text
                     ? "selected-category"
                     : "btn-category"
                 }`}
@@ -69,13 +87,20 @@ export default function Products() {
               </button>
             ))}
         </div>
+        <Select
+          className={`dropdown-select ${
+            navData.navOpen ? "remove-index" : "add-index"
+          }`}
+          options={option}
+          onChange={(selectedValue) => getSelectedFromDP(selectedValue)}
+        />
       </div>
-      <div className="category-border" />
+      <div className="category-border cat-name">{categoryName}</div>
       <div className="category-product-container">
         {categoryProducts.length !== 0 ? (
           categoryProducts.map((m) => (
-            <div className="main-product">
-              <div key={m._id} className="product">
+            <div key={m._id} className="main-product">
+              <div className="product">
                 <div className="product-image">
                   <img
                     alt=""
