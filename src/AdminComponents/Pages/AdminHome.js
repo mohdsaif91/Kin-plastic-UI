@@ -48,7 +48,6 @@ export default function AdminHome() {
 
   useEffect(() => {
     if (!pageSetting) {
-      console.log("MAtter In HOME !!!!!!!!!!!!!!");
       dispatch(getSettingHome());
     }
     if (pageSetting) {

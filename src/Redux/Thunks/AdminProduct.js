@@ -31,12 +31,9 @@ export const deleteBestProduct = (id) => {
     dispatch(startLoading());
     await deleteBestProductAPI(id)
       .then((res) => {
-        console.log(res);
         dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(deleteBestProductSucess(res.data));
-        } else {
-          console.log("no 201");
         }
       })
       .catch((err) => {

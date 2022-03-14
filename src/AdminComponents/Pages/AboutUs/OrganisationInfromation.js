@@ -76,7 +76,6 @@ export default function OrganisationInfromation() {
   };
 
   const changeSocial = (e) => {
-    console.log(e.target.value, e.target.name);
     setSocialMedia({
       ...socialMedia,
       [e.target.name]: e.target.value,

@@ -80,7 +80,6 @@ function Header(props) {
 
   const openNav = () => {
     setOpenMenu(!openMenu);
-    console.log("loki");
     dispatch(!openMenu ? openNavigation() : closeNav());
   };
 

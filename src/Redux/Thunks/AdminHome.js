@@ -68,9 +68,7 @@ export const addCategory = (category) => {
     dispatch(startLoading());
     await addCategoryAPI(category)
       .then((res) => {
-        console.log(res, "<>?");
         dispatch(stopLoading());
-        console.log(res.data, "<>?");
         if (res.status === 201) {
           dispatch(addCategorySucessfull(res.data));
         }

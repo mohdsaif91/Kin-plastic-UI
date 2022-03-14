@@ -63,8 +63,6 @@ export default function Products() {
       };
     });
 
-  console.log(category);
-
   return (
     <div className="Category-product">
       <div className="main-category-container">

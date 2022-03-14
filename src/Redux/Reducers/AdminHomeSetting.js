@@ -6,7 +6,6 @@ export function AdminHomeSetting(state = {}, action) {
       const deleteBest = state.setting.setting.bestProduct.filter(
         (f) => f !== action.data
       );
-      console.log(deleteBest, action.data);
       state.setting.setting.bestProduct = deleteBest;
       return {
         ...state,

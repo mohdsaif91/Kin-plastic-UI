@@ -3,7 +3,6 @@ import { ADMIN_PRODUCT_ACTION } from "../Actions/AdminProductAction";
 export function AdminProduct(state = { products: [] }, action) {
   switch (action.type) {
     case ADMIN_PRODUCT_ACTION.DELETE_BEST_SUCESSFUL:
-      console.log(action.data);
       const deletedProduct = state.allProduct.map((m) => {
         if (m._id === action.data) {
           m.bestProduct = false;
@@ -71,7 +70,6 @@ export function AdminProduct(state = { products: [] }, action) {
           return m;
         }
       });
-      console.log(updatedProduct, "<>", action.data);
       return {
         ...state,
         allProduct: updatedProduct,

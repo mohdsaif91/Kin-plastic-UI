@@ -134,7 +134,6 @@ export default function Home() {
       dispatch(getSettingHome());
     }
     if (pageHomeData) {
-      console.log(pageHomeData, " Page Home Data");
       setHomeData({
         ...homeData,
         setting: pageHomeData.setting,
