@@ -10,21 +10,20 @@ import AddButton from "./AddButton";
 
 export default function ProductTable() {
   const [tableData, setTableData] = useState([]);
-  // const [settingData, setSettingData] = useState([]);
 
   const dispatch = useDispatch();
 
   const allProducts = useSelector((state) => state.AdminProduct.allProduct);
   const pageSetting = useSelector((state) => state.AdminHomeSetting.setting);
+  const categoryProduct = useSelector((state) => state.AdminProduct.byCategory);
 
   useEffect(() => {
     if (!pageSetting) {
       dispatch(getSettingHome());
     }
-    // if (pageSetting) {
-    //   setSettingData(pageSetting);
-    // }
   }, [dispatch, pageSetting]);
+
+  const limit = tableData.filter((f) => f.bestProduct);
 
   const columns = [
     {
@@ -32,25 +31,37 @@ export default function ProductTable() {
       headerClassName: "main-col",
       columns: [
         {
+          width: 200,
+          id: "productName",
           Header: "name",
-          accessor: "productName",
+          accessor: ({ productName }) => (
+            <div className="word-break">{productName}</div>
+          ),
           headerClassName: "col",
-          // className: "product-class",
         },
         {
           Header: "Application",
-          accessor: "application",
+          id: "applcation",
+          accessor: ({ application }) => (
+            <div className="word-break">{application || "NA"}</div>
+          ),
           headerClassName: "col",
         },
         {
+          id: "design",
           Header: "Design",
-          accessor: "design",
+          accessor: ({ design }) => (
+            <div className="word-break">{design || "NA"}</div>
+          ),
           headerClassName: "col",
         },
 
         {
+          id: "category",
           Header: "Category",
-          accessor: "categoryName",
+          accessor: ({ categoryName }) => (
+            <div className="word-break">{categoryName || "NA"}</div>
+          ),
           headerClassName: "col",
         },
         {
@@ -68,7 +79,13 @@ export default function ProductTable() {
         {
           Header: "Actions",
           headerClassName: "col",
-          accessor: ({ _id }) => <AddButton _id={_id} />,
+          accessor: ({ _id, bestProduct }) => (
+            <AddButton
+              limit={limit.length}
+              bestProduct={bestProduct}
+              _id={_id}
+            />
+          ),
           id: "_id",
         },
       ],
@@ -78,13 +95,19 @@ export default function ProductTable() {
       headerClassName: "main-col",
       columns: [
         {
+          id: "diameter",
           Header: "Diameter",
-          accessor: "nominalDiameter",
+          accessor: ({ nominalDiameter }) => (
+            <div className="word-break">{nominalDiameter || "NA"}</div>
+          ),
           headerClassName: "col",
         },
         {
+          id: "process",
           Header: "Process",
-          accessor: "process",
+          accessor: ({ process }) => (
+            <div className="word-break">{process || "NA"}</div>
+          ),
           headerClassName: "col",
         },
       ],
@@ -95,13 +118,19 @@ export default function ProductTable() {
       headerClassName: "main-col",
       columns: [
         {
+          id: "matrial",
           Header: "Matrial",
-          accessor: "shellMatrial",
+          accessor: ({ shellMatrial }) => (
+            <div className="word-break">{shellMatrial || "NA"}</div>
+          ),
           headerClassName: "col",
         },
         {
+          id: "weight",
           Header: "Weight",
-          accessor: "shellWeight",
+          accessor: ({ shellWeight }) => (
+            <div className="word-break">{shellWeight || "NA"}</div>
+          ),
           headerClassName: "col",
         },
       ],
@@ -112,10 +141,11 @@ export default function ProductTable() {
     if (!allProducts) {
       dispatch(getAllProducts());
     }
-    if (allProducts) {
-      setTableData(allProducts);
+    if (allProducts || categoryProduct) {
+      const dummyData = categoryProduct || allProducts;
+      setTableData([...dummyData]);
     }
-  }, [allProducts, dispatch]);
+  }, [allProducts, categoryProduct, dispatch, pageSetting]);
 
   return (
     <div>
@@ -123,8 +153,9 @@ export default function ProductTable() {
         className="react-table"
         data={tableData}
         columns={columns}
-        defaultPageSize={50}
-        // pageSizeOptions={[2, 4, 6]}
+        defaultPageSize={15}
+        showFilters={false}
+        showPagination={false}
       />
     </div>
   );

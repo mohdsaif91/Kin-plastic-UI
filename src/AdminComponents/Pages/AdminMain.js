@@ -3,7 +3,6 @@ import { Route, withRouter } from "react-router";
 
 import AdminHeader from "../Components/AdminHeader";
 import AdminHome from "./AdminHome";
-// import AdminProduct from "./AdminProduct";
 
 function AdminMain() {
   return (

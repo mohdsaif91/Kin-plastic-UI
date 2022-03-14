@@ -10,11 +10,6 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.9325rem;
   background-color: #f0f2f5;
-
-  // .app-container {
-  // 	height: 100%;
-  // 	width: 100%;
-  // }
 }
 .img-show {
   width: 90px;
@@ -57,7 +52,6 @@ body {
   background-color: #216fdb;
   max-width: 170px;
   padding: 16px !important;
-  // height: 30px;
   font-size: 1rem;
   border-style: none;
   margin: 8px;
@@ -97,8 +91,25 @@ body {
   height: 42px;
 
   &:hover {
-    background-color: #fff;
+    background-color: rgb(224, 221, 221);
     color: #216fdb;
+  }
+}
+.remove-btn {
+  color: #fff;
+  background-color: #ee1f1f;
+  width: auto;
+  font-size: 1rem;
+  border-style: none;
+  padding: 0 24px !important;
+  margin: 8px;
+  border-radius: 14px;
+  cursor: pointer;
+  height: 42px;
+
+  &:hover {
+    background-color: rgb(224, 221, 221);
+    color: #000;
   }
 }
 

@@ -22,7 +22,6 @@ import { ChevronRight, ChevronLeft, ExitToApp } from "@material-ui/icons";
 
 import { adminLogout } from "../../Redux/Actions/AdminAction";
 import ProductImage from "../../images/adminImage/productImage.png";
-import Services from "../../images/adminImage/services.png";
 import Client from "../../images/adminImage/customer.png";
 import home from "../../images/adminImage/home.png";
 import info from "../../images/adminImage/info.png";
@@ -254,19 +253,6 @@ function MiniDrawer(props) {
               </ListItemIcon>
             </BootstrapTooltip>
             <ListItemText primary="Product" />
-          </ListItem>
-          <ListItem
-            button
-            onClick={() => history.push("/adminService")}
-            className={`${active === "/adminService" && "nav-active"}`}
-            key="Services"
-          >
-            <BootstrapTooltip title="Services" placement="right-end">
-              <ListItemIcon>
-                <img alt="" src={Services} className="home-icon" />
-              </ListItemIcon>
-            </BootstrapTooltip>
-            <ListItemText primary="Services" />
           </ListItem>
           <ListItem
             button

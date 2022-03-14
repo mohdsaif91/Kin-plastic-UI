@@ -30,7 +30,6 @@ const initialClient = {
 export default function AdminClient() {
   const [client, setClient] = useState({ ...initialClient });
   const [dbClient, setDbClient] = useState([]);
-  // const [edit, setEdit] = useState({ ...editInitial });
 
   const dispatch = useDispatch();
   const clientData = useSelector((state) => state.AdminClient);

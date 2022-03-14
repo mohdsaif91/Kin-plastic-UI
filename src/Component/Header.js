@@ -6,7 +6,6 @@ import DropDown from "./DropDown";
 
 import Logo from "../images/logo.PNG";
 import { searchSingleProductFun } from "../Redux/Thunks/Header";
-import { getSettingHome } from "../Redux/Thunks/AdminHome";
 import { closeNav, openNavigation } from "../Redux/Actions/ProductAction";
 
 const routes = [
@@ -54,12 +53,6 @@ function Header(props) {
       setPage(activePage.value);
     }
   }, [pathname]);
-
-  useEffect(() => {
-    if (!productdata?.product) {
-      dispatch(getSettingHome());
-    }
-  }, [productdata, dispatch]);
 
   const findOnChange = (e) => {
     const foundProduct = productdata?.product.filter(

@@ -3,10 +3,13 @@ import {
   deleteCategoryAPI,
   getCategoryAPI,
   getHomePageData,
+  getProductByCategoryAPI,
   settingApiHome,
   updateCategoriesAPI,
 } from "../../api";
 import {
+  addCategorySucessfull,
+  addCategoryUnSucessfull,
   deleteCategorySucessfull,
   deleteCategoryUnSucessfull,
   getCategoriesSucessfull,
@@ -20,6 +23,10 @@ import {
   updateSettingSucessfull,
   updateSettingUnsucessfull,
 } from "../Actions/AdminHomeAction";
+import {
+  getProductByCategorySucessful,
+  getProductByCategoryUnSucessful,
+} from "../Actions/AdminProductAction";
 import { startLoading, stopLoading } from "../Actions/Util";
 
 export const updateSettingHome = (adminHomeData) => {
@@ -61,12 +68,16 @@ export const addCategory = (category) => {
     dispatch(startLoading());
     await addCategoryAPI(category)
       .then((res) => {
+        console.log(res, "<>?");
         dispatch(stopLoading());
+        console.log(res.data, "<>?");
         if (res.status === 201) {
+          dispatch(addCategorySucessfull(res.data));
         }
       })
       .catch((error) => {
         dispatch(stopLoading());
+        dispatch(addCategoryUnSucessfull(error));
       });
   };
 };
@@ -95,7 +106,7 @@ export const updateCategories = (data) => {
       .then((res) => {
         dispatch(stopLoading());
         if (res.status === 201) {
-          dispatch(updateCategorySucessfull(data));
+          dispatch(updateCategorySucessfull(res.data));
         }
       })
       .catch((err) => {
@@ -105,19 +116,34 @@ export const updateCategories = (data) => {
   };
 };
 
-export const deleteCategory = (id) => {
+export const deleteCategory = (data) => {
   return async (dispatch) => {
     dispatch(startLoading());
-    await deleteCategoryAPI(id)
+    await deleteCategoryAPI(data)
       .then((res) => {
         dispatch(stopLoading());
         if (res.status === 201) {
-          dispatch(deleteCategorySucessfull(id));
+          dispatch(deleteCategorySucessfull(data.id));
         }
       })
       .catch((err) => {
         dispatch(stopLoading());
         dispatch(deleteCategoryUnSucessfull(err));
+      });
+  };
+};
+
+export const getProductByCategoryName = (name) => {
+  return async (dispatch) => {
+    dispatch(startLoading());
+    await getProductByCategoryAPI(name)
+      .then((res) => {
+        dispatch(stopLoading());
+        dispatch(getProductByCategorySucessful(res.data));
+      })
+      .catch((error) => {
+        dispatch(stopLoading());
+        dispatch(getProductByCategoryUnSucessful(error));
       });
   };
 };

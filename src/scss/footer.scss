@@ -1,5 +1,3 @@
-// @import url('../variable.scss');
-
 .black-footer {
   background-color: #1b1b1b;
 
@@ -49,7 +47,6 @@
       font-size: 17px;
       font-weight: 600;
       line-height: 16px;
-      // border-style: solid;
       border: 2px solid $link-color;
       text-decoration: none;
       letter-spacing: -0.2px;
@@ -60,7 +57,7 @@
       background-size: 200% 100%;
       background-position: left bottom;
       transition: all 1s ease;
-      
+
       &:hover {
         background-position: right bottom;
         color: #fff;
@@ -149,191 +146,10 @@
   .footer-address-link {
     justify-content: center !important;
   }
-  //   .black-footer .footer-header {
-  //     color: #fff;
-  //     padding: 140px 30px 140px 30px;
-  //     display: flex;
-  //     justify-content: space-around;
-  //     align-items: center;
-
-  // }
 }
 
 @media (min-width: 760px) and (max-width: 770px) {
   .black-footer .footer-header {
     padding: 95px 10px 95px 10px;
   }
-} // .footer {
-// 	height: 100%;
-// 	width: 100%;
-// 	background: #282931;
-// 	-webkit-font-smoothing: antialiased;
-// 	font-family: 'Varela Round', sans-serif;
-// 	.content {
-// 		max-width: 1250px;
-// 		margin: auto;
-// 		padding: 30px 40px 40px 40px;
-
-// 		.top .logo-details {
-// 			color: #fff;
-// 			font-size: 30px;
-// 		}
-// 		.link-boxes {
-// 			width: 100%;
-// 			display: flex;
-// 			justify-content: space-between;
-// 			.box {
-// 				width: calc(100% / 5 - 10px);
-
-// 				.link_name {
-// 					color: #fff;
-// 					font-size: 18px;
-// 					font-weight: 400;
-// 					margin-bottom: 10px;
-// 					position: relative;
-
-// 					&::before {
-// 						content: '';
-// 						position: absolute;
-// 						left: 0;
-// 						bottom: -2px;
-// 						height: 2px;
-// 						width: 35px;
-// 						background: #fff;
-// 					}
-// 				}
-// 				li {
-// 					margin: 6px 0;
-// 					list-style: none;
-// 					a {
-// 						color: #fff;
-// 						font-size: 14px;
-// 						font-weight: 400;
-// 						text-decoration: none;
-// 						opacity: 0.8;
-// 						transition: all 0.4s ease;
-
-// 						&:hover {
-// 							opacity: 1;
-// 							text-decoration: underline;
-// 						}
-// 					}
-// 				}
-// 			}
-// 			.input-box {
-// 				margin-right: 55px;
-
-// 				input {
-// 					height: 40px;
-// 					width: calc(100% + 55px);
-// 					outline: none;
-// 					border: 2px solid #afafb6;
-// 					background: #140b5c;
-// 					border-radius: 4px;
-// 					padding: 0 15px;
-// 					font-size: 15px;
-// 					color: #fff;
-// 					margin-top: 5px;
-
-// 					&::placeholder {
-// 						color: #afafb6;
-// 						font-size: 16px;
-// 					}
-// 				}
-// 				input[type='button'] {
-// 					background: #fff;
-// 					color: #140b5c;
-// 					border: none;
-// 					font-size: 18px;
-// 					font-weight: 500;
-// 					margin: 4px 0;
-// 					opacity: 0.8;
-// 					cursor: pointer;
-// 					transition: all 0.4s ease;
-
-// 					&:hover {
-// 						opacity: 1;
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// 	.bottom-details {
-// 		width: 100%;
-// 		background: #2c303a;
-// 		display: flex;
-// 		align-items: center;
-
-// 		.bottom_text {
-// 			max-width: 1250px;
-// 			margin: auto;
-// 			padding: 20px 40px;
-// 			display: flex;
-// 			justify-content: space-between;
-
-// 			a {
-// 				font-size: 14px;
-// 				font-weight: 300;
-// 				color: #fff;
-// 				opacity: 0.8;
-// 				text-decoration: none;
-
-// 				&:hover {
-// 					opacity: 1;
-// 					text-decoration: underline;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-// @media (max-width: 900px) {
-// 	footer .content .link-boxes {
-// 		flex-wrap: wrap;
-// 	}
-// 	footer .content .link-boxes .input-box {
-// 		width: 40%;
-// 		margin-top: 10px;
-// 	}
-// }
-// @media (max-width: 700px) {
-// 	footer {
-// 		position: relative;
-// 	}
-// 	.content .top .logo-details {
-// 		font-size: 26px;
-// 	}
-// 	.content .top .media-icons a {
-// 		height: 35px;
-// 		width: 35px;
-// 		font-size: 14px;
-// 		line-height: 35px;
-// 	}
-// 	footer .content .link-boxes .box {
-// 		width: calc(100% / 3 - 10px);
-// 	}
-// 	footer .content .link-boxes .input-box {
-// 		width: 60%;
-// 	}
-// 	.bottom-details .bottom_text span,
-// 	.bottom-details .bottom_text a {
-// 		font-size: 12px;
-// 	}
-// }
-// @media (max-width: 520px) {
-// 	footer::before {
-// 		top: 145px;
-// 	}
-// 	footer .content .top {
-// 		flex-direction: column;
-// 	}
-// 	.content .top .media-icons {
-// 		margin-top: 16px;
-// 	}
-// 	footer .content .link-boxes .box {
-// 		width: calc(100% / 2 - 10px);
-// 	}
-// 	footer .content .link-boxes .input-box {
-// 		width: 100%;
-// 	}
-// }
+}

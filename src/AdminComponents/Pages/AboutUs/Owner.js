@@ -28,7 +28,6 @@ export default function Owner() {
   const [add, setAdd] = useState(true);
   const [ownerInput, setOwnerInput] = useState({ ...initialOwner });
   const [boss, setBoss] = useState({ ...initialOwner });
-  // useSelector((state) => state.AdminAboutUs.onwerData)
 
   const ownerDataRedux = useSelector((state) => state.AdminAboutUs);
   const dispatch = useDispatch();
@@ -60,9 +59,7 @@ export default function Owner() {
 
   const addUpdateFunction = () => {
     dispatch(updateOwner(getFormData(ownerInput)));
-    // setBoss({ ...initialOwner });
   };
-
 
   return (
     <Container component="main" maxWidth="lg">
@@ -96,13 +93,6 @@ export default function Owner() {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              {/* <Button
-                //   onClick={() => deleteProduct(m._id, m.productImage)}
-                size="small"
-                color="primary"
-              >
-                <HighlightOff />
-              </Button> */}
               <Button onClick={() => editOwner()} size="small">
                 <Create />
               </Button>

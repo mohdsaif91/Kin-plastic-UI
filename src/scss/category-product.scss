@@ -1,6 +1,5 @@
 .Category-product {
   margin: 4rem;
-  // margin-top: 8px;
   .main-category-container {
     display: flex;
     justify-content: center;
@@ -8,6 +7,7 @@
       width: 800px;
       display: flex;
       justify-content: center;
+      align-items: center;
       overflow-x: auto;
       padding-bottom: 2rem;
       padding-left: 13rem;
@@ -51,25 +51,22 @@
         .product {
           .product-description {
             .product-name {
-              color: #333;
+              color: #ffffff;
             }
           }
         }
       }
 
       .product {
-        // width: 50rem;
         display: flex;
 
         .product-image {
-          // width: 50%;
           img {
             height: 325px;
             width: 318px;
           }
         }
         .product-description {
-          // width: 50%;
           margin-left: 1rem;
           .product-name {
             text-align: center;
@@ -85,14 +82,11 @@
             font-size: 16px;
             font-weight: 500;
             min-height: 60px;
-            // line-height: 18px;
           }
           .product-detials {
             margin: 0.5rem 0;
             padding: 4px 8px 4px 4px;
             font-size: 16px;
-
-            // border-bottom: 1px solid;
           }
         }
       }
@@ -124,7 +118,6 @@
   display: none;
 }
 .btn-category {
-  padding: 0 16px;
   color: #333;
   border: 2px solid $link-color;
   text-decoration: none;
@@ -152,7 +145,6 @@
 @include breakpoint(phablet) {
   .category {
     padding-left: 2rem !important;
-    justify-content: unset !important;
   }
   .Category-product {
     margin: 2rem 1rem;
@@ -165,15 +157,10 @@
         padding: 1rem !important;
       }
       .product {
-        // flex-direction: column;
         .product-description .product-detials {
           padding: 6px 0px !important;
           margin: 0 !important;
         }
-        // .description {
-        //   line-height: 16px !important;
-        //   min-height: 0 !important;
-        // }
         .product-name {
           font-size: 24px;
           margin-top: 1rem !important;

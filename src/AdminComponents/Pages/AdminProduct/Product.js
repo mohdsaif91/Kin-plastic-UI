@@ -24,12 +24,10 @@ import {
 } from "@material-ui/core";
 import { Create, HighlightOff } from "@material-ui/icons";
 
-import { getCategories } from "../../../Redux/Thunks/AdminHome";
 import { getFormData } from "../utils";
 import {
   addProduct,
   deleteProductThunk,
-  getProduct,
   getProductbyCategory,
 } from "../../../Redux/Thunks/AdminProduct";
 
@@ -68,7 +66,7 @@ const initialProductData = {
   temperature: "",
 };
 
-export default function Product() {
+export default function Product(props) {
   const [category, setCategory] = useState([]);
   const [product, setProduct] = useState({ ...initialProductData });
   const [selectCategory] = useState("");
@@ -78,21 +76,11 @@ export default function Product() {
 
   const theme = useTheme();
   const dispatch = useDispatch();
-  const categoryData = useSelector((state) => state.AdminCategories.categories);
-  const productData = useSelector((state) => state.AdminProduct.products);
   const byCategory = useSelector((state) => state.AdminProduct.byCategory);
 
   useEffect(() => {
-    if (!categoryData) {
-      dispatch(getCategories());
-    }
-    if (!productData) {
-      dispatch(getProduct());
-    }
-    if (categoryData) {
-      setCategory(categoryData);
-    }
-  }, [dispatch, categoryData, productData]);
+    setCategory([...props.categoryData]);
+  }, [dispatch, props.categoryData]);
 
   useEffect(() => {
     if (byCategory) {
@@ -142,12 +130,7 @@ export default function Product() {
             Add Products
           </Typography>
           <CssBaseline />
-          <Box
-            component="form"
-            noValidate
-            // onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 3 }}>
             <FormControl sx={{ m: 1, width: 1000 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={12}>

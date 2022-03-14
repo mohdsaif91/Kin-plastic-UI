@@ -134,6 +134,7 @@ export default function Home() {
       dispatch(getSettingHome());
     }
     if (pageHomeData) {
+      console.log(pageHomeData, " Page Home Data");
       setHomeData({
         ...homeData,
         setting: pageHomeData.setting,
@@ -203,9 +204,9 @@ export default function Home() {
             <h2>
               {hero?.productName}
               <br />
-              <span>I like</span>
+              <span>{hero?.shellMatrial}</span>
             </h2>
-            <p>{hero?.productDescription}</p>
+            <p>{hero?.application}</p>
             <Link to="/product">View Products</Link>
           </div>
           <div className="img-box">
@@ -231,20 +232,6 @@ export default function Home() {
           <ul className="sci">
             {location?.organisationData?.social.map((m, index) => (
               <li key={index}>{getTheSocialLink(m)}</li>
-              // <li>
-              //   <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-              //     <i className="fa fa-twitter" aria-hidden="true"></i>
-              //   </a>
-              // </li>
-              // <li>
-              //   <a
-              //     href="https://www.instagram.com/"
-              //     target="_blank"
-              //     rel="noreferrer"
-              //   >
-              //     <i className="fa fa-instagram" aria-hidden="true"></i>;
-              //   </a>
-              // </li>
             ))}
           </ul>
         </div>

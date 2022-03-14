@@ -64,7 +64,6 @@
         justify-content: flex-end;
 
         img {
-          // max-width: 260px;
           height: 325px;
           width: 318px;
         }
@@ -219,7 +218,6 @@
         color: white;
       }
       .overlay-title {
-        // color: #db2a30;
         color: #ff1464;
         font-weight: 600;
         z-index: 2;
@@ -229,7 +227,6 @@
         text-align: center;
       }
       .overlay-subtext {
-        // margin: 24px;
         font-size: 24px;
         color: #fff;
       }
@@ -498,9 +495,6 @@
   .card-container {
     width: 360px !important;
   }
-  .main-header {
-    // justify-content: start;
-  }
 }
 @media (min-width: 358px) and (max-width: 360px) {
   .card-container {
@@ -513,11 +507,6 @@
     margin: 16px;
   }
 }
-
-// .home-container .parallax-container .image-text-overlay .highlight {
-// 	width: 25%;
-// 	border-bottom: 2px solid #f0f2f5;
-// }
 
 // ------------------------------Our client section
 

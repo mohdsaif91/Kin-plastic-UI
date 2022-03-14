@@ -1,37 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { getSettingHome } from "../../../../Redux/Thunks/AdminHome";
-import { addBestProduct } from "../../../../Redux/Thunks/AdminProduct";
+import {
+  addBestProduct,
+  deleteBestProduct,
+} from "../../../../Redux/Thunks/AdminProduct";
 
-export default function AddButton({ _id }) {
-  const [productId, setProductId] = useState([]);
+export default function AddButton({ _id, bestProduct, limit }) {
+  const [id, setId] = useState(_id);
+  const [add, setAdd] = useState(bestProduct);
 
-  const pageSetting = useSelector((state) => state.AdminHomeSetting.setting);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!pageSetting) {
-      dispatch(getSettingHome());
-    }
-    if (pageSetting) {
-      setProductId(pageSetting.setting.bestProduct);
-    }
-  }, [dispatch, pageSetting]);
+    setId(_id);
+    setAdd(bestProduct);
+  }, [_id, bestProduct]);
 
-  const addBestofSeven = (id) => {
-    dispatch(addBestProduct(pageSetting, id));
+  const addBestofSeven = () => {
+    dispatch(addBestProduct({ id }));
+  };
+
+  const removeBestProduct = (id) => {
+    dispatch(deleteBestProduct(id));
   };
 
   return (
     <div>
-      {productId.length >= 7 ? (
-        "7 best added"
+      {add ? (
+        <button
+          className={`remove-btn ${limit <= 2 && "disabled-btn"}`}
+          disabled={limit <= 2}
+          onClick={() => removeBestProduct(_id)}
+        >
+          Remove
+        </button>
       ) : (
         <button
-          className={`${
-            productId?.includes(_id) ? "disabled-btn" : "normal-btn"
-          }`}
+          className={`normal-btn ${limit >= 7 && "disabled-btn"} `}
+          disabled={limit >= 7}
           onClick={() => addBestofSeven(_id)}
         >
           Add

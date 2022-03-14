@@ -12,7 +12,6 @@ const initialCategory = {
 
 export default function Products() {
   const [category, setCategory] = useState({ ...initialCategory });
-  // const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryProducts, setcategoryProducts] = useState([]);
 
   const categories = useSelector((state) => state.AdminCategories.categories);
@@ -47,13 +46,11 @@ export default function Products() {
 
   const getProducts = (categoryName) => {
     setCategory({ ...category, selectedCategory: categoryName });
-    // setSelectedCategory(categoryName);
     dispatch(getProductbyCategory(categoryName));
   };
 
   const getSelectedFromDP = (value) => {
     setCategory({ ...category, selectedCategory: value.value });
-    // setSelectedCategory(value.value);
     dispatch(getProductbyCategory(value.value));
   };
 

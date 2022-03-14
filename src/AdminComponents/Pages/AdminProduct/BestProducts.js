@@ -51,7 +51,6 @@ export default function BestProducts() {
   }, [dispatch, pageSetting]);
 
   const deleteProduct = (id) => {
-    // pageSetting.bestProduct = best.filter((f) => f._id !== id);
     dispatch(deleteBestProduct(id));
   };
 

@@ -1,12 +1,21 @@
 import { ADMIN_PRODUCT_ACTION } from "../Actions/AdminProductAction";
 
-export function AdminProduct(state = {}, action) {
+export function AdminProduct(state = { products: [] }, action) {
   switch (action.type) {
     case ADMIN_PRODUCT_ACTION.DELETE_BEST_SUCESSFUL:
+      console.log(action.data);
+      const deletedProduct = state.allProduct.map((m) => {
+        if (m._id === action.data) {
+          m.bestProduct = false;
+          return m;
+        } else {
+          return m;
+        }
+      });
       return {
         ...state,
         error: false,
-        bestProduct: state.bestProduct.filter((f) => f._id !== action.data),
+        allProduct: deletedProduct,
       };
     case ADMIN_PRODUCT_ACTION.GET_BEST_PRODUCT_SUCESS:
       return {
@@ -54,9 +63,18 @@ export function AdminProduct(state = {}, action) {
         error: true,
       };
     case ADMIN_PRODUCT_ACTION.ADD_PRODUCT_SUCESSFUL:
+      const updatedProduct = state.allProduct.map((m) => {
+        if (m._id === action.data) {
+          m.bestProduct = true;
+          return m;
+        } else {
+          return m;
+        }
+      });
+      console.log(updatedProduct, "<>", action.data);
       return {
         ...state,
-        products: state.products.concat(action.data),
+        allProduct: updatedProduct,
         error: false,
       };
     case ADMIN_PRODUCT_ACTION.ADD_PRODUCT_UNSUCESSFUL:

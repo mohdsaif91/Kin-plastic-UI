@@ -27,12 +27,6 @@ const initialData = {
   serviceImage: "",
 };
 
-// const intialServices = {
-//   serviceDescription: "",
-//   serviceImage: "",
-//   serviceName: "",
-// };
-
 export default function AdminService() {
   const [serviceAdd, setServiceAdd] = useState({ ...initialData });
   const [serviceList, setServiceList] = useState([]);
@@ -61,7 +55,6 @@ export default function AdminService() {
   const submitData = () => {
     dispatch(addService(getFormData(serviceAdd)));
   };
-
 
   return (
     <div className="admin-alignment">
@@ -161,84 +154,13 @@ export default function AdminService() {
                       <Typography variant="body2" color="text.secondary">
                         {m.serviceDescription}
                       </Typography>
-                      {/* <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Design-</b> {m.design}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Category name-</b> {m.categoryName}
-                        </Typography>
-                      </div>
-                      <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Nominal diameter-</b> {m.nominalDiameter}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Process-</b> {m.process}
-                        </Typography>
-                      </div>
-                      <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Shell matrial-</b> {m.shellMatrial}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Shell weight-</b> {m.shellWeight}
-                        </Typography>
-                      </div>
-                      <div className="product-feilds">
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Application-</b> {m.application}
-                        </Typography>
-                        <Typography
-                          className="feild"
-                          variant="body2"
-                          color="text.secondary"
-                        >
-                          <b>Shell height-</b> {m.categoryName}
-                        </Typography>
-                      </div> */}
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button
-                      // onClick={() => deleteProduct(m._id, m.productImage)}
-                      size="small"
-                      color="primary"
-                    >
+                    <Button size="small" color="primary">
                       <HighlightOff />
                     </Button>
-                    <Button
-                      // onClick={() => editProduct(m._id)}
-                      size="small"
-                    >
+                    <Button size="small">
                       <Create />
                     </Button>
                   </CardActions>

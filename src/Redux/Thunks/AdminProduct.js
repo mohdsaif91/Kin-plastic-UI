@@ -9,12 +9,6 @@ import {
   getProductByCategoryAPI,
 } from "../../api";
 import {
-  addBestProductSucessful,
-  addBestProductUnsucessful,
-  deleteSettingBest,
-  deleteSettingBestUnsucess,
-} from "../Actions/AdminHomeAction";
-import {
   addProductSucessful,
   addProductUnSucessful,
   deleteBestProductSucess,
@@ -37,16 +31,17 @@ export const deleteBestProduct = (id) => {
     dispatch(startLoading());
     await deleteBestProductAPI(id)
       .then((res) => {
+        console.log(res);
         dispatch(stopLoading());
         if (res.status === 201) {
           dispatch(deleteBestProductSucess(res.data));
-          dispatch(deleteSettingBest(res.data));
+        } else {
+          console.log("no 201");
         }
       })
       .catch((err) => {
         dispatch(stopLoading());
         dispatch(deleteBestProductUnSucess(err));
-        dispatch(deleteSettingBestUnsucess(err));
       });
   };
 };
@@ -68,20 +63,19 @@ export const getBestProduct = () => {
   };
 };
 
-export const addBestProduct = (data, id) => {
+export const addBestProduct = (id) => {
   return async (dispatch) => {
     dispatch(startLoading());
-    data.bestProduct.push(id);
-    await addBestProductAPI(data)
+    await addBestProductAPI(id)
       .then((res) => {
         dispatch(stopLoading());
         if (res.status === 200) {
-          dispatch(addBestProductSucessful(res.data));
+          dispatch(addProductSucessful(res.data));
         }
       })
       .catch((err) => {
         dispatch(stopLoading());
-        dispatch(addBestProductUnsucessful(err));
+        dispatch(addProductUnSucessful(err));
       });
   };
 };

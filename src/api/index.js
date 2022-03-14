@@ -19,8 +19,10 @@ export const getSettingApiHome = () => Axios.get(`${v1}/setting/home`);
 export const addCategoryAPI = (data) => Axios.post(`${v1}/category`, data);
 export const getCategoryAPI = () => Axios.get(`${v1}/category`);
 export const updateCategoriesAPI = (data) => Axios.put(`${v1}/category`, data);
-export const deleteCategoryAPI = (id) =>
-  Axios.delete(`${v1}/category`, { params: { deleteId: id } });
+export const deleteCategoryAPI = (data) =>
+  Axios.delete(`${v1}/category`, {
+    params: { deleteId: data.id, cateName: data.text },
+  });
 
 //Product
 export const addProductApi = (data) => Axios.post(`${v1}/product`, data);
