@@ -73,11 +73,6 @@ function DropDown() {
         onClose={handleClose}
       >
         <StyledMenuItem>
-          <ListItemIcon>
-            <i className="fas fa-moon"></i>
-          </ListItemIcon>
-        </StyledMenuItem>
-        <StyledMenuItem>
           <NavLink to="/login">
             <ListItemIcon>
               <LockOpenIcon fontSize="small" />

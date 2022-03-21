@@ -144,6 +144,9 @@
       .logo {
         margin: 0;
         width: 50px;
+        img {
+          height: 54px;
+        }
       }
       .search-container
         .container
@@ -159,6 +162,7 @@
 
 @media screen and (min-width: 350px) and (max-width: 379px) {
   .main-header {
+    height: $header-height-mobile;
     justify-content: flex-end;
     .left-container .logo {
       margin: 0;
@@ -173,17 +177,32 @@
 
 @media screen and (min-width: 380px) and (max-width: 450px) {
   .main-header {
+    height: $header-height-mobile;
     .nav-links {
       top: 13px;
     }
     .left-container .logo {
       width: 60px;
       margin: 0 5px;
+      img {
+        height: 54px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 500px) {
+  .left-container .logo {
+    img {
+      height: 54px !important;
     }
   }
 }
 
 @media screen and (min-width: 405px) and (max-width: 415px) {
+  .main-header {
+    height: $header-height-mobile;
+  }
   .home-container {
     .home-cards {
       flex-direction: column !important;
@@ -193,33 +212,35 @@
       }
     }
   }
-  .main-header
-    .left-container
-    .search-container
-    .container
-    .form-control
-    .search-wrapper
-    label
-    .search-box {
+  .main-header .left-container {
+    img {
+      height: 54px;
+    }
+  }
+  .search-container .container .form-control .search-wrapper label .search-box {
     width: 270px;
   }
 }
 
 @media screen and (min-width: 760px) and (max-width: 768px) {
-  .main-header .left-container {
-    .logo-name {
-      display: block;
-      margin-right: 4rem;
-    }
-    .search-container
-      .container
-      .form-control
-      .search-wrapper
-      label
-      .search-box {
-      width: 350px;
-      &:focus {
-        width: 380px;
+  .main-header {
+    height: $header-height-mobile;
+    .left-container {
+      .logo-name {
+        display: block;
+        margin-right: 1rem;
+        font-size: 1.4rem;
+      }
+      .search-container
+        .container
+        .form-control
+        .search-wrapper
+        label
+        .search-box {
+        width: 350px;
+        &:focus {
+          width: 380px;
+        }
       }
     }
   }
@@ -229,20 +250,23 @@
   body {
     font-size: 1.2rem;
 
-    .main-header .left-container {
-      .logo-name {
-        display: block;
-        margin-right: 1rem;
-      }
-      .search-container
-        .container
-        .form-control
-        .search-wrapper
-        label
-        .search-box {
-        width: 400px;
-        &:focus {
-          width: 430px;
+    .main-header {
+      height: $header-height-mobile;
+      .left-container {
+        .logo-name {
+          display: block;
+          margin-right: 1rem;
+        }
+        .search-container
+          .container
+          .form-control
+          .search-wrapper
+          label
+          .search-box {
+          width: 400px;
+          &:focus {
+            width: 430px;
+          }
         }
       }
     }

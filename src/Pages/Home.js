@@ -5,6 +5,8 @@ import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import Glide from "@glidejs/glide";
 import { Link } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 import Rocket from "../images/rocket.svg";
 import BarChart from "../images/barChart.svg";
@@ -187,54 +189,173 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <div
-        className="hero-container"
-        style={{
-          background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
-        }}
+      <Carousel
+        interval={5000}
+        showArrows={false}
+        className="mb-4 mt-4"
+        autoPlay={true}
+        infiniteLoop={true}
       >
-        <div className="home-content">
-          <div
-            className="text-box"
-            data-aos="fade-right"
-            data-aos-offset="400"
-            data-aos-easing="ease-in-sine"
-          >
-            <h2>
-              {hero?.productName}
-              <br />
-              <span>{hero?.shellMatrial}</span>
-            </h2>
-            <p>{hero?.application}</p>
-            <Link to="/product">View Products</Link>
+        <div
+          className="hero-container hero-1"
+          style={{
+            background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
+          }}
+        >
+          <div className="home-content">
+            <div
+              className="text-box"
+              data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
+              <h2>
+                {hero?.productName}
+                <br />
+                <span>{hero?.shellMatrial}</span>
+              </h2>
+              <p>{hero?.application}</p>
+              <Link className="desktop" to="/product">
+                View Products
+              </Link>
+            </div>
+            <div className="img-box">
+              <img
+                alt=""
+                src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
+                className="pepsi"
+              />
+            </div>
+            <Link className="mobile-tab" to="/product">
+              View product
+            </Link>
+            <ul className="thumb">
+              {homeData.bestProductData.map((m, index) => (
+                <li
+                  className={`${m.id === hero?.id && "active-img"}`}
+                  onClick={() => setHero(homeData.bestProductData[index])}
+                >
+                  <img
+                    alt=""
+                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
+                  />
+                </li>
+              ))}
+            </ul>
+            <ul className="sci">
+              {location?.organisationData?.social.map((m, index) => (
+                <li key={index}>{getTheSocialLink(m)}</li>
+              ))}
+            </ul>
           </div>
-          <div className="img-box">
-            <img
-              alt=""
-              src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
-              className="pepsi"
-            />
-          </div>
-          <ul className="thumb">
-            {homeData.bestProductData.map((m, index) => (
-              <li
-                className={`${m.id === hero?.id && "active-img"}`}
-                onClick={() => setHero(homeData.bestProductData[index])}
-              >
-                <img
-                  alt=""
-                  src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
-                />
-              </li>
-            ))}
-          </ul>
-          <ul className="sci">
-            {location?.organisationData?.social.map((m, index) => (
-              <li key={index}>{getTheSocialLink(m)}</li>
-            ))}
-          </ul>
         </div>
-      </div>
+        <div
+          className="hero-container hero-2"
+          style={{
+            background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
+          }}
+        >
+          <div className="home-content">
+            <div
+              className="text-box"
+              data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
+              <h2>
+                {hero?.productName}
+                <br />
+                <span>{hero?.shellMatrial}</span>
+              </h2>
+              <p>{hero?.application}</p>
+              <Link className="desktop" to="/product">
+                View Products
+              </Link>
+            </div>
+            <div className="img-box">
+              <img
+                alt=""
+                src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
+                className="pepsi"
+              />
+            </div>
+            <Link className="mobile-tab" to="/product">
+              View product
+            </Link>
+            <ul className="thumb">
+              {homeData.bestProductData.map((m, index) => (
+                <li
+                  className={`${m.id === hero?.id && "active-img"}`}
+                  onClick={() => setHero(homeData.bestProductData[index])}
+                >
+                  <img
+                    alt=""
+                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
+                  />
+                </li>
+              ))}
+            </ul>
+            <ul className="sci">
+              {location?.organisationData?.social.map((m, index) => (
+                <li key={index}>{getTheSocialLink(m)}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div
+          className="hero-container hero-3"
+          style={{
+            background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
+          }}
+        >
+          <div className="home-content">
+            <div
+              className="text-box"
+              data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
+              <h2>
+                {hero?.productName}
+                <br />
+                <span>{hero?.shellMatrial}</span>
+              </h2>
+              <p>{hero?.application}</p>
+              <Link className="desktop" to="/product">
+                View Products
+              </Link>
+            </div>
+            <div className="img-box">
+              <img
+                alt=""
+                src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
+                className="pepsi"
+              />
+            </div>
+            <Link className="mobile-tab" to="/product">
+              View product
+            </Link>
+            <ul className="thumb">
+              {homeData.bestProductData.map((m, index) => (
+                <li
+                  className={`${m.id === hero?.id && "active-img"}`}
+                  onClick={() => setHero(homeData.bestProductData[index])}
+                >
+                  <img
+                    alt=""
+                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
+                  />
+                </li>
+              ))}
+            </ul>
+            <ul className="sci">
+              {location?.organisationData?.social.map((m, index) => (
+                <li key={index}>{getTheSocialLink(m)}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Carousel>
       <div className="home-cards">
         <div
           className="home-card selected"

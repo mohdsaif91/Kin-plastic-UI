@@ -34,6 +34,7 @@
       img {
         width: 100%;
         object-fit: cover;
+        height: 80px;
       }
 
       &.focus {
@@ -206,8 +207,8 @@
     display: flex;
     list-style: none;
     justify-content: center;
-    padding-top: 25px;
     height: 100%;
+    align-items: center;
     .side-menu {
       display: none;
     }
