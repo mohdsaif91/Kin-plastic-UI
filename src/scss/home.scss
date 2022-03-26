@@ -513,10 +513,12 @@
         }
         .thumb {
           margin-top: 8px;
+          left: 50%;
           bottom: 0px;
           padding-top: 15px;
           margin-bottom: 15px;
           li {
+            margin: 0 10px;
             img {
               max-width: 30px;
             }
@@ -593,6 +595,10 @@
 @media (min-width: 411px) and (max-width: 415px) {
   .card-container {
     width: 360px !important;
+  }
+  .video-responsive {
+    margin: 32px 8px 0 8px !important;
+    padding-bottom: 100% !important;
   }
 }
 @media (min-width: 358px) and (max-width: 360px) {
