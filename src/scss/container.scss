@@ -2,3 +2,9 @@
   margin-top: 88px;
   overflow: hidden;
 }
+
+@include breakpoint(mobileonly) {
+  .page-container {
+    margin-top: 75px;
+  }
+}

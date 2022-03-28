@@ -115,7 +115,7 @@ export default function Home() {
 
   useEffect(() => {
     Aos.init();
-    const heroTimeid = setInterval(() => changeHero(), 5000);
+    const heroTimeid = setInterval(() => changeHero(), 3000);
     return () => {
       clearInterval(heroTimeid);
     };
@@ -187,14 +187,17 @@ export default function Home() {
     }
   };
 
+  console.log(hero);
+
   return (
     <div className="home-container">
       <Carousel
-        interval={5000}
+        interval={7000}
         showArrows={false}
         className="mb-4 mt-4"
-        autoPlay={true}
+        // autoPlay={true}
         infiniteLoop={true}
+        swipeable={false}
       >
         <div
           className="hero-container hero-1"
@@ -232,7 +235,7 @@ export default function Home() {
             <ul className="thumb">
               {homeData.bestProductData.map((m, index) => (
                 <li
-                  className={`${m.id === hero?.id && "active-img"}`}
+                  className={`${m._id === hero?._id && "active-img"}`}
                   onClick={() => setHero(homeData.bestProductData[index])}
                 >
                   <img
@@ -285,7 +288,7 @@ export default function Home() {
             <ul className="thumb">
               {homeData.bestProductData.map((m, index) => (
                 <li
-                  className={`${m.id === hero?.id && "active-img"}`}
+                  className={`${m._id === hero?._id && "active-img"}`}
                   onClick={() => setHero(homeData.bestProductData[index])}
                 >
                   <img
@@ -338,7 +341,7 @@ export default function Home() {
             <ul className="thumb">
               {homeData.bestProductData.map((m, index) => (
                 <li
-                  className={`${m.id === hero?.id && "active-img"}`}
+                  className={`${m._id === hero?._id && "active-img"}`}
                   onClick={() => setHero(homeData.bestProductData[index])}
                 >
                   <img

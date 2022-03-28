@@ -64,3 +64,18 @@
     transform: scale3D(0, 0, 1);
   }
 }
+
+@include breakpoint(mobileonly) {
+  .sk-cube-grid {
+    left: 40%;
+  }
+}
+
+@include breakpoint(tablet) {
+  .sk-cube-grid {
+    width: 120px;
+    height: 130px;
+    top: 40%;
+    left: 44%;
+  }
+}
