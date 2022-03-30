@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Box } from "@material-ui/core";
 
 import ProductDevelopment from "./ProductDevelopment";
-import TechnicalService from "./TechnicalService";
 import QualityCheck from "./QualityCheck";
 
 import "react-tabs/style/react-tabs.scss";
@@ -12,19 +11,12 @@ export default function Services() {
   const [mobile, setMobile] = useState(false);
 
   const getTabDisplayed = () => {
-    return tabIndex === 0 ? (
-      <ProductDevelopment />
-    ) : tabIndex === 1 ? (
-      <TechnicalService />
-    ) : (
-      <QualityCheck />
-    );
+    return tabIndex === 0 ? <ProductDevelopment /> : <QualityCheck />;
   };
 
   useEffect(() => {
     setMobile(window.innerWidth <= 450);
   }, []);
-
 
   return (
     <div className="service">

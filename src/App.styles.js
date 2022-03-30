@@ -1,4 +1,4 @@
-import style from '@emotion/styled';
+import style from "@emotion/styled";
 
 export const App = style.div`
 background: #ecf0f1;

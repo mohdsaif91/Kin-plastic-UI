@@ -1,6 +1,8 @@
 import React from "react";
 
-import Amazon from "../../images/amazon.png";
+import CHS from "../../images/aestheticimg3.jpg";
+import LAB from "../../images/lab.jpg";
+import HYGIENE from "../../images/hygiene.png";
 
 export default function QualityCheck() {
   return (
@@ -14,9 +16,10 @@ export default function QualityCheck() {
         in selection of vendors, raw material, cleanroom systems, manufacturing
         processes, packing material, and there are systems in place governing
         all of these. Continuous orientation & training programs are designed to
-        achieve these. Each member of the HPPL team is sensitive to the quality
-        expectations of our esteemed customers and are committed to deliver
-        “Zero Defect” products using state-of-the-art high precision equipment.
+        achieve these. Each member of the Kin industries team is sensitive to
+        the quality expectations of our esteemed customers and are committed to
+        deliver “Zero Defect” products using state-of-the-art high precision
+        equipment.
       </div>
       <div className="quality-heading">
         We practice the best production and quality control methods and roll
@@ -30,7 +33,7 @@ export default function QualityCheck() {
           <span> Our Quality Process – The CHS Machine</span>
         </div>
         <div className="cont">
-          <img alt="" className="quality-image" src={Amazon} />
+          <img alt="" className="quality-image" src={CHS} />
           <div className="text-container">
             All closures are made in certified hygienic facilities like the
             Class 1,00,000, under stringent GMP norms which ensure zero product
@@ -47,7 +50,7 @@ export default function QualityCheck() {
           <span> Quality Laboratory – Lab, Demeet Machine & Others</span>
         </div>
         <div className="cont">
-          <img alt="" className="quality-image" src={Amazon} />
+          <img alt="" className="quality-image" src={LAB} />
           <div className="text-container">
             Our quality control plans are identical for every product type,
             irrespective of where it is manufactured. Our quality control
@@ -62,7 +65,7 @@ export default function QualityCheck() {
           <span>Focus On Hygiene and Quality</span>
         </div>
         <div className="cont">
-          <img alt="" className="quality-image" src={Amazon} />
+          <img alt="" className="quality-image" src={HYGIENE} />
           <div className="text-container">
             Our hygiene and quality control ensure every worker in the
             production unit wears Mask, Head Cap and Shoe Closures. The closure

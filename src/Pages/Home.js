@@ -195,7 +195,7 @@ export default function Home() {
         interval={7000}
         showArrows={false}
         className="mb-4 mt-4"
-        // autoPlay={true}
+        autoPlay={true}
         infiniteLoop={true}
         swipeable={false}
       >
@@ -212,22 +212,15 @@ export default function Home() {
               data-aos-offset="300"
               data-aos-easing="ease-in-sine"
             >
-              <h2>
+              <h2 className="black-color">
                 {hero?.productName}
                 <br />
                 <span>{hero?.shellMatrial}</span>
               </h2>
-              <p>{hero?.application}</p>
+              <p className="black-color">{hero?.application}</p>
               <Link className="desktop" to="/product">
                 View Products
               </Link>
-            </div>
-            <div className="img-box">
-              <img
-                alt=""
-                src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
-                className="pepsi"
-              />
             </div>
             <Link className="mobile-tab" to="/product">
               View product
@@ -275,13 +268,13 @@ export default function Home() {
                 View Products
               </Link>
             </div>
-            <div className="img-box">
+            {/* <div className="img-box">
               <img
                 alt=""
                 src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
                 className="pepsi"
               />
-            </div>
+            </div> */}
             <Link className="mobile-tab" to="/product">
               View product
             </Link>
@@ -318,23 +311,23 @@ export default function Home() {
               data-aos-offset="300"
               data-aos-easing="ease-in-sine"
             >
-              <h2>
+              <h2 className="white-color">
                 {hero?.productName}
                 <br />
                 <span>{hero?.shellMatrial}</span>
               </h2>
-              <p>{hero?.application}</p>
+              <p className="white-color">{hero?.application}</p>
               <Link className="desktop" to="/product">
                 View Products
               </Link>
             </div>
-            <div className="img-box">
+            {/* <div className="img-box">
               <img
                 alt=""
                 src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
                 className="pepsi"
               />
-            </div>
+            </div> */}
             <Link className="mobile-tab" to="/product">
               View product
             </Link>
@@ -362,7 +355,7 @@ export default function Home() {
       <div className="home-cards">
         <div
           className="home-card selected"
-          data-aos-delay="450"
+          data-aos-delay="300"
           data-aos="fade-up"
         >
           <div className="img-container">
@@ -375,7 +368,7 @@ export default function Home() {
 
           <p>{homeData.setting.card1.subHeading}</p>
         </div>
-        <div className="home-card" data-aos-delay="550" data-aos="fade-up">
+        <div className="home-card" data-aos-delay="300" data-aos="fade-up">
           <div className="img-container">
             <img alt="" src={Rocket} />
           </div>
@@ -399,7 +392,7 @@ export default function Home() {
       <div></div>
       <div
         className="parallax-container"
-        data-aos-delay="350"
+        data-aos-delay="300"
         data-aos="fade-up"
       >
         <div className="image-text-overlay text-middle-left">
@@ -428,7 +421,7 @@ export default function Home() {
       </div>
       <div
         className="our-client-container"
-        data-aos-delay="350"
+        data-aos-delay="300"
         data-aos="fade-up"
       >
         <div className="client-heading">
@@ -439,7 +432,7 @@ export default function Home() {
         {clients}
         <div
           className="video-responsive"
-          data-aos-delay="350"
+          data-aos-delay="300"
           data-aos="fade-up"
         >
           <iframe
