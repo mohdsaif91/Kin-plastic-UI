@@ -10,6 +10,10 @@ export const signUpApi = (data) => Axios.post(`${v1}/auth/signUp`, data);
 
 //home page
 export const getHomePageData = () => Axios.get(`${v1}/setting/homePage`);
+export const addHeroImageAPI = (data) =>
+  Axios.post(`${v1}/setting/heroImage`, data);
+export const removeHeroImageAPI = (imageId) =>
+  Axios.delete(`${v1}/setting/heroImage/${imageId}`);
 
 //configuration
 export const settingApiHome = (data) => Axios.post(`${v1}/setting/home`, data);

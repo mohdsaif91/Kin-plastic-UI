@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { HexColorInput, HexColorPicker } from "react-colorful";
 import { useDispatch, useSelector } from "react-redux";
 import { List, ListItem, ListItemText, TextField } from "@material-ui/core";
 
 import {
+  addHeroImage,
   getSettingHome,
+  removeHeroImage,
   updateSettingHome,
 } from "../../Redux/Thunks/AdminHome";
 
@@ -12,6 +13,7 @@ import deleteImg from "../../images/deleteIcon.svg";
 import Rocket from "../../images/rocket.svg";
 import BarChart from "../../images/barChart.svg";
 import PieChart from "../../images/pie-chart.svg";
+import { getFormData } from "./utils";
 
 const initialState = {
   homeHeroColor: "",
@@ -31,20 +33,24 @@ const initialState = {
   videoCode: "",
   quotes: "",
   name: "",
+  heroImage: [],
 };
 
 const paralexText = {
   count: 0,
-  text: null,
+  text: "",
 };
 
 export default function AdminHome() {
   const [data, setData] = useState({ ...initialState });
   const [text, setText] = useState({ ...paralexText });
+  const [heroImage, seHeroImage] = useState({ heroImage: "" });
+  const [imageData, setImageData] = useState([]);
 
   const dispatch = useDispatch();
 
   const pageSetting = useSelector((state) => state.AdminHomeSetting.setting);
+  const removemsg = useSelector((state) => state.AdminHomeSetting);
 
   useEffect(() => {
     if (!pageSetting) {
@@ -52,6 +58,7 @@ export default function AdminHome() {
     }
     if (pageSetting) {
       setData(pageSetting.setting);
+      setImageData(pageSetting.heroImage);
     }
   }, [dispatch, pageSetting]);
 
@@ -61,7 +68,6 @@ export default function AdminHome() {
 
   const deleteCard = (i) => {
     const deletedItems = data.paralexData.filter((m, index) => i !== index);
-
     setData({
       ...data,
       paralexData: deletedItems,
@@ -83,6 +89,16 @@ export default function AdminHome() {
     setText({ ...paralexText });
   };
 
+  const removeImg = (imgName) => {
+    const updateImg = imageData.filter((f) => f !== imgName);
+    setImageData([...updateImg]);
+    dispatch(removeHeroImage(imgName));
+  };
+
+  const addHomeHeroImage = () => {
+    dispatch(addHeroImage(getFormData(heroImage)));
+  };
+
   return (
     <div className="admin-home">
       <div className="page-heading">Home Page Setting</div>
@@ -99,23 +115,48 @@ export default function AdminHome() {
         <div className="page-sub-heading">Home Page hero setting</div>
         <div className="color-container">
           <div className="react-colorfull">
-            <HexColorPicker
-              color={data?.homeHeroColor}
-              onChange={(color) => setData({ ...data, homeHeroColor: color })}
+            <input
+              type="file"
+              onChange={(e) =>
+                seHeroImage({ ...heroImage, heroImage: e.target.files[0] })
+              }
             />
-            <HexColorInput
-              className="HexColorInput"
-              color={data?.homeHeroColor}
-              onChange={(color) => setData({ ...data, homeHeroColor: color })}
-              placeholder="Type a color"
-              prefixed
-              alpha
-            />
+            {imageData.length <= 4 && (
+              <button
+                className={`${
+                  heroImage.heroImage === "" && imageData.length <= 4
+                    ? "disabled-btn"
+                    : "btn"
+                }  hero-img-add-btn`}
+                onClick={() => addHomeHeroImage()}
+                disabled={heroImage.heroImage === "" && imageData.length <= 4}
+              >
+                Add Image
+              </button>
+            )}
+            {removemsg.removeMessage && "pageSetting.removeMessage"}
           </div>
-          <div
-            className="color-display"
-            style={{ backgroundColor: data?.homeHeroColor }}
-          ></div>
+          <div className="hero-img-container">
+            <ul className="list-parent">
+              {imageData.map((m, i) => (
+                <li className="li-item" key={i}>
+                  <img
+                    alt=""
+                    className="hero-img"
+                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/heroImage/${m}`}
+                  />
+                  {imageData.length > 2 && (
+                    <button
+                      className="btn remove-btn hero-rm-btn"
+                      onClick={() => removeImg(m)}
+                    >
+                      Remove
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="Card-container">
           <div className="home-card">
@@ -144,8 +185,8 @@ export default function AdminHome() {
             <TextField
               placeholder=""
               multiline
-              rows={5}
-              rowsMax={10}
+              minRows={5}
+              maxRows={10}
               value={data?.card1?.subHeading}
               onChange={(e) =>
                 setData({
@@ -193,8 +234,8 @@ export default function AdminHome() {
                 })
               }
               multiline
-              rows={5}
-              rowsMax={8}
+              minRows={5}
+              maxRows={8}
             />
           </div>
           <div className="home-card">
@@ -232,8 +273,8 @@ export default function AdminHome() {
                 })
               }
               multiline
-              rows={5}
-              rowsMax={8}
+              minRows={5}
+              maxRows={8}
             />
           </div>
         </div>

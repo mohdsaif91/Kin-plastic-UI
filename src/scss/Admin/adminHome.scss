@@ -25,21 +25,34 @@
       border-radius: 15%;
       padding: 2rem 0;
       .react-colorfull {
+        padding: 32px 0;
         display: flex;
         flex-direction: column;
-
-        .HexColorInput {
-          margin-top: 2rem;
-          font-size: 1rem;
-          text-align: center;
+        .hero-img-add-btn {
+          background-color: $link-color;
+          color: white;
+          border: none;
+          margin-top: 16px;
         }
       }
-      .color-display {
-        border: 3px #333;
-        border-style: dotted;
-        margin: 3rem;
-        width: 100px;
-        height: 100px;
+      .hero-img-container {
+        .list-parent {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          .li-item {
+            margin: 8px 4px 8px 4px;
+            display: flex;
+            flex-direction: column;
+            .hero-img {
+              height: 120px;
+              width: 100px;
+            }
+            .hero-rm-btn {
+              padding: 0 8px !important;
+            }
+          }
+        }
       }
     }
     .paralex-container {

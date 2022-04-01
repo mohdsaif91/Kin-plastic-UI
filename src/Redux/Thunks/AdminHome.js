@@ -1,9 +1,11 @@
 import {
   addCategoryAPI,
+  addHeroImageAPI,
   deleteCategoryAPI,
   getCategoryAPI,
   getHomePageData,
   getProductByCategoryAPI,
+  removeHeroImageAPI,
   settingApiHome,
   updateCategoriesAPI,
 } from "../../api";
@@ -18,8 +20,12 @@ import {
   updateCategoryUnSucessfull,
 } from "../Actions/AdminCategoryAction";
 import {
+  addHeroImageSuccess,
+  addHeroImageUnSuccess,
   getSettingSucessfull,
   getSettingUnSucessfull,
+  removeHeroImageSuccess,
+  removeHeroImageUnSuccess,
   updateSettingSucessfull,
   updateSettingUnsucessfull,
 } from "../Actions/AdminHomeAction";
@@ -142,6 +148,40 @@ export const getProductByCategoryName = (name) => {
       .catch((error) => {
         dispatch(stopLoading());
         dispatch(getProductByCategoryUnSucessful(error));
+      });
+  };
+};
+
+export const addHeroImage = (data) => {
+  return async (dispatch) => {
+    dispatch(startLoading());
+    await addHeroImageAPI(data)
+      .then((res) => {
+        dispatch(stopLoading());
+        if (res.status === 200) {
+          dispatch(addHeroImageSuccess(res.data));
+        }
+      })
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(addHeroImageUnSuccess(err));
+      });
+  };
+};
+
+export const removeHeroImage = (imageId) => {
+  return async (dispatch) => {
+    dispatch(startLoading());
+    await removeHeroImageAPI(imageId)
+      .then((res) => {
+        dispatch(stopLoading());
+        if (res.status === 200) {
+          dispatch(removeHeroImageSuccess(res.data));
+        }
+      })
+      .catch((err) => {
+        dispatch(stopLoading());
+        dispatch(removeHeroImageUnSuccess(err));
       });
   };
 };

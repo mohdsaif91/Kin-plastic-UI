@@ -1,6 +1,6 @@
 import { AMDIN_HOME_ACTION } from "../Actions/AdminHomeAction";
 
-export function AdminHomeSetting(state = {}, action) {
+export function AdminHomeSetting(state = { removeMessage: null }, action) {
   switch (action.type) {
     case AMDIN_HOME_ACTION.DELETE_BEST_PRODUCT_SETTING_SUCESS:
       const deleteBest = state.setting.setting.bestProduct.filter(
@@ -46,6 +46,15 @@ export function AdminHomeSetting(state = {}, action) {
       return {
         ...state,
         error: true,
+      };
+    case AMDIN_HOME_ACTION.REMOVE_HERO_IMAGE_SUCCESS:
+      const newHeroImage = state.setting.heroImage((f) => f !== action.data);
+      const newSetting = state.setting;
+      newSetting.heroImage = newHeroImage;
+      return {
+        ...state,
+        setting: newSetting,
+        removeMessage: "selected Item removed successfully",
       };
     default:
       return state;

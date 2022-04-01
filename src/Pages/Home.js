@@ -48,6 +48,7 @@ const homeIntialData = {
   },
   bestProductData: [],
   client: null,
+  heroImage: [],
 };
 
 const initialHero = {
@@ -113,43 +114,6 @@ export default function Home() {
     );
   }, [pageHomeData?.client]);
 
-  useEffect(() => {
-    Aos.init();
-    const heroTimeid = setInterval(() => changeHero(), 3000);
-    return () => {
-      clearInterval(heroTimeid);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (hero._id !== "") {
-      if (countNum >= homeData.bestProductData.length - 1) {
-        setcount(0);
-      } else if (hero._id !== homeData.bestProductData[countNum]._id) {
-        setHero(homeData.bestProductData[countNum]);
-      }
-    }
-  }, [countNum, hero._id, homeData.bestProductData]);
-
-  useEffect(() => {
-    if (!pageHomeData) {
-      dispatch(getSettingHome());
-    }
-    if (pageHomeData) {
-      setHomeData({
-        ...homeData,
-        setting: pageHomeData.setting,
-        bestProductData: pageHomeData.bestProductData,
-        client: pageHomeData.client,
-      });
-      if (hero._id === "") {
-        setHero(pageHomeData.bestProductData[0]);
-      }
-      slider.mount();
-    }
-    // eslint-disable-next-line
-  }, [dispatch, pageHomeData, slider]);
-
   const getTheSocialLink = (data) => {
     switch (true) {
       case data.platForm === "Facebook":
@@ -187,22 +151,12 @@ export default function Home() {
     }
   };
 
-  console.log(hero);
-
-  return (
-    <div className="home-container">
-      <Carousel
-        interval={7000}
-        showArrows={false}
-        className="mb-4 mt-4"
-        autoPlay={true}
-        infiniteLoop={true}
-        swipeable={false}
-      >
+  const carusoleItem = pageHomeData
+    ? pageHomeData.heroImage.map((m) => (
         <div
           className="hero-container hero-1"
           style={{
-            background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
+            backgroundImage: `url(https://kinindustries.s3.ap-south-1.amazonaws.com/heroImage/${m})`,
           }}
         >
           <div className="home-content">
@@ -245,113 +199,61 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div
-          className="hero-container hero-2"
-          style={{
-            background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
-          }}
+      ))
+    : [];
+
+  useEffect(() => {
+    Aos.init();
+    const heroTimeid = setInterval(() => changeHero(), 3000);
+    return () => {
+      clearInterval(heroTimeid);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hero._id !== "") {
+      if (countNum >= homeData.bestProductData.length - 1) {
+        setcount(0);
+      } else if (hero._id !== homeData.bestProductData[countNum]._id) {
+        setHero(homeData.bestProductData[countNum]);
+      }
+    }
+  }, [countNum, hero._id, homeData.bestProductData]);
+
+  useEffect(() => {
+    if (!pageHomeData) {
+      dispatch(getSettingHome());
+    }
+    if (pageHomeData) {
+      setHomeData({
+        ...homeData,
+        setting: pageHomeData.setting,
+        bestProductData: pageHomeData.bestProductData,
+        client: pageHomeData.client,
+        heroImage: pageHomeData.heroImage,
+      });
+      if (hero._id === "") {
+        setHero(pageHomeData.bestProductData[0]);
+      }
+      slider.mount();
+    }
+    // eslint-disable-next-line
+  }, [dispatch, pageHomeData, slider]);
+
+  return (
+    <div className="home-container">
+      {carusoleItem.length !== 0 && (
+        <Carousel
+          interval={7000}
+          showArrows={false}
+          className="mb-4 mt-4"
+          autoPlay={true}
+          infiniteLoop={true}
+          swipeable={false}
         >
-          <div className="home-content">
-            <div
-              className="text-box"
-              data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-            >
-              <h2>
-                {hero?.productName}
-                <br />
-                <span>{hero?.shellMatrial}</span>
-              </h2>
-              <p>{hero?.application}</p>
-              <Link className="desktop" to="/product">
-                View Products
-              </Link>
-            </div>
-            {/* <div className="img-box">
-              <img
-                alt=""
-                src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
-                className="pepsi"
-              />
-            </div> */}
-            <Link className="mobile-tab" to="/product">
-              View product
-            </Link>
-            <ul className="thumb">
-              {homeData.bestProductData.map((m, index) => (
-                <li
-                  className={`${m._id === hero?._id && "active-img"}`}
-                  onClick={() => setHero(homeData.bestProductData[index])}
-                >
-                  <img
-                    alt=""
-                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
-                  />
-                </li>
-              ))}
-            </ul>
-            <ul className="sci">
-              {location?.organisationData?.social.map((m, index) => (
-                <li key={index}>{getTheSocialLink(m)}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div
-          className="hero-container hero-3"
-          style={{
-            background: `${homeData.setting.homeHeroColor || "#22bda6"}`,
-          }}
-        >
-          <div className="home-content">
-            <div
-              className="text-box"
-              data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-            >
-              <h2 className="white-color">
-                {hero?.productName}
-                <br />
-                <span>{hero?.shellMatrial}</span>
-              </h2>
-              <p className="white-color">{hero?.application}</p>
-              <Link className="desktop" to="/product">
-                View Products
-              </Link>
-            </div>
-            {/* <div className="img-box">
-              <img
-                alt=""
-                src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${hero?.productImage}`}
-                className="pepsi"
-              />
-            </div> */}
-            <Link className="mobile-tab" to="/product">
-              View product
-            </Link>
-            <ul className="thumb">
-              {homeData.bestProductData.map((m, index) => (
-                <li
-                  className={`${m._id === hero?._id && "active-img"}`}
-                  onClick={() => setHero(homeData.bestProductData[index])}
-                >
-                  <img
-                    alt=""
-                    src={`https://kinindustries.s3.ap-south-1.amazonaws.com/product/${m.productImage}`}
-                  />
-                </li>
-              ))}
-            </ul>
-            <ul className="sci">
-              {location?.organisationData?.social.map((m, index) => (
-                <li key={index}>{getTheSocialLink(m)}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Carousel>
+          {carusoleItem}
+        </Carousel>
+      )}
       <div className="home-cards">
         <div
           className="home-card selected"
