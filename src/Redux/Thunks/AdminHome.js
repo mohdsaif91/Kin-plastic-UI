@@ -159,6 +159,7 @@ export const addHeroImage = (data) => {
       .then((res) => {
         dispatch(stopLoading());
         if (res.status === 200) {
+          dispatch(getSettingHome());
           dispatch(addHeroImageSuccess(res.data));
         }
       })
@@ -176,6 +177,7 @@ export const removeHeroImage = (imageId) => {
       .then((res) => {
         dispatch(stopLoading());
         if (res.status === 200) {
+          dispatch(getSettingHome());
           dispatch(removeHeroImageSuccess(res.data));
         }
       })

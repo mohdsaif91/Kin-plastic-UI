@@ -121,7 +121,7 @@ export default function AdminHome() {
                 seHeroImage({ ...heroImage, heroImage: e.target.files[0] })
               }
             />
-            {imageData.length <= 4 && (
+            {imageData.length <= 3 && (
               <button
                 className={`${
                   heroImage.heroImage === "" && imageData.length <= 4
