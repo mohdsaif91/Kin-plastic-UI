@@ -1,6 +1,7 @@
 export const getFormData = (data) => {
   const formData = new FormData();
   Object.keys(data).forEach((key) => {
+    console.log(key, data[key]);
     formData.append(key, data[key]);
   });
 

@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 // const url = "http://localhost:5000";
-const url = "https://kinserver97.herokuapp.com";
+const url = "https://tame-puce-cod-cap.cyclic.app";
 const v1 = `${url}/api/v1`;
 
 //Auth
@@ -29,7 +29,7 @@ export const deleteCategoryAPI = (data) =>
   });
 
 //Product
-export const addProductApi = (data) => Axios.post(`${v1}/product`, data);
+export const addProductApi = (data) => Axios.post(`${v1}/product/looki`, data);
 export const getProductApi = () => Axios.get(`${v1}/product`);
 export const deleteProductApi = (deleteId, productImage) =>
   Axios.delete(`${v1}/product/${deleteId}/${productImage}`);
